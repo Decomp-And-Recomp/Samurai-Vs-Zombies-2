@@ -1,0 +1,6 @@
+public class MultiplayerCollectionItemDescriptor
+{
+	public MultiplayerCollectionStatusQueryResponse.MultiplayerCollectionStatusAggregate aggregateData;
+
+	public CollectionItemSchema itemSchema;
+}

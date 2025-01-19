@@ -1,0 +1,679 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1934122997480958}
+  m_IsPrefabParent: 1
+  m_IsExploded: 0
+--- !u!1 &1934122997480958
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4195522335748095}
+  - 111: {fileID: 111051945417412983}
+  m_Layer: 0
+  m_Name: crawlingtorso
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4195522335748095
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1934122997480958}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4733693208510248}
+  - {fileID: 4411249641967174}
+  m_Father: {fileID: 0}
+--- !u!111 &111051945417412983
+Animation:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1934122997480958}
+  m_Enabled: 1
+  m_Animation: {fileID: 7400000, guid: 359193aeeef704d44b8262e10dfa8dad, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 359193aeeef704d44b8262e10dfa8dad, type: 2}
+  - {fileID: 7400000, guid: 8a97bd6098a93a042852d2fc234d71ce, type: 2}
+  - {fileID: 7400000, guid: ebfba106cc1af2a40ab29b6e254c94a1, type: 2}
+  - {fileID: 7400000, guid: 17fe85a0b118b9f4b94f83cd2cb7412b, type: 2}
+  - {fileID: 7400000, guid: 6ab8334dc8d0baa49b2aff2c344601a4, type: 2}
+  - {fileID: 7400000, guid: 74ee0b3396ce62a4ea2c77ede721b2cd, type: 2}
+  - {fileID: 7400000, guid: fb517ec66fe445e4aa54b1aed978540e, type: 2}
+  - {fileID: 7400000, guid: a15c8aa1b4509a94989c5982b3a4721f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 1
+  m_UserAABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+--- !u!1 &1092317730913518
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4733693208510248}
+  - 137: {fileID: 137660740962505158}
+  m_Layer: 0
+  m_Name: crawlingtorso:CrawlingTorso_lod
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &4733693208510248
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1092317730913518}
+  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4195522335748095}
+--- !u!137 &137660740962505158
+SkinnedMeshRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1092317730913518}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 6935071caf8a92d499fd8824c7dd9e8d, type: 2}
+  m_SubsetIndices: []
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_Mesh: {fileID: 4300000, guid: a99d1743d17c10e40b2cc0d9484f9d21, type: 2}
+  m_Bones:
+  - {fileID: 4789773740097039}
+  - {fileID: 4363476324277818}
+  - {fileID: 4651194411570230}
+  - {fileID: 4048836404075677}
+  - {fileID: 4632997935258884}
+  - {fileID: 4508746511597439}
+  - {fileID: 4374767935206411}
+  - {fileID: 4536719744756298}
+  - {fileID: 4921033482993691}
+  - {fileID: 4274123039115023}
+  - {fileID: 4721314479933602}
+  - {fileID: 4047644059775986}
+  - {fileID: 4934445284518250}
+  - {fileID: 4525796766172176}
+  - {fileID: 4774980766135161}
+  - {fileID: 4410976395693765}
+  - {fileID: 4376338207410827}
+  m_RootBone: {fileID: 4789773740097039}
+  m_AABB:
+    m_Center: {x: -0.30373648, y: 0.06005156, z: -0.031345636}
+    m_Extent: {x: 1.103825, y: 1.0746444, z: 0.8439381}
+  m_DirtyAABB: 0
+--- !u!1 &1500739175112684
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4411249641967174}
+  m_Layer: 0
+  m_Name: crawlingtorso:skeleton_root_joint_lod
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4411249641967174
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1500739175112684}
+  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4421766301034410}
+  m_Father: {fileID: 4195522335748095}
+--- !u!1 &1131934383122830
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4421766301034410}
+  m_Layer: 0
+  m_Name: crawlingtorso:crawlingtorso_Skeleton_grp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4421766301034410
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1131934383122830}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4063136221493811}
+  m_Father: {fileID: 4411249641967174}
+--- !u!1 &1128260230614361
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4063136221493811}
+  m_Layer: 0
+  m_Name: crawlingtorso:crawlingtorso_spine_low_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4063136221493811
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1128260230614361}
+  m_LocalRotation: {x: 0.48424414, y: -0.51527435, z: -0.48424414, w: 0.51527435}
+  m_LocalPosition: {x: -0, y: 0.10154736, z: -0.0013451577}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4721314479933602}
+  - {fileID: 4789773740097039}
+  m_Father: {fileID: 4421766301034410}
+--- !u!1 &1407189845312412
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4721314479933602}
+  m_Layer: 0
+  m_Name: crawlingtorso:crawlingtorso_hip_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4721314479933602
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1407189845312412}
+  m_LocalRotation: {x: -2.7772053E-15, y: 1.3046054E-15, z: -0.028878074, w: 0.99958295}
+  m_LocalPosition: {x: 0.067584224, y: -0.0039082947, z: 1.3704988E-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4047644059775986}
+  - {fileID: 4934445284518250}
+  - {fileID: 4525796766172176}
+  - {fileID: 4774980766135161}
+  m_Father: {fileID: 4063136221493811}
+--- !u!1 &1433366357019355
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4047644059775986}
+  m_Layer: 0
+  m_Name: crawlingtorso:FrontBulgeJnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4047644059775986
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1433366357019355}
+  m_LocalRotation: {x: -0.4989223, y: 0.5010754, z: 0.4989223, w: 0.5010754}
+  m_LocalPosition: {x: -0.004131465, y: 0.12252956, z: 0.0040153796}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4721314479933602}
+--- !u!1 &1508421678371790
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4934445284518250}
+  m_Layer: 0
+  m_Name: crawlingtorso:LeftBulgeJnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4934445284518250
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1508421678371790}
+  m_LocalRotation: {x: -0.4989223, y: 0.5010754, z: 0.4989223, w: 0.5010754}
+  m_LocalPosition: {x: -0.013824175, y: 0.001065493, z: 0.22905487}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4721314479933602}
+--- !u!1 &1837205596710636
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4525796766172176}
+  m_Layer: 0
+  m_Name: crawlingtorso:RightBulgeJnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4525796766172176
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1837205596710636}
+  m_LocalRotation: {x: -0.4989223, y: 0.5010754, z: 0.4989223, w: 0.5010754}
+  m_LocalPosition: {x: -0.01379505, y: 0.007829098, z: -0.21653137}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4721314479933602}
+--- !u!1 &1967999548916048
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4774980766135161}
+  m_Layer: 0
+  m_Name: crawlingtorso:Tail1Jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4774980766135161
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1967999548916048}
+  m_LocalRotation: {x: -0.4989223, y: 0.5010754, z: 0.4989223, w: 0.5010754}
+  m_LocalPosition: {x: 0.033164635, y: -0.15942925, z: 0.07049617}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4410976395693765}
+  m_Father: {fileID: 4721314479933602}
+--- !u!1 &1245647560267170
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4410976395693765}
+  m_Layer: 0
+  m_Name: crawlingtorso:Tail2Jnt1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4410976395693765
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1245647560267170}
+  m_LocalRotation: {x: -9.173418E-17, y: 1.7763568E-15, z: -5.110064E-16, w: 1}
+  m_LocalPosition: {x: -0.120269686, y: 1.151837E-16, z: -0.12802902}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4376338207410827}
+  m_Father: {fileID: 4774980766135161}
+--- !u!1 &1782659541872199
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4376338207410827}
+  m_Layer: 0
+  m_Name: crawlingtorso:Tail3Jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4376338207410827
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1782659541872199}
+  m_LocalRotation: {x: -4.44896E-16, y: 2.3314684E-15, z: 3.1300297E-16, w: 1}
+  m_LocalPosition: {x: -0.11639002, y: 1.09519295E-16, z: -0.06401451}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4410976395693765}
+--- !u!1 &1311188668498734
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4789773740097039}
+  m_Layer: 0
+  m_Name: crawlingtorso:crawlingtorso_spine_mid_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4789773740097039
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1311188668498734}
+  m_LocalRotation: {x: 0.9999741, y: -0.007199365, z: -5.363947E-11, w: 7.4503905E-09}
+  m_LocalPosition: {x: -0.11069347, y: -4.7384206E-12, z: -2.4578888E-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4363476324277818}
+  m_Father: {fileID: 4063136221493811}
+--- !u!1 &1154351379908329
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4363476324277818}
+  m_Layer: 0
+  m_Name: crawlingtorso:crawlingtorso_spine_end_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4363476324277818
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1154351379908329}
+  m_LocalRotation: {x: 0, y: 0, z: 0.10939196, w: 0.9939987}
+  m_LocalPosition: {x: -0.22397062, y: -0.0038250592, z: 3.12207E-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4651194411570230}
+  - {fileID: 4048836404075677}
+  - {fileID: 4536719744756298}
+  m_Father: {fileID: 4789773740097039}
+--- !u!1 &1936660192563843
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4651194411570230}
+  m_Layer: 0
+  m_Name: crawlingtorso:crawlingtorso_head_a_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4651194411570230
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1936660192563843}
+  m_LocalRotation: {x: 0.5102303, y: -0.48955598, z: 0.5102303, w: 0.48955598}
+  m_LocalPosition: {x: -0.15350159, y: -0.00049929926, z: -2.6560848E-10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4363476324277818}
+--- !u!1 &1284651165278053
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4048836404075677}
+  m_Layer: 0
+  m_Name: crawlingtorso:crawlingtorso_lf_upArm_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4048836404075677
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1284651165278053}
+  m_LocalRotation: {x: 0.4614277, y: -0.548246, z: 0.44914258, w: 0.53364944}
+  m_LocalPosition: {x: 0.01627027, y: 0.055244103, z: -0.18204223}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4632997935258884}
+  m_Father: {fileID: 4363476324277818}
+--- !u!1 &1724854964374539
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4632997935258884}
+  m_Layer: 0
+  m_Name: crawlingtorso:crawlingtorso_lf_elbow_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4632997935258884
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1724854964374539}
+  m_LocalRotation: {x: 0, y: 0.05741154, z: -0, w: 0.9983506}
+  m_LocalPosition: {x: -0.1971528, y: 0, z: -2.7755576E-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4508746511597439}
+  m_Father: {fileID: 4048836404075677}
+--- !u!1 &1490160464015124
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4508746511597439}
+  m_Layer: 0
+  m_Name: crawlingtorso:crawlingtorso_lf_hand_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4508746511597439
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490160464015124}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.098844655, y: -5.551115E-17, z: -1.3877788E-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4374767935206411}
+  m_Father: {fileID: 4632997935258884}
+--- !u!1 &1083175967983660
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4374767935206411}
+  m_Layer: 0
+  m_Name: crawlingtorso:prop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4374767935206411
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1083175967983660}
+  m_LocalRotation: {x: 0, y: -0.04393814, z: -0, w: 0.9990343}
+  m_LocalPosition: {x: -0.15864693, y: -0.071281135, z: -0.00025930614}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4508746511597439}
+--- !u!1 &1907960685136969
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4536719744756298}
+  m_Layer: 0
+  m_Name: crawlingtorso:crawlingtorso_rt_upArm_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4536719744756298
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1907960685136969}
+  m_LocalRotation: {x: 0.548246, y: 0.46142766, z: 0.53364944, w: -0.44914258}
+  m_LocalPosition: {x: 0.01626981, y: 0.05524415, z: 0.18204205}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4921033482993691}
+  m_Father: {fileID: 4363476324277818}
+--- !u!1 &1167413378636937
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4921033482993691}
+  m_Layer: 0
+  m_Name: crawlingtorso:crawlingtorso_rt_elbow_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4921033482993691
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1167413378636937}
+  m_LocalRotation: {x: 0, y: 0.05741154, z: -0, w: 0.9983506}
+  m_LocalPosition: {x: 0.19715276, y: 0, z: 1.2490009E-16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4274123039115023}
+  m_Father: {fileID: 4536719744756298}
+--- !u!1 &1368196245037867
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4274123039115023}
+  m_Layer: 0
+  m_Name: crawlingtorso:crawlingtorso_rt_hand_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4274123039115023
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1368196245037867}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.09884466, y: -2.220446E-16, z: 1.2490009E-16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4921033482993691}

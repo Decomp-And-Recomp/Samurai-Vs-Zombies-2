@@ -1,0 +1,818 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1011037298580829}
+  m_IsPrefabParent: 1
+  m_IsExploded: 0
+--- !u!1 &1011037298580829
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4300622197294323}
+  - 114: {fileID: 114011134864188628}
+  m_Layer: 0
+  m_Name: Machine_MainMenus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4300622197294323
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1011037298580829}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4600950889927774}
+  - {fileID: 4483104171878756}
+  - {fileID: 4233890676564802}
+  - {fileID: 4670530511252569}
+  - {fileID: 4264606763810698}
+  - {fileID: 4053917937390505}
+  - {fileID: 4892815490751432}
+  - {fileID: 4227042923551864}
+  - {fileID: 4277279309749457}
+  - {fileID: 4912708609399852}
+  - {fileID: 4876698281301827}
+  - {fileID: 4880279371182388}
+  - {fileID: 4454194066029184}
+  - {fileID: 4685315555265085}
+  - {fileID: 4963865772522287}
+  m_Father: {fileID: 0}
+--- !u!114 &114011134864188628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1011037298580829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a883542e509b50b8aec020a6f1b5d82b, type: 3}
+  m_Name:
+  defaultState: Menu_Start
+  defaultSkipsOnStartTransition: 0
+  defaultToPersistedStateName: 1
+  PersistCurrentStateName: MainMenuScreen
+  inputExclusivity: 0
+  defaultMetadata:
+    recordKey: MenuPriorities.Main
+--- !u!1 &1643715298736126
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4600950889927774}
+  - 114: {fileID: 114053102549755543}
+  m_Layer: 0
+  m_Name: Menu_About
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4600950889927774
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1643715298736126}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4300622197294323}
+--- !u!114 &114053102549755543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1643715298736126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: MENU_MAIN_ABOUT
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey:
+  resourceToLoad: UI/Prefabs/Options/AboutScreen
+  unloadUnusedAssets: 0
+--- !u!1 &1200894346489216
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4483104171878756}
+  - 114: {fileID: 114913363664945859}
+  m_Layer: 0
+  m_Name: Menu_Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4483104171878756
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1200894346489216}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4300622197294323}
+--- !u!114 &114913363664945859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1200894346489216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: MENU_MAIN_AUDIO
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey:
+  resourceToLoad: UI/Prefabs/Options/AudioScreen
+  unloadUnusedAssets: 0
+--- !u!1 &1921766456668389
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4233890676564802}
+  - 114: {fileID: 114021249804056656}
+  m_Layer: 0
+  m_Name: Menu_Credits
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4233890676564802
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1921766456668389}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4300622197294323}
+--- !u!114 &114021249804056656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1921766456668389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: MENU_MAIN_CREDITS
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey:
+  resourceToLoad: UI/Prefabs/Options/CreditsScreen
+  unloadUnusedAssets: 0
+--- !u!1 &1244656527522604
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4670530511252569}
+  - 114: {fileID: 114309318319928601}
+  m_Layer: 0
+  m_Name: Menu_Equip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4670530511252569
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1244656527522604}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4300622197294323}
+--- !u!114 &114309318319928601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1244656527522604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac8abfe6711cf04bae6372096523655, type: 3}
+  m_Name:
+  actionToHandle: MENU_MAIN_EQUIP
+  actionToHandleReverse: MENU_MAIN_EQUIP_BACK
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey:
+  prefabToSpawn: {fileID: 1530072461928912, guid: 99a7c04e078ae114db9f6212a5f1e7d2, type: 2}
+--- !u!1 &1134475159875314
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4264606763810698}
+  - 114: {fileID: 114737044421476290}
+  m_Layer: 0
+  m_Name: Menu_ModeSelect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4264606763810698
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1134475159875314}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4300622197294323}
+--- !u!114 &114737044421476290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1134475159875314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac8abfe6711cf04bae6372096523655, type: 3}
+  m_Name:
+  actionToHandle: MENU_MAIN_MODESELECT
+  actionToHandleReverse: MENU_MAIN_MODESELECT_BACK
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey:
+  prefabToSpawn: {fileID: 1537205443378407, guid: 3dc291f0042d03543918516635b27ced, type: 2}
+--- !u!1 &1265530328097305
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4053917937390505}
+  - 114: {fileID: 114803274528265092}
+  m_Layer: 0
+  m_Name: Menu_NameEntry
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4053917937390505
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265530328097305}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4300622197294323}
+--- !u!114 &114803274528265092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265530328097305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: MENU_MAIN_NAME_ENTRY
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey:
+  resourceToLoad: UI/Prefabs/Multiplayer/Panel_PlayerName
+  unloadUnusedAssets: 0
+--- !u!1 &1181957229478591
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4892815490751432}
+  - 114: {fileID: 114452930288928640}
+  m_Layer: 0
+  m_Name: Menu_Multiplayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4892815490751432
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1181957229478591}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4300622197294323}
+--- !u!114 &114452930288928640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1181957229478591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: MENU_MAIN_MULTIPLAYER
+  actionToHandleReverse: MENU_MAIN_MULTIPLAYER_BACK
+  onStart:
+    actionOnDone: MENU_HUD_BANK
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey:
+  resourceToLoad: UI/Prefabs/Multiplayer/Panel_MultiplayerCollection
+  unloadUnusedAssets: 1
+--- !u!1 &1331653718869705
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4227042923551864}
+  - 114: {fileID: 114434330769665841}
+  m_Layer: 0
+  m_Name: Menu_RestorePurchases
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4227042923551864
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1331653718869705}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4300622197294323}
+--- !u!114 &114434330769665841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1331653718869705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: MENU_MAIN_RESTORE
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey:
+  resourceToLoad: UI/Prefabs/Options/RestoreScreen
+  unloadUnusedAssets: 0
+--- !u!1 &1265467356094981
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4277279309749457}
+  - 114: {fileID: 114663912183819128}
+  m_Layer: 0
+  m_Name: Menu_Results_NoLoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4277279309749457
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265467356094981}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4300622197294323}
+--- !u!114 &114663912183819128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265467356094981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: MENU_MAIN_RESULTS_NOLOOT
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey:
+  resourceToLoad: UI/Prefabs/Results/Panel_Results_NoLoot
+  unloadUnusedAssets: 0
+--- !u!1 &1432051195162633
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4912708609399852}
+  - 114: {fileID: 114245325520076191}
+  m_Layer: 0
+  m_Name: Menu_Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4912708609399852
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432051195162633}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4300622197294323}
+--- !u!114 &114245325520076191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432051195162633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: MENU_MAIN_START
+  actionToHandleReverse: MENU_MAIN_START_BACK
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey:
+  resourceToLoad: UI/Prefabs/StartScreen/StartScreen
+  unloadUnusedAssets: 1
+--- !u!1 &1064961370237121
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4876698281301827}
+  - 114: {fileID: 114109535862899018}
+  m_Layer: 0
+  m_Name: Menu_Options
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4876698281301827
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1064961370237121}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4300622197294323}
+--- !u!114 &114109535862899018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1064961370237121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: MENU_MAIN_OPTIONS
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey:
+  resourceToLoad: UI/Prefabs/Options/OptionsScreen
+  unloadUnusedAssets: 0
+--- !u!1 &1628574079882414
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4880279371182388}
+  - 114: {fileID: 114843416183779917}
+  m_Layer: 0
+  m_Name: Menu_Store
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4880279371182388
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1628574079882414}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4300622197294323}
+--- !u!114 &114843416183779917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1628574079882414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac8abfe6711cf04bae6372096523655, type: 3}
+  m_Name:
+  actionToHandle: MENU_MAIN_STORE
+  actionToHandleReverse: MENU_MAIN_STORE_BACK
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey:
+  prefabToSpawn: {fileID: 1953387754187471, guid: 1211595e3ffe9af41bf7f9f932c12362, type: 2}
+--- !u!1 &1897514499165365
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4454194066029184}
+  - 114: {fileID: 114692632245553251}
+  m_Layer: 0
+  m_Name: Menu_None
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4454194066029184
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1897514499165365}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4300622197294323}
+--- !u!114 &114692632245553251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1897514499165365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e42ddadcb80f9936e6b0afcb0c7d29e, type: 3}
+  m_Name:
+  actionToHandle: MENU_MAIN_NONE
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 0
+  optionalMetadata:
+    recordKey:
+--- !u!1 &1227513687521306
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4685315555265085}
+  - 114: {fileID: 114479284453046896}
+  m_Layer: 0
+  m_Name: Menu_Results
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4685315555265085
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1227513687521306}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4300622197294323}
+--- !u!114 &114479284453046896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1227513687521306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: MENU_MAIN_RESULTS
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey:
+  resourceToLoad: UI/Prefabs/Results/Panel_Results
+  unloadUnusedAssets: 0
+--- !u!1 &1548164154692145
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4963865772522287}
+  - 114: {fileID: 114692634420820944}
+  m_Layer: 0
+  m_Name: Menu_Opponents
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4963865772522287
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1548164154692145}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4300622197294323}
+--- !u!114 &114692634420820944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1548164154692145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: POPUP_SELECTOPPONENT
+  actionToHandleReverse: POPUP_SELECTOPPONENT_BACK
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey:
+  resourceToLoad: UI/Prefabs/Multiplayer/Panel_MultiplayerOpponent
+  unloadUnusedAssets: 1

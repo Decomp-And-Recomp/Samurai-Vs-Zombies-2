@@ -1,0 +1,874 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1197436043865654}
+  m_IsPrefabParent: 1
+  m_IsExploded: 0
+--- !u!1 &1197436043865654
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4480044091266270}
+  - 114: {fileID: 114471952014219792}
+  m_Layer: 0
+  m_Name: Machine_Tutorials
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4480044091266270
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1197436043865654}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4136438068429251}
+  - {fileID: 4718056507351365}
+  - {fileID: 4667080255230353}
+  - {fileID: 4184944120525650}
+  - {fileID: 4149741635853137}
+  - {fileID: 4820571612105569}
+  - {fileID: 4333856606928044}
+  - {fileID: 4340519422242517}
+  - {fileID: 4900955068356841}
+  - {fileID: 4231718695238998}
+  - {fileID: 4484942789557129}
+  - {fileID: 4333201104770482}
+  - {fileID: 4741915812684265}
+  - {fileID: 4192905135016660}
+  - {fileID: 4766344961166662}
+  - {fileID: 4414585082281648}
+  m_Father: {fileID: 0}
+--- !u!114 &114471952014219792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1197436043865654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc52cec963658e6d5b7ec1d440ddc31, type: 3}
+  m_Name:
+  defaultState: Empty
+  defaultSkipsOnStartTransition: 1
+  defaultToPersistedStateName: 0
+  PersistCurrentStateName:
+  inputExclusivity: 3
+  defaultMetadata:
+    recordKey: MenuPriorities.Alert
+  ActionToPop:
+  ActionToPopToTop: TUTORIAL_CLEAR
+--- !u!1 &1999815609241430
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4136438068429251}
+  - 114: {fileID: 114747069266740315}
+  m_Layer: 0
+  m_Name: Tutorial_Game01_ProtectGate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4136438068429251
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1999815609241430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4480044091266270}
+--- !u!114 &114747069266740315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1999815609241430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: TUTORIAL_GAME01_PROTECTGATE
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey: MenuPriorities.None
+  resourceToLoad: UI/Prefabs/Tutorials/Tutorial_01_ProtectGate
+  unloadUnusedAssets: 0
+--- !u!1 &1688616424118432
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4718056507351365}
+  - 114: {fileID: 114998829513445347}
+  m_Layer: 0
+  m_Name: Tutorial_Game04_Ability
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4718056507351365
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1688616424118432}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4480044091266270}
+--- !u!114 &114998829513445347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1688616424118432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: TUTORIAL_GAME04_ABILITY
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey: MenuPriorities.None
+  resourceToLoad: UI/Prefabs/Tutorials/Tutorial_04_Ability
+  unloadUnusedAssets: 0
+--- !u!1 &1122807351805661
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4667080255230353}
+  - 114: {fileID: 114608814053130372}
+  m_Layer: 0
+  m_Name: Tutorial_Game02_Movement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4667080255230353
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1122807351805661}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4480044091266270}
+--- !u!114 &114608814053130372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1122807351805661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: TUTORIAL_GAME02_MOVEMENT
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey: MenuPriorities.None
+  resourceToLoad: UI/Prefabs/Tutorials/Tutorial_02_Movement
+  unloadUnusedAssets: 0
+--- !u!1 &1033155027552154
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4184944120525650}
+  - 114: {fileID: 114015283107829906}
+  m_Layer: 0
+  m_Name: Tutorial_LS_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4184944120525650
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1033155027552154}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4480044091266270}
+--- !u!114 &114015283107829906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1033155027552154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: TUTORIAL_LS_1
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey: MenuPriorities.None
+  resourceToLoad: UI/Prefabs/Tutorials/Tutorial_LegendaryStrike_01
+  unloadUnusedAssets: 0
+--- !u!1 &1294495344219895
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4149741635853137}
+  - 114: {fileID: 114145120645138026}
+  m_Layer: 0
+  m_Name: Tutorial_LS_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4149741635853137
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1294495344219895}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4480044091266270}
+--- !u!114 &114145120645138026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1294495344219895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: TUTORIAL_LS_2
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey: MenuPriorities.None
+  resourceToLoad: UI/Prefabs/Tutorials/Tutorial_LegendaryStrike_02
+  unloadUnusedAssets: 0
+--- !u!1 &1265174895721695
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4820571612105569}
+  - 114: {fileID: 114874931382091176}
+  m_Layer: 0
+  m_Name: Tutorial_MP01_CollectionsA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4820571612105569
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265174895721695}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4480044091266270}
+--- !u!114 &114874931382091176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265174895721695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: TUTORIAL_MP01
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey: MenuPriorities.Alert
+  resourceToLoad: UI/Prefabs/Tutorials/Tutorial_MP01_CollectionsA
+  unloadUnusedAssets: 0
+--- !u!1 &1004280113710901
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4333856606928044}
+  - 114: {fileID: 114207799533562831}
+  m_Layer: 0
+  m_Name: Empty
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4333856606928044
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1004280113710901}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4480044091266270}
+--- !u!114 &114207799533562831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1004280113710901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e42ddadcb80f9936e6b0afcb0c7d29e, type: 3}
+  m_Name:
+  actionToHandle:
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 0
+  optionalMetadata:
+    recordKey: MenuPriorities.None
+--- !u!1 &1343407646488645
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4340519422242517}
+  - 114: {fileID: 114759227395416103}
+  m_Layer: 0
+  m_Name: Tutorial_MP02_CollectionsB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4340519422242517
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1343407646488645}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4480044091266270}
+--- !u!114 &114759227395416103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1343407646488645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: TUTORIAL_MP02
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey: MenuPriorities.Alert
+  resourceToLoad: UI/Prefabs/Tutorials/Tutorial_MP02_CollectionsB
+  unloadUnusedAssets: 0
+--- !u!1 &1803647976578966
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4900955068356841}
+  - 114: {fileID: 114021203804942632}
+  m_Layer: 0
+  m_Name: Tutorial_MP03_SoulJar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4900955068356841
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1803647976578966}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4480044091266270}
+--- !u!114 &114021203804942632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1803647976578966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: TUTORIAL_MP03
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey: MenuPriorities.Alert
+  resourceToLoad: UI/Prefabs/Tutorials/Tutorial_MP03_SoulJar
+  unloadUnusedAssets: 0
+--- !u!1 &1724393021791271
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4231718695238998}
+  - 114: {fileID: 114473591563489835}
+  m_Layer: 0
+  m_Name: Tutorial_MP04_Defense
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4231718695238998
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1724393021791271}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4480044091266270}
+--- !u!114 &114473591563489835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1724393021791271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: TUTORIAL_MP04
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey: MenuPriorities.Alert
+  resourceToLoad: UI/Prefabs/Tutorials/Tutorial_MP04_Defense
+  unloadUnusedAssets: 0
+--- !u!1 &1026974294472560
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4484942789557129}
+  - 114: {fileID: 114984967905938087}
+  m_Layer: 0
+  m_Name: Tutorial_MP05_SoulCost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4484942789557129
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1026974294472560}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4480044091266270}
+--- !u!114 &114984967905938087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1026974294472560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: TUTORIAL_MP05
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey: MenuPriorities.Alert
+  resourceToLoad: UI/Prefabs/Tutorials/Tutorial_MP_SoulDiscount
+  unloadUnusedAssets: 0
+--- !u!1 &1819998606508326
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4333201104770482}
+  - 114: {fileID: 114150985690416172}
+  m_Layer: 0
+  m_Name: Tutorial_Tap_Enemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4333201104770482
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1819998606508326}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4480044091266270}
+--- !u!114 &114150985690416172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1819998606508326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: TUTORIAL_TAP_ENEMY
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey: MenuPriorities.Alert
+  resourceToLoad: UI/Prefabs/Tutorials/Tutorial_TapEnemies
+  unloadUnusedAssets: 0
+--- !u!1 &1486204952269143
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4741915812684265}
+  - 114: {fileID: 114646134438980654}
+  m_Layer: 0
+  m_Name: Tutorial_Store
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4741915812684265
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1486204952269143}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4480044091266270}
+--- !u!114 &114646134438980654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1486204952269143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: TUTORIAL_STORE
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey: MenuPriorities.Alert
+  resourceToLoad: UI/Prefabs/Tutorials/Tutorial_Store
+  unloadUnusedAssets: 0
+--- !u!1 &1328173885713997
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4192905135016660}
+  - 114: {fileID: 114500256345989832}
+  m_Layer: 0
+  m_Name: Tutorial_Game03_Ally
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4192905135016660
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1328173885713997}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4480044091266270}
+--- !u!114 &114500256345989832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1328173885713997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: TUTORIAL_GAME03_ALLY
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey: MenuPriorities.None
+  resourceToLoad: UI/Prefabs/Tutorials/Tutorial_03_Ally
+  unloadUnusedAssets: 0
+--- !u!1 &1021426410118190
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4766344961166662}
+  - 114: {fileID: 114755013651430031}
+  m_Layer: 0
+  m_Name: Tutorial_LS_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4766344961166662
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1021426410118190}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4480044091266270}
+--- !u!114 &114755013651430031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1021426410118190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: TUTORIAL_LS_3
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey: MenuPriorities.None
+  resourceToLoad: UI/Prefabs/Tutorials/Tutorial_LegendaryStrike_03
+  unloadUnusedAssets: 0
+--- !u!1 &1650534587561939
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4414585082281648}
+  - 114: {fileID: 114237393208380848}
+  m_Layer: 0
+  m_Name: Tutorial_Result_Souls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4414585082281648
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1650534587561939}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4480044091266270}
+--- !u!114 &114237393208380848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1650534587561939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: TUTORIAL_RESULT_SOUL
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey: MenuPriorities.None
+  resourceToLoad: UI/Prefabs/Tutorials/Tutorial_06_Souls
+  unloadUnusedAssets: 0

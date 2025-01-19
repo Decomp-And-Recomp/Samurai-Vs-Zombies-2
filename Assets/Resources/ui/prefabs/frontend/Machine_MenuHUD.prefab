@@ -1,0 +1,158 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1280953020712744}
+  m_IsPrefabParent: 1
+  m_IsExploded: 0
+--- !u!1 &1280953020712744
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4706297030583240}
+  - 114: {fileID: 114450179534621609}
+  m_Layer: 0
+  m_Name: Machine_MenuHUD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4706297030583240
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1280953020712744}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4982301278043307}
+  - {fileID: 4305251961638980}
+  m_Father: {fileID: 0}
+--- !u!114 &114450179534621609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1280953020712744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a883542e509b50b8aec020a6f1b5d82b, type: 3}
+  m_Name:
+  defaultState: Empty
+  defaultSkipsOnStartTransition: 0
+  defaultToPersistedStateName: 0
+  PersistCurrentStateName:
+  inputExclusivity: 0
+  defaultMetadata:
+    recordKey:
+--- !u!1 &1841864716885635
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4982301278043307}
+  - 114: {fileID: 114808586796302801}
+  m_Layer: 0
+  m_Name: Empty
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4982301278043307
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1841864716885635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4706297030583240}
+--- !u!114 &114808586796302801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1841864716885635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e42ddadcb80f9936e6b0afcb0c7d29e, type: 3}
+  m_Name:
+  actionToHandle: MENU_HUD_EMPTY
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 0
+  optionalMetadata:
+    recordKey:
+--- !u!1 &1633314075066152
+GameObject:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_Component:
+  - 4: {fileID: 4305251961638980}
+  - 114: {fileID: 114944806881114102}
+  m_Layer: 0
+  m_Name: MenuHUD_FrontEnd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4305251961638980
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1633314075066152}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4706297030583240}
+--- !u!114 &114944806881114102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1633314075066152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
+  m_Name:
+  actionToHandle: MENU_HUD_BANK
+  actionToHandleReverse:
+  onStart:
+    actionOnDone:
+  onReady:
+    actionOnDone:
+  onExit:
+    actionOnDone:
+  defaultTransformInherit: 3
+  optionalMetadata:
+    recordKey: MenuPriorities.HUD
+  resourceToLoad: UI/Prefabs/Global/Panel_HUD_FrontEnd
+  unloadUnusedAssets: 0

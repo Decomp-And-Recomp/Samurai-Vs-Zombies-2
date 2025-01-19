@@ -1,0 +1,22 @@
+namespace DaveyM69.Components.SNTP
+{
+	public enum ReferenceIdentifier : uint
+	{
+		LOCL = 1280262988u,
+		PPS = 1347441408u,
+		ACTS = 1094931539u,
+		USNO = 1431522895u,
+		PTB = 1347699200u,
+		TDF = 1413760512u,
+		DCF = 1145259520u,
+		MSF = 1297303040u,
+		WWV = 1465341440u,
+		WWVB = 1465341506u,
+		WWVH = 1465341512u,
+		CHU = 1128813824u,
+		LORC = 1280266819u,
+		OMEG = 1330464071u,
+		GPS = 1196446464u,
+		GOES = 1195724627u
+	}
+}
