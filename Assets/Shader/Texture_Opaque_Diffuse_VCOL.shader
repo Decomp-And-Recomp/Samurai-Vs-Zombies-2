@@ -1,1399 +1,242 @@
-šªShader "Griptonite/Texture/Opaque/Diffuse_VCOL" {
-Properties {
- _Color ("Color", Color) = (1,1,1,1)
- _MainTex ("Base (RGB)", 2D) = "white" {}
- _MainTexInt ("Base Intensity", Range(0,4)) = 1
-}
-SubShader { 
- Tags { "RenderType"="Opaque" }
- Pass {
-  Name "FORWARD"
-  Tags { "LIGHTMODE"="ForwardBase" "RenderType"="Opaque" }
-Program "vp" {
-SubProgram "gles " {
-Keywords { "DIRECTIONAL" "SHADOWS_OFF" "LIGHTMAP_OFF" "DIRLIGHTMAP_OFF" }
-"!!GLES
-#define SHADER_API_GLES 1
-#define tex2D texture2D
+#warning Upgrade NOTE: unity_Scale shader variable was removed; replaced 'unity_Scale.w' with '1.0'
+// Upgrade NOTE: commented out 'float4x4 _Object2World', a built-in variable
+// Upgrade NOTE: replaced '_LightMatrix0' with 'unity_WorldToLight'
 
-
-#ifdef VERTEX
-#define gl_ModelViewProjectionMatrix glstate_matrix_mvp
-uniform mat4 glstate_matrix_mvp;
-
-varying lowp vec3 xlv_TEXCOORD2;
-varying lowp vec3 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform highp vec4 unity_Scale;
-uniform highp vec4 unity_SHC;
-uniform highp vec4 unity_SHBr;
-uniform highp vec4 unity_SHBg;
-uniform highp vec4 unity_SHBb;
-uniform highp vec4 unity_SHAr;
-uniform highp vec4 unity_SHAg;
-uniform highp vec4 unity_SHAb;
-
-uniform highp mat4 _Object2World;
-uniform highp vec4 _MainTex_ST;
-attribute vec4 _glesMultiTexCoord0;
-attribute vec3 _glesNormal;
-attribute vec4 _glesColor;
-attribute vec4 _glesVertex;
-void main ()
+Shader "Griptonite/Texture/Opaque/Diffuse_VCOL" 
 {
-  highp vec3 shlight_1;
-  lowp vec3 tmpvar_2;
-  lowp vec3 tmpvar_3;
-  mat3 tmpvar_4;
-  tmpvar_4[0] = _Object2World[0].xyz;
-  tmpvar_4[1] = _Object2World[1].xyz;
-  tmpvar_4[2] = _Object2World[2].xyz;
-  highp vec3 tmpvar_5;
-  tmpvar_5 = (tmpvar_4 * (normalize(_glesNormal) * unity_Scale.w));
-  tmpvar_2 = tmpvar_5;
-  highp vec4 tmpvar_6;
-  tmpvar_6.w = 1.00000;
-  tmpvar_6.xyz = tmpvar_5;
-  mediump vec3 tmpvar_7;
-  mediump vec4 normal_8;
-  normal_8 = tmpvar_6;
-  mediump vec3 x3_9;
-  highp float vC_10;
-  mediump vec3 x2_11;
-  mediump vec3 x1_12;
-  highp float tmpvar_13;
-  tmpvar_13 = dot (unity_SHAr, normal_8);
-  x1_12.x = tmpvar_13;
-  highp float tmpvar_14;
-  tmpvar_14 = dot (unity_SHAg, normal_8);
-  x1_12.y = tmpvar_14;
-  highp float tmpvar_15;
-  tmpvar_15 = dot (unity_SHAb, normal_8);
-  x1_12.z = tmpvar_15;
-  mediump vec4 tmpvar_16;
-  tmpvar_16 = (normal_8.xyzz * normal_8.yzzx);
-  highp float tmpvar_17;
-  tmpvar_17 = dot (unity_SHBr, tmpvar_16);
-  x2_11.x = tmpvar_17;
-  highp float tmpvar_18;
-  tmpvar_18 = dot (unity_SHBg, tmpvar_16);
-  x2_11.y = tmpvar_18;
-  highp float tmpvar_19;
-  tmpvar_19 = dot (unity_SHBb, tmpvar_16);
-  x2_11.z = tmpvar_19;
-  mediump float tmpvar_20;
-  tmpvar_20 = ((normal_8.x * normal_8.x) - (normal_8.y * normal_8.y));
-  vC_10 = tmpvar_20;
-  highp vec3 tmpvar_21;
-  tmpvar_21 = (unity_SHC.xyz * vC_10);
-  x3_9 = tmpvar_21;
-  tmpvar_7 = ((x1_12 + x2_11) + x3_9);
-  shlight_1 = tmpvar_7;
-  tmpvar_3 = shlight_1;
-  gl_Position = (gl_ModelViewProjectionMatrix * _glesVertex);
-  xlv_TEXCOORD0 = ((_glesMultiTexCoord0.xy * _MainTex_ST.xy) + _MainTex_ST.zw);
-  xlv_COLOR0 = _glesColor;
-  xlv_TEXCOORD1 = tmpvar_2;
-  xlv_TEXCOORD2 = tmpvar_3;
-}
-
-
-
-#endif
-#ifdef FRAGMENT
-
-varying lowp vec3 xlv_TEXCOORD2;
-varying lowp vec3 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform lowp vec4 _WorldSpaceLightPos0;
-uniform highp float _MainTexInt;
-uniform sampler2D _MainTex;
-uniform lowp vec4 _LightColor0;
-uniform highp vec4 _Color;
-void main ()
-{
-  lowp vec4 c_1;
-  highp vec4 tmpvar_2;
-  tmpvar_2 = xlv_COLOR0;
-  lowp vec3 tmpvar_3;
-  lowp float tmpvar_4;
-  mediump vec4 c_5;
-  lowp vec4 tmpvar_6;
-  tmpvar_6 = texture2D (_MainTex, xlv_TEXCOORD0);
-  highp vec4 tmpvar_7;
-  tmpvar_7 = (tmpvar_6 * _Color);
-  c_5 = tmpvar_7;
-  highp vec3 tmpvar_8;
-  tmpvar_8 = (c_5.xyz * (tmpvar_2.xyz * _MainTexInt));
-  c_5.xyz = tmpvar_8;
-  mediump vec3 tmpvar_9;
-  tmpvar_9 = c_5.xyz;
-  tmpvar_3 = tmpvar_9;
-  mediump float tmpvar_10;
-  tmpvar_10 = c_5.w;
-  tmpvar_4 = tmpvar_10;
-  mediump vec3 lightDir_11;
-  lightDir_11 = _WorldSpaceLightPos0.xyz;
-  mediump vec4 c_12;
-  c_12.xyz = ((tmpvar_3 * _LightColor0.xyz) * (dot (xlv_TEXCOORD1, lightDir_11) * 2.00000));
-  c_12.w = tmpvar_4;
-  c_1 = c_12;
-  c_1.xyz = (c_1.xyz + (tmpvar_3 * xlv_TEXCOORD2));
-  gl_FragData[0] = c_1;
-}
-
-
-
-#endif"
-}
-SubProgram "gles " {
-Keywords { "DIRECTIONAL" "SHADOWS_OFF" "LIGHTMAP_ON" "DIRLIGHTMAP_OFF" }
-"!!GLES
-#define SHADER_API_GLES 1
-#define tex2D texture2D
-
-
-#ifdef VERTEX
-#define gl_ModelViewProjectionMatrix glstate_matrix_mvp
-uniform mat4 glstate_matrix_mvp;
-
-varying highp vec2 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform highp vec4 unity_LightmapST;
-
-uniform highp vec4 _MainTex_ST;
-attribute vec4 _glesMultiTexCoord1;
-attribute vec4 _glesMultiTexCoord0;
-attribute vec4 _glesColor;
-attribute vec4 _glesVertex;
-void main ()
-{
-  gl_Position = (gl_ModelViewProjectionMatrix * _glesVertex);
-  xlv_TEXCOORD0 = ((_glesMultiTexCoord0.xy * _MainTex_ST.xy) + _MainTex_ST.zw);
-  xlv_COLOR0 = _glesColor;
-  xlv_TEXCOORD1 = ((_glesMultiTexCoord1.xy * unity_LightmapST.xy) + unity_LightmapST.zw);
-}
-
-
-
-#endif
-#ifdef FRAGMENT
-
-varying highp vec2 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform sampler2D unity_Lightmap;
-uniform highp float _MainTexInt;
-uniform sampler2D _MainTex;
-uniform highp vec4 _Color;
-void main ()
-{
-  lowp vec4 c_1;
-  highp vec4 tmpvar_2;
-  tmpvar_2 = xlv_COLOR0;
-  lowp vec3 tmpvar_3;
-  lowp float tmpvar_4;
-  mediump vec4 c_5;
-  lowp vec4 tmpvar_6;
-  tmpvar_6 = texture2D (_MainTex, xlv_TEXCOORD0);
-  highp vec4 tmpvar_7;
-  tmpvar_7 = (tmpvar_6 * _Color);
-  c_5 = tmpvar_7;
-  highp vec3 tmpvar_8;
-  tmpvar_8 = (c_5.xyz * (tmpvar_2.xyz * _MainTexInt));
-  c_5.xyz = tmpvar_8;
-  mediump vec3 tmpvar_9;
-  tmpvar_9 = c_5.xyz;
-  tmpvar_3 = tmpvar_9;
-  mediump float tmpvar_10;
-  tmpvar_10 = c_5.w;
-  tmpvar_4 = tmpvar_10;
-  c_1.xyz = (tmpvar_3 * (2.00000 * texture2D (unity_Lightmap, xlv_TEXCOORD1).xyz));
-  c_1.w = tmpvar_4;
-  gl_FragData[0] = c_1;
-}
-
-
-
-#endif"
-}
-SubProgram "gles " {
-Keywords { "DIRECTIONAL" "SHADOWS_SCREEN" "LIGHTMAP_OFF" "DIRLIGHTMAP_OFF" }
-"!!GLES
-#define SHADER_API_GLES 1
-#define tex2D texture2D
-
-
-#ifdef VERTEX
-#define gl_ModelViewProjectionMatrix glstate_matrix_mvp
-uniform mat4 glstate_matrix_mvp;
-
-varying highp vec4 xlv_TEXCOORD3;
-varying lowp vec3 xlv_TEXCOORD2;
-varying lowp vec3 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform highp mat4 unity_World2Shadow[4];
-uniform highp vec4 unity_Scale;
-uniform highp vec4 unity_SHC;
-uniform highp vec4 unity_SHBr;
-uniform highp vec4 unity_SHBg;
-uniform highp vec4 unity_SHBb;
-uniform highp vec4 unity_SHAr;
-uniform highp vec4 unity_SHAg;
-uniform highp vec4 unity_SHAb;
-
-uniform highp mat4 _Object2World;
-uniform highp vec4 _MainTex_ST;
-attribute vec4 _glesMultiTexCoord0;
-attribute vec3 _glesNormal;
-attribute vec4 _glesColor;
-attribute vec4 _glesVertex;
-void main ()
-{
-  highp vec3 shlight_1;
-  lowp vec3 tmpvar_2;
-  lowp vec3 tmpvar_3;
-  mat3 tmpvar_4;
-  tmpvar_4[0] = _Object2World[0].xyz;
-  tmpvar_4[1] = _Object2World[1].xyz;
-  tmpvar_4[2] = _Object2World[2].xyz;
-  highp vec3 tmpvar_5;
-  tmpvar_5 = (tmpvar_4 * (normalize(_glesNormal) * unity_Scale.w));
-  tmpvar_2 = tmpvar_5;
-  highp vec4 tmpvar_6;
-  tmpvar_6.w = 1.00000;
-  tmpvar_6.xyz = tmpvar_5;
-  mediump vec3 tmpvar_7;
-  mediump vec4 normal_8;
-  normal_8 = tmpvar_6;
-  mediump vec3 x3_9;
-  highp float vC_10;
-  mediump vec3 x2_11;
-  mediump vec3 x1_12;
-  highp float tmpvar_13;
-  tmpvar_13 = dot (unity_SHAr, normal_8);
-  x1_12.x = tmpvar_13;
-  highp float tmpvar_14;
-  tmpvar_14 = dot (unity_SHAg, normal_8);
-  x1_12.y = tmpvar_14;
-  highp float tmpvar_15;
-  tmpvar_15 = dot (unity_SHAb, normal_8);
-  x1_12.z = tmpvar_15;
-  mediump vec4 tmpvar_16;
-  tmpvar_16 = (normal_8.xyzz * normal_8.yzzx);
-  highp float tmpvar_17;
-  tmpvar_17 = dot (unity_SHBr, tmpvar_16);
-  x2_11.x = tmpvar_17;
-  highp float tmpvar_18;
-  tmpvar_18 = dot (unity_SHBg, tmpvar_16);
-  x2_11.y = tmpvar_18;
-  highp float tmpvar_19;
-  tmpvar_19 = dot (unity_SHBb, tmpvar_16);
-  x2_11.z = tmpvar_19;
-  mediump float tmpvar_20;
-  tmpvar_20 = ((normal_8.x * normal_8.x) - (normal_8.y * normal_8.y));
-  vC_10 = tmpvar_20;
-  highp vec3 tmpvar_21;
-  tmpvar_21 = (unity_SHC.xyz * vC_10);
-  x3_9 = tmpvar_21;
-  tmpvar_7 = ((x1_12 + x2_11) + x3_9);
-  shlight_1 = tmpvar_7;
-  tmpvar_3 = shlight_1;
-  gl_Position = (gl_ModelViewProjectionMatrix * _glesVertex);
-  xlv_TEXCOORD0 = ((_glesMultiTexCoord0.xy * _MainTex_ST.xy) + _MainTex_ST.zw);
-  xlv_COLOR0 = _glesColor;
-  xlv_TEXCOORD1 = tmpvar_2;
-  xlv_TEXCOORD2 = tmpvar_3;
-  xlv_TEXCOORD3 = (unity_World2Shadow[0] * (_Object2World * _glesVertex));
-}
-
-
-
-#endif
-#ifdef FRAGMENT
-
-varying highp vec4 xlv_TEXCOORD3;
-varying lowp vec3 xlv_TEXCOORD2;
-varying lowp vec3 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform lowp vec4 _WorldSpaceLightPos0;
-uniform sampler2D _ShadowMapTexture;
-uniform highp float _MainTexInt;
-uniform sampler2D _MainTex;
-uniform highp vec4 _LightShadowData;
-uniform lowp vec4 _LightColor0;
-uniform highp vec4 _Color;
-void main ()
-{
-  lowp vec4 c_1;
-  highp vec4 tmpvar_2;
-  tmpvar_2 = xlv_COLOR0;
-  lowp vec3 tmpvar_3;
-  lowp float tmpvar_4;
-  mediump vec4 c_5;
-  lowp vec4 tmpvar_6;
-  tmpvar_6 = texture2D (_MainTex, xlv_TEXCOORD0);
-  highp vec4 tmpvar_7;
-  tmpvar_7 = (tmpvar_6 * _Color);
-  c_5 = tmpvar_7;
-  highp vec3 tmpvar_8;
-  tmpvar_8 = (c_5.xyz * (tmpvar_2.xyz * _MainTexInt));
-  c_5.xyz = tmpvar_8;
-  mediump vec3 tmpvar_9;
-  tmpvar_9 = c_5.xyz;
-  tmpvar_3 = tmpvar_9;
-  mediump float tmpvar_10;
-  tmpvar_10 = c_5.w;
-  tmpvar_4 = tmpvar_10;
-  lowp float tmpvar_11;
-  mediump float lightShadowDataX_12;
-  highp float dist_13;
-  lowp float tmpvar_14;
-  tmpvar_14 = texture2DProj (_ShadowMapTexture, xlv_TEXCOORD3).x;
-  dist_13 = tmpvar_14;
-  highp float tmpvar_15;
-  tmpvar_15 = _LightShadowData.x;
-  lightShadowDataX_12 = tmpvar_15;
-  highp float tmpvar_16;
-  tmpvar_16 = max (float((dist_13 > (xlv_TEXCOORD3.z / xlv_TEXCOORD3.w))), lightShadowDataX_12);
-  tmpvar_11 = tmpvar_16;
-  mediump vec3 lightDir_17;
-  lightDir_17 = _WorldSpaceLightPos0.xyz;
-  mediump float atten_18;
-  atten_18 = tmpvar_11;
-  mediump vec4 c_19;
-  c_19.xyz = ((tmpvar_3 * _LightColor0.xyz) * ((dot (xlv_TEXCOORD1, lightDir_17) * atten_18) * 2.00000));
-  c_19.w = tmpvar_4;
-  c_1 = c_19;
-  c_1.xyz = (c_1.xyz + (tmpvar_3 * xlv_TEXCOORD2));
-  gl_FragData[0] = c_1;
-}
-
-
-
-#endif"
-}
-SubProgram "gles " {
-Keywords { "DIRECTIONAL" "SHADOWS_SCREEN" "LIGHTMAP_ON" "DIRLIGHTMAP_OFF" }
-"!!GLES
-#define SHADER_API_GLES 1
-#define tex2D texture2D
-
-
-#ifdef VERTEX
-#define gl_ModelViewProjectionMatrix glstate_matrix_mvp
-uniform mat4 glstate_matrix_mvp;
-
-varying highp vec4 xlv_TEXCOORD2;
-varying highp vec2 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform highp mat4 unity_World2Shadow[4];
-uniform highp vec4 unity_LightmapST;
-
-uniform highp mat4 _Object2World;
-uniform highp vec4 _MainTex_ST;
-attribute vec4 _glesMultiTexCoord1;
-attribute vec4 _glesMultiTexCoord0;
-attribute vec4 _glesColor;
-attribute vec4 _glesVertex;
-void main ()
-{
-  gl_Position = (gl_ModelViewProjectionMatrix * _glesVertex);
-  xlv_TEXCOORD0 = ((_glesMultiTexCoord0.xy * _MainTex_ST.xy) + _MainTex_ST.zw);
-  xlv_COLOR0 = _glesColor;
-  xlv_TEXCOORD1 = ((_glesMultiTexCoord1.xy * unity_LightmapST.xy) + unity_LightmapST.zw);
-  xlv_TEXCOORD2 = (unity_World2Shadow[0] * (_Object2World * _glesVertex));
-}
-
-
-
-#endif
-#ifdef FRAGMENT
-
-varying highp vec4 xlv_TEXCOORD2;
-varying highp vec2 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform sampler2D unity_Lightmap;
-uniform sampler2D _ShadowMapTexture;
-uniform highp float _MainTexInt;
-uniform sampler2D _MainTex;
-uniform highp vec4 _LightShadowData;
-uniform highp vec4 _Color;
-void main ()
-{
-  lowp vec4 c_1;
-  highp vec4 tmpvar_2;
-  tmpvar_2 = xlv_COLOR0;
-  lowp vec3 tmpvar_3;
-  lowp float tmpvar_4;
-  mediump vec4 c_5;
-  lowp vec4 tmpvar_6;
-  tmpvar_6 = texture2D (_MainTex, xlv_TEXCOORD0);
-  highp vec4 tmpvar_7;
-  tmpvar_7 = (tmpvar_6 * _Color);
-  c_5 = tmpvar_7;
-  highp vec3 tmpvar_8;
-  tmpvar_8 = (c_5.xyz * (tmpvar_2.xyz * _MainTexInt));
-  c_5.xyz = tmpvar_8;
-  mediump vec3 tmpvar_9;
-  tmpvar_9 = c_5.xyz;
-  tmpvar_3 = tmpvar_9;
-  mediump float tmpvar_10;
-  tmpvar_10 = c_5.w;
-  tmpvar_4 = tmpvar_10;
-  lowp float tmpvar_11;
-  mediump float lightShadowDataX_12;
-  highp float dist_13;
-  lowp float tmpvar_14;
-  tmpvar_14 = texture2DProj (_ShadowMapTexture, xlv_TEXCOORD2).x;
-  dist_13 = tmpvar_14;
-  highp float tmpvar_15;
-  tmpvar_15 = _LightShadowData.x;
-  lightShadowDataX_12 = tmpvar_15;
-  highp float tmpvar_16;
-  tmpvar_16 = max (float((dist_13 > (xlv_TEXCOORD2.z / xlv_TEXCOORD2.w))), lightShadowDataX_12);
-  tmpvar_11 = tmpvar_16;
-  c_1.xyz = (tmpvar_3 * min ((2.00000 * texture2D (unity_Lightmap, xlv_TEXCOORD1).xyz), vec3((tmpvar_11 * 2.00000))));
-  c_1.w = tmpvar_4;
-  gl_FragData[0] = c_1;
-}
-
-
-
-#endif"
-}
-SubProgram "gles " {
-Keywords { "DIRECTIONAL" "SHADOWS_OFF" "LIGHTMAP_OFF" "DIRLIGHTMAP_OFF" "VERTEXLIGHT_ON" }
-"!!GLES
-#define SHADER_API_GLES 1
-#define tex2D texture2D
-
-
-#ifdef VERTEX
-#define gl_ModelViewProjectionMatrix glstate_matrix_mvp
-uniform mat4 glstate_matrix_mvp;
-
-varying lowp vec3 xlv_TEXCOORD2;
-varying lowp vec3 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform highp vec4 unity_Scale;
-uniform highp vec4 unity_SHC;
-uniform highp vec4 unity_SHBr;
-uniform highp vec4 unity_SHBg;
-uniform highp vec4 unity_SHBb;
-uniform highp vec4 unity_SHAr;
-uniform highp vec4 unity_SHAg;
-uniform highp vec4 unity_SHAb;
-uniform highp vec4 unity_LightColor[4];
-uniform highp vec4 unity_4LightPosZ0;
-uniform highp vec4 unity_4LightPosY0;
-uniform highp vec4 unity_4LightPosX0;
-uniform highp vec4 unity_4LightAtten0;
-
-uniform highp mat4 _Object2World;
-uniform highp vec4 _MainTex_ST;
-attribute vec4 _glesMultiTexCoord0;
-attribute vec3 _glesNormal;
-attribute vec4 _glesColor;
-attribute vec4 _glesVertex;
-void main ()
-{
-  highp vec3 shlight_1;
-  lowp vec3 tmpvar_2;
-  lowp vec3 tmpvar_3;
-  mat3 tmpvar_4;
-  tmpvar_4[0] = _Object2World[0].xyz;
-  tmpvar_4[1] = _Object2World[1].xyz;
-  tmpvar_4[2] = _Object2World[2].xyz;
-  highp vec3 tmpvar_5;
-  tmpvar_5 = (tmpvar_4 * (normalize(_glesNormal) * unity_Scale.w));
-  tmpvar_2 = tmpvar_5;
-  highp vec4 tmpvar_6;
-  tmpvar_6.w = 1.00000;
-  tmpvar_6.xyz = tmpvar_5;
-  mediump vec3 tmpvar_7;
-  mediump vec4 normal_8;
-  normal_8 = tmpvar_6;
-  mediump vec3 x3_9;
-  highp float vC_10;
-  mediump vec3 x2_11;
-  mediump vec3 x1_12;
-  highp float tmpvar_13;
-  tmpvar_13 = dot (unity_SHAr, normal_8);
-  x1_12.x = tmpvar_13;
-  highp float tmpvar_14;
-  tmpvar_14 = dot (unity_SHAg, normal_8);
-  x1_12.y = tmpvar_14;
-  highp float tmpvar_15;
-  tmpvar_15 = dot (unity_SHAb, normal_8);
-  x1_12.z = tmpvar_15;
-  mediump vec4 tmpvar_16;
-  tmpvar_16 = (normal_8.xyzz * normal_8.yzzx);
-  highp float tmpvar_17;
-  tmpvar_17 = dot (unity_SHBr, tmpvar_16);
-  x2_11.x = tmpvar_17;
-  highp float tmpvar_18;
-  tmpvar_18 = dot (unity_SHBg, tmpvar_16);
-  x2_11.y = tmpvar_18;
-  highp float tmpvar_19;
-  tmpvar_19 = dot (unity_SHBb, tmpvar_16);
-  x2_11.z = tmpvar_19;
-  mediump float tmpvar_20;
-  tmpvar_20 = ((normal_8.x * normal_8.x) - (normal_8.y * normal_8.y));
-  vC_10 = tmpvar_20;
-  highp vec3 tmpvar_21;
-  tmpvar_21 = (unity_SHC.xyz * vC_10);
-  x3_9 = tmpvar_21;
-  tmpvar_7 = ((x1_12 + x2_11) + x3_9);
-  shlight_1 = tmpvar_7;
-  tmpvar_3 = shlight_1;
-  highp vec3 tmpvar_22;
-  tmpvar_22 = (_Object2World * _glesVertex).xyz;
-  highp vec4 tmpvar_23;
-  tmpvar_23 = (unity_4LightPosX0 - tmpvar_22.x);
-  highp vec4 tmpvar_24;
-  tmpvar_24 = (unity_4LightPosY0 - tmpvar_22.y);
-  highp vec4 tmpvar_25;
-  tmpvar_25 = (unity_4LightPosZ0 - tmpvar_22.z);
-  highp vec4 tmpvar_26;
-  tmpvar_26 = (((tmpvar_23 * tmpvar_23) + (tmpvar_24 * tmpvar_24)) + (tmpvar_25 * tmpvar_25));
-  highp vec4 tmpvar_27;
-  tmpvar_27 = (max (vec4(0.00000, 0.00000, 0.00000, 0.00000), ((((tmpvar_23 * tmpvar_5.x) + (tmpvar_24 * tmpvar_5.y)) + (tmpvar_25 * tmpvar_5.z)) * inversesqrt(tmpvar_26))) * (1.0/((1.00000 + (tmpvar_26 * unity_4LightAtten0)))));
-  highp vec3 tmpvar_28;
-  tmpvar_28 = (tmpvar_3 + ((((unity_LightColor[0].xyz * tmpvar_27.x) + (unity_LightColor[1].xyz * tmpvar_27.y)) + (unity_LightColor[2].xyz * tmpvar_27.z)) + (unity_LightColor[3].xyz * tmpvar_27.w)));
-  tmpvar_3 = tmpvar_28;
-  gl_Position = (gl_ModelViewProjectionMatrix * _glesVertex);
-  xlv_TEXCOORD0 = ((_glesMultiTexCoord0.xy * _MainTex_ST.xy) + _MainTex_ST.zw);
-  xlv_COLOR0 = _glesColor;
-  xlv_TEXCOORD1 = tmpvar_2;
-  xlv_TEXCOORD2 = tmpvar_3;
-}
-
-
-
-#endif
-#ifdef FRAGMENT
-
-varying lowp vec3 xlv_TEXCOORD2;
-varying lowp vec3 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform lowp vec4 _WorldSpaceLightPos0;
-uniform highp float _MainTexInt;
-uniform sampler2D _MainTex;
-uniform lowp vec4 _LightColor0;
-uniform highp vec4 _Color;
-void main ()
-{
-  lowp vec4 c_1;
-  highp vec4 tmpvar_2;
-  tmpvar_2 = xlv_COLOR0;
-  lowp vec3 tmpvar_3;
-  lowp float tmpvar_4;
-  mediump vec4 c_5;
-  lowp vec4 tmpvar_6;
-  tmpvar_6 = texture2D (_MainTex, xlv_TEXCOORD0);
-  highp vec4 tmpvar_7;
-  tmpvar_7 = (tmpvar_6 * _Color);
-  c_5 = tmpvar_7;
-  highp vec3 tmpvar_8;
-  tmpvar_8 = (c_5.xyz * (tmpvar_2.xyz * _MainTexInt));
-  c_5.xyz = tmpvar_8;
-  mediump vec3 tmpvar_9;
-  tmpvar_9 = c_5.xyz;
-  tmpvar_3 = tmpvar_9;
-  mediump float tmpvar_10;
-  tmpvar_10 = c_5.w;
-  tmpvar_4 = tmpvar_10;
-  mediump vec3 lightDir_11;
-  lightDir_11 = _WorldSpaceLightPos0.xyz;
-  mediump vec4 c_12;
-  c_12.xyz = ((tmpvar_3 * _LightColor0.xyz) * (dot (xlv_TEXCOORD1, lightDir_11) * 2.00000));
-  c_12.w = tmpvar_4;
-  c_1 = c_12;
-  c_1.xyz = (c_1.xyz + (tmpvar_3 * xlv_TEXCOORD2));
-  gl_FragData[0] = c_1;
-}
-
-
-
-#endif"
-}
-SubProgram "gles " {
-Keywords { "DIRECTIONAL" "SHADOWS_SCREEN" "LIGHTMAP_OFF" "DIRLIGHTMAP_OFF" "VERTEXLIGHT_ON" }
-"!!GLES
-#define SHADER_API_GLES 1
-#define tex2D texture2D
-
-
-#ifdef VERTEX
-#define gl_ModelViewProjectionMatrix glstate_matrix_mvp
-uniform mat4 glstate_matrix_mvp;
-
-varying highp vec4 xlv_TEXCOORD3;
-varying lowp vec3 xlv_TEXCOORD2;
-varying lowp vec3 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform highp mat4 unity_World2Shadow[4];
-uniform highp vec4 unity_Scale;
-uniform highp vec4 unity_SHC;
-uniform highp vec4 unity_SHBr;
-uniform highp vec4 unity_SHBg;
-uniform highp vec4 unity_SHBb;
-uniform highp vec4 unity_SHAr;
-uniform highp vec4 unity_SHAg;
-uniform highp vec4 unity_SHAb;
-uniform highp vec4 unity_LightColor[4];
-uniform highp vec4 unity_4LightPosZ0;
-uniform highp vec4 unity_4LightPosY0;
-uniform highp vec4 unity_4LightPosX0;
-uniform highp vec4 unity_4LightAtten0;
-
-uniform highp mat4 _Object2World;
-uniform highp vec4 _MainTex_ST;
-attribute vec4 _glesMultiTexCoord0;
-attribute vec3 _glesNormal;
-attribute vec4 _glesColor;
-attribute vec4 _glesVertex;
-void main ()
-{
-  highp vec3 shlight_1;
-  lowp vec3 tmpvar_2;
-  lowp vec3 tmpvar_3;
-  mat3 tmpvar_4;
-  tmpvar_4[0] = _Object2World[0].xyz;
-  tmpvar_4[1] = _Object2World[1].xyz;
-  tmpvar_4[2] = _Object2World[2].xyz;
-  highp vec3 tmpvar_5;
-  tmpvar_5 = (tmpvar_4 * (normalize(_glesNormal) * unity_Scale.w));
-  tmpvar_2 = tmpvar_5;
-  highp vec4 tmpvar_6;
-  tmpvar_6.w = 1.00000;
-  tmpvar_6.xyz = tmpvar_5;
-  mediump vec3 tmpvar_7;
-  mediump vec4 normal_8;
-  normal_8 = tmpvar_6;
-  mediump vec3 x3_9;
-  highp float vC_10;
-  mediump vec3 x2_11;
-  mediump vec3 x1_12;
-  highp float tmpvar_13;
-  tmpvar_13 = dot (unity_SHAr, normal_8);
-  x1_12.x = tmpvar_13;
-  highp float tmpvar_14;
-  tmpvar_14 = dot (unity_SHAg, normal_8);
-  x1_12.y = tmpvar_14;
-  highp float tmpvar_15;
-  tmpvar_15 = dot (unity_SHAb, normal_8);
-  x1_12.z = tmpvar_15;
-  mediump vec4 tmpvar_16;
-  tmpvar_16 = (normal_8.xyzz * normal_8.yzzx);
-  highp float tmpvar_17;
-  tmpvar_17 = dot (unity_SHBr, tmpvar_16);
-  x2_11.x = tmpvar_17;
-  highp float tmpvar_18;
-  tmpvar_18 = dot (unity_SHBg, tmpvar_16);
-  x2_11.y = tmpvar_18;
-  highp float tmpvar_19;
-  tmpvar_19 = dot (unity_SHBb, tmpvar_16);
-  x2_11.z = tmpvar_19;
-  mediump float tmpvar_20;
-  tmpvar_20 = ((normal_8.x * normal_8.x) - (normal_8.y * normal_8.y));
-  vC_10 = tmpvar_20;
-  highp vec3 tmpvar_21;
-  tmpvar_21 = (unity_SHC.xyz * vC_10);
-  x3_9 = tmpvar_21;
-  tmpvar_7 = ((x1_12 + x2_11) + x3_9);
-  shlight_1 = tmpvar_7;
-  tmpvar_3 = shlight_1;
-  highp vec3 tmpvar_22;
-  tmpvar_22 = (_Object2World * _glesVertex).xyz;
-  highp vec4 tmpvar_23;
-  tmpvar_23 = (unity_4LightPosX0 - tmpvar_22.x);
-  highp vec4 tmpvar_24;
-  tmpvar_24 = (unity_4LightPosY0 - tmpvar_22.y);
-  highp vec4 tmpvar_25;
-  tmpvar_25 = (unity_4LightPosZ0 - tmpvar_22.z);
-  highp vec4 tmpvar_26;
-  tmpvar_26 = (((tmpvar_23 * tmpvar_23) + (tmpvar_24 * tmpvar_24)) + (tmpvar_25 * tmpvar_25));
-  highp vec4 tmpvar_27;
-  tmpvar_27 = (max (vec4(0.00000, 0.00000, 0.00000, 0.00000), ((((tmpvar_23 * tmpvar_5.x) + (tmpvar_24 * tmpvar_5.y)) + (tmpvar_25 * tmpvar_5.z)) * inversesqrt(tmpvar_26))) * (1.0/((1.00000 + (tmpvar_26 * unity_4LightAtten0)))));
-  highp vec3 tmpvar_28;
-  tmpvar_28 = (tmpvar_3 + ((((unity_LightColor[0].xyz * tmpvar_27.x) + (unity_LightColor[1].xyz * tmpvar_27.y)) + (unity_LightColor[2].xyz * tmpvar_27.z)) + (unity_LightColor[3].xyz * tmpvar_27.w)));
-  tmpvar_3 = tmpvar_28;
-  gl_Position = (gl_ModelViewProjectionMatrix * _glesVertex);
-  xlv_TEXCOORD0 = ((_glesMultiTexCoord0.xy * _MainTex_ST.xy) + _MainTex_ST.zw);
-  xlv_COLOR0 = _glesColor;
-  xlv_TEXCOORD1 = tmpvar_2;
-  xlv_TEXCOORD2 = tmpvar_3;
-  xlv_TEXCOORD3 = (unity_World2Shadow[0] * (_Object2World * _glesVertex));
-}
-
-
-
-#endif
-#ifdef FRAGMENT
-
-varying highp vec4 xlv_TEXCOORD3;
-varying lowp vec3 xlv_TEXCOORD2;
-varying lowp vec3 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform lowp vec4 _WorldSpaceLightPos0;
-uniform sampler2D _ShadowMapTexture;
-uniform highp float _MainTexInt;
-uniform sampler2D _MainTex;
-uniform highp vec4 _LightShadowData;
-uniform lowp vec4 _LightColor0;
-uniform highp vec4 _Color;
-void main ()
-{
-  lowp vec4 c_1;
-  highp vec4 tmpvar_2;
-  tmpvar_2 = xlv_COLOR0;
-  lowp vec3 tmpvar_3;
-  lowp float tmpvar_4;
-  mediump vec4 c_5;
-  lowp vec4 tmpvar_6;
-  tmpvar_6 = texture2D (_MainTex, xlv_TEXCOORD0);
-  highp vec4 tmpvar_7;
-  tmpvar_7 = (tmpvar_6 * _Color);
-  c_5 = tmpvar_7;
-  highp vec3 tmpvar_8;
-  tmpvar_8 = (c_5.xyz * (tmpvar_2.xyz * _MainTexInt));
-  c_5.xyz = tmpvar_8;
-  mediump vec3 tmpvar_9;
-  tmpvar_9 = c_5.xyz;
-  tmpvar_3 = tmpvar_9;
-  mediump float tmpvar_10;
-  tmpvar_10 = c_5.w;
-  tmpvar_4 = tmpvar_10;
-  lowp float tmpvar_11;
-  mediump float lightShadowDataX_12;
-  highp float dist_13;
-  lowp float tmpvar_14;
-  tmpvar_14 = texture2DProj (_ShadowMapTexture, xlv_TEXCOORD3).x;
-  dist_13 = tmpvar_14;
-  highp float tmpvar_15;
-  tmpvar_15 = _LightShadowData.x;
-  lightShadowDataX_12 = tmpvar_15;
-  highp float tmpvar_16;
-  tmpvar_16 = max (float((dist_13 > (xlv_TEXCOORD3.z / xlv_TEXCOORD3.w))), lightShadowDataX_12);
-  tmpvar_11 = tmpvar_16;
-  mediump vec3 lightDir_17;
-  lightDir_17 = _WorldSpaceLightPos0.xyz;
-  mediump float atten_18;
-  atten_18 = tmpvar_11;
-  mediump vec4 c_19;
-  c_19.xyz = ((tmpvar_3 * _LightColor0.xyz) * ((dot (xlv_TEXCOORD1, lightDir_17) * atten_18) * 2.00000));
-  c_19.w = tmpvar_4;
-  c_1 = c_19;
-  c_1.xyz = (c_1.xyz + (tmpvar_3 * xlv_TEXCOORD2));
-  gl_FragData[0] = c_1;
-}
-
-
-
-#endif"
-}
-}
-Program "fp" {
-SubProgram "gles " {
-Keywords { "DIRECTIONAL" "SHADOWS_OFF" "LIGHTMAP_OFF" "DIRLIGHTMAP_OFF" }
-"!!GLES"
-}
-SubProgram "gles " {
-Keywords { "DIRECTIONAL" "SHADOWS_OFF" "LIGHTMAP_ON" "DIRLIGHTMAP_OFF" }
-"!!GLES"
-}
-SubProgram "gles " {
-Keywords { "DIRECTIONAL" "SHADOWS_SCREEN" "LIGHTMAP_OFF" "DIRLIGHTMAP_OFF" }
-"!!GLES"
-}
-SubProgram "gles " {
-Keywords { "DIRECTIONAL" "SHADOWS_SCREEN" "LIGHTMAP_ON" "DIRLIGHTMAP_OFF" }
-"!!GLES"
-}
-}
- }
- Pass {
-  Name "FORWARD"
-  Tags { "LIGHTMODE"="ForwardAdd" "RenderType"="Opaque" }
-  ZWrite Off
-  Fog {
-   Color (0,0,0,0)
-  }
-  Blend One One
-Program "vp" {
-SubProgram "gles " {
-Keywords { "POINT" }
-"!!GLES
-#define SHADER_API_GLES 1
-#define tex2D texture2D
-
-
-#ifdef VERTEX
-#define gl_ModelViewProjectionMatrix glstate_matrix_mvp
-uniform mat4 glstate_matrix_mvp;
-
-varying highp vec3 xlv_TEXCOORD3;
-varying mediump vec3 xlv_TEXCOORD2;
-varying lowp vec3 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform highp vec4 unity_Scale;
-
-uniform highp vec4 _WorldSpaceLightPos0;
-uniform highp mat4 _Object2World;
-uniform highp vec4 _MainTex_ST;
-uniform highp mat4 _LightMatrix0;
-attribute vec4 _glesMultiTexCoord0;
-attribute vec3 _glesNormal;
-attribute vec4 _glesColor;
-attribute vec4 _glesVertex;
-void main ()
-{
-  lowp vec3 tmpvar_1;
-  mediump vec3 tmpvar_2;
-  mat3 tmpvar_3;
-  tmpvar_3[0] = _Object2World[0].xyz;
-  tmpvar_3[1] = _Object2World[1].xyz;
-  tmpvar_3[2] = _Object2World[2].xyz;
-  highp vec3 tmpvar_4;
-  tmpvar_4 = (tmpvar_3 * (normalize(_glesNormal) * unity_Scale.w));
-  tmpvar_1 = tmpvar_4;
-  highp vec3 tmpvar_5;
-  tmpvar_5 = (_WorldSpaceLightPos0.xyz - (_Object2World * _glesVertex).xyz);
-  tmpvar_2 = tmpvar_5;
-  gl_Position = (gl_ModelViewProjectionMatrix * _glesVertex);
-  xlv_TEXCOORD0 = ((_glesMultiTexCoord0.xy * _MainTex_ST.xy) + _MainTex_ST.zw);
-  xlv_COLOR0 = _glesColor;
-  xlv_TEXCOORD1 = tmpvar_1;
-  xlv_TEXCOORD2 = tmpvar_2;
-  xlv_TEXCOORD3 = (_LightMatrix0 * (_Object2World * _glesVertex)).xyz;
-}
-
-
-
-#endif
-#ifdef FRAGMENT
-
-varying highp vec3 xlv_TEXCOORD3;
-varying mediump vec3 xlv_TEXCOORD2;
-varying lowp vec3 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform highp float _MainTexInt;
-uniform sampler2D _MainTex;
-uniform sampler2D _LightTexture0;
-uniform lowp vec4 _LightColor0;
-uniform highp vec4 _Color;
-void main ()
-{
-  lowp vec4 c_1;
-  lowp vec3 lightDir_2;
-  highp vec4 tmpvar_3;
-  tmpvar_3 = xlv_COLOR0;
-  lowp vec3 tmpvar_4;
-  lowp float tmpvar_5;
-  mediump vec4 c_6;
-  lowp vec4 tmpvar_7;
-  tmpvar_7 = texture2D (_MainTex, xlv_TEXCOORD0);
-  highp vec4 tmpvar_8;
-  tmpvar_8 = (tmpvar_7 * _Color);
-  c_6 = tmpvar_8;
-  highp vec3 tmpvar_9;
-  tmpvar_9 = (c_6.xyz * (tmpvar_3.xyz * _MainTexInt));
-  c_6.xyz = tmpvar_9;
-  mediump vec3 tmpvar_10;
-  tmpvar_10 = c_6.xyz;
-  tmpvar_4 = tmpvar_10;
-  mediump float tmpvar_11;
-  tmpvar_11 = c_6.w;
-  tmpvar_5 = tmpvar_11;
-  mediump vec3 tmpvar_12;
-  tmpvar_12 = normalize(xlv_TEXCOORD2);
-  lightDir_2 = tmpvar_12;
-  highp float tmpvar_13;
-  tmpvar_13 = dot (xlv_TEXCOORD3, xlv_TEXCOORD3);
-  lowp vec4 tmpvar_14;
-  tmpvar_14 = texture2D (_LightTexture0, vec2(tmpvar_13));
-  mediump vec3 lightDir_15;
-  lightDir_15 = lightDir_2;
-  mediump float atten_16;
-  atten_16 = tmpvar_14.w;
-  mediump vec4 c_17;
-  c_17.xyz = ((tmpvar_4 * _LightColor0.xyz) * ((dot (xlv_TEXCOORD1, lightDir_15) * atten_16) * 2.00000));
-  c_17.w = tmpvar_5;
-  c_1.xyz = c_17.xyz;
-  c_1.w = 0.00000;
-  gl_FragData[0] = c_1;
-}
-
-
-
-#endif"
-}
-SubProgram "gles " {
-Keywords { "DIRECTIONAL" }
-"!!GLES
-#define SHADER_API_GLES 1
-#define tex2D texture2D
-
-
-#ifdef VERTEX
-#define gl_ModelViewProjectionMatrix glstate_matrix_mvp
-uniform mat4 glstate_matrix_mvp;
-
-varying mediump vec3 xlv_TEXCOORD2;
-varying lowp vec3 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform highp vec4 unity_Scale;
-
-uniform lowp vec4 _WorldSpaceLightPos0;
-uniform highp mat4 _Object2World;
-uniform highp vec4 _MainTex_ST;
-attribute vec4 _glesMultiTexCoord0;
-attribute vec3 _glesNormal;
-attribute vec4 _glesColor;
-attribute vec4 _glesVertex;
-void main ()
-{
-  lowp vec3 tmpvar_1;
-  mediump vec3 tmpvar_2;
-  mat3 tmpvar_3;
-  tmpvar_3[0] = _Object2World[0].xyz;
-  tmpvar_3[1] = _Object2World[1].xyz;
-  tmpvar_3[2] = _Object2World[2].xyz;
-  highp vec3 tmpvar_4;
-  tmpvar_4 = (tmpvar_3 * (normalize(_glesNormal) * unity_Scale.w));
-  tmpvar_1 = tmpvar_4;
-  highp vec3 tmpvar_5;
-  tmpvar_5 = _WorldSpaceLightPos0.xyz;
-  tmpvar_2 = tmpvar_5;
-  gl_Position = (gl_ModelViewProjectionMatrix * _glesVertex);
-  xlv_TEXCOORD0 = ((_glesMultiTexCoord0.xy * _MainTex_ST.xy) + _MainTex_ST.zw);
-  xlv_COLOR0 = _glesColor;
-  xlv_TEXCOORD1 = tmpvar_1;
-  xlv_TEXCOORD2 = tmpvar_2;
-}
-
-
-
-#endif
-#ifdef FRAGMENT
-
-varying mediump vec3 xlv_TEXCOORD2;
-varying lowp vec3 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform highp float _MainTexInt;
-uniform sampler2D _MainTex;
-uniform lowp vec4 _LightColor0;
-uniform highp vec4 _Color;
-void main ()
-{
-  lowp vec4 c_1;
-  lowp vec3 lightDir_2;
-  highp vec4 tmpvar_3;
-  tmpvar_3 = xlv_COLOR0;
-  lowp vec3 tmpvar_4;
-  lowp float tmpvar_5;
-  mediump vec4 c_6;
-  lowp vec4 tmpvar_7;
-  tmpvar_7 = texture2D (_MainTex, xlv_TEXCOORD0);
-  highp vec4 tmpvar_8;
-  tmpvar_8 = (tmpvar_7 * _Color);
-  c_6 = tmpvar_8;
-  highp vec3 tmpvar_9;
-  tmpvar_9 = (c_6.xyz * (tmpvar_3.xyz * _MainTexInt));
-  c_6.xyz = tmpvar_9;
-  mediump vec3 tmpvar_10;
-  tmpvar_10 = c_6.xyz;
-  tmpvar_4 = tmpvar_10;
-  mediump float tmpvar_11;
-  tmpvar_11 = c_6.w;
-  tmpvar_5 = tmpvar_11;
-  lightDir_2 = xlv_TEXCOORD2;
-  mediump vec3 lightDir_12;
-  lightDir_12 = lightDir_2;
-  mediump vec4 c_13;
-  c_13.xyz = ((tmpvar_4 * _LightColor0.xyz) * (dot (xlv_TEXCOORD1, lightDir_12) * 2.00000));
-  c_13.w = tmpvar_5;
-  c_1.xyz = c_13.xyz;
-  c_1.w = 0.00000;
-  gl_FragData[0] = c_1;
-}
-
-
-
-#endif"
-}
-SubProgram "gles " {
-Keywords { "SPOT" }
-"!!GLES
-#define SHADER_API_GLES 1
-#define tex2D texture2D
-
-
-#ifdef VERTEX
-#define gl_ModelViewProjectionMatrix glstate_matrix_mvp
-uniform mat4 glstate_matrix_mvp;
-
-varying highp vec4 xlv_TEXCOORD3;
-varying mediump vec3 xlv_TEXCOORD2;
-varying lowp vec3 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform highp vec4 unity_Scale;
-
-uniform highp vec4 _WorldSpaceLightPos0;
-uniform highp mat4 _Object2World;
-uniform highp vec4 _MainTex_ST;
-uniform highp mat4 _LightMatrix0;
-attribute vec4 _glesMultiTexCoord0;
-attribute vec3 _glesNormal;
-attribute vec4 _glesColor;
-attribute vec4 _glesVertex;
-void main ()
-{
-  lowp vec3 tmpvar_1;
-  mediump vec3 tmpvar_2;
-  mat3 tmpvar_3;
-  tmpvar_3[0] = _Object2World[0].xyz;
-  tmpvar_3[1] = _Object2World[1].xyz;
-  tmpvar_3[2] = _Object2World[2].xyz;
-  highp vec3 tmpvar_4;
-  tmpvar_4 = (tmpvar_3 * (normalize(_glesNormal) * unity_Scale.w));
-  tmpvar_1 = tmpvar_4;
-  highp vec3 tmpvar_5;
-  tmpvar_5 = (_WorldSpaceLightPos0.xyz - (_Object2World * _glesVertex).xyz);
-  tmpvar_2 = tmpvar_5;
-  gl_Position = (gl_ModelViewProjectionMatrix * _glesVertex);
-  xlv_TEXCOORD0 = ((_glesMultiTexCoord0.xy * _MainTex_ST.xy) + _MainTex_ST.zw);
-  xlv_COLOR0 = _glesColor;
-  xlv_TEXCOORD1 = tmpvar_1;
-  xlv_TEXCOORD2 = tmpvar_2;
-  xlv_TEXCOORD3 = (_LightMatrix0 * (_Object2World * _glesVertex));
-}
-
-
-
-#endif
-#ifdef FRAGMENT
-
-varying highp vec4 xlv_TEXCOORD3;
-varying mediump vec3 xlv_TEXCOORD2;
-varying lowp vec3 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform highp float _MainTexInt;
-uniform sampler2D _MainTex;
-uniform sampler2D _LightTextureB0;
-uniform sampler2D _LightTexture0;
-uniform lowp vec4 _LightColor0;
-uniform highp vec4 _Color;
-void main ()
-{
-  lowp vec4 c_1;
-  lowp vec3 lightDir_2;
-  highp vec4 tmpvar_3;
-  tmpvar_3 = xlv_COLOR0;
-  lowp vec3 tmpvar_4;
-  lowp float tmpvar_5;
-  mediump vec4 c_6;
-  lowp vec4 tmpvar_7;
-  tmpvar_7 = texture2D (_MainTex, xlv_TEXCOORD0);
-  highp vec4 tmpvar_8;
-  tmpvar_8 = (tmpvar_7 * _Color);
-  c_6 = tmpvar_8;
-  highp vec3 tmpvar_9;
-  tmpvar_9 = (c_6.xyz * (tmpvar_3.xyz * _MainTexInt));
-  c_6.xyz = tmpvar_9;
-  mediump vec3 tmpvar_10;
-  tmpvar_10 = c_6.xyz;
-  tmpvar_4 = tmpvar_10;
-  mediump float tmpvar_11;
-  tmpvar_11 = c_6.w;
-  tmpvar_5 = tmpvar_11;
-  mediump vec3 tmpvar_12;
-  tmpvar_12 = normalize(xlv_TEXCOORD2);
-  lightDir_2 = tmpvar_12;
-  lowp vec4 tmpvar_13;
-  highp vec2 P_14;
-  P_14 = ((xlv_TEXCOORD3.xy / xlv_TEXCOORD3.w) + 0.500000);
-  tmpvar_13 = texture2D (_LightTexture0, P_14);
-  highp float tmpvar_15;
-  tmpvar_15 = dot (xlv_TEXCOORD3.xyz, xlv_TEXCOORD3.xyz);
-  lowp vec4 tmpvar_16;
-  tmpvar_16 = texture2D (_LightTextureB0, vec2(tmpvar_15));
-  mediump vec3 lightDir_17;
-  lightDir_17 = lightDir_2;
-  mediump float atten_18;
-  atten_18 = ((float((xlv_TEXCOORD3.z > 0.00000)) * tmpvar_13.w) * tmpvar_16.w);
-  mediump vec4 c_19;
-  c_19.xyz = ((tmpvar_4 * _LightColor0.xyz) * ((dot (xlv_TEXCOORD1, lightDir_17) * atten_18) * 2.00000));
-  c_19.w = tmpvar_5;
-  c_1.xyz = c_19.xyz;
-  c_1.w = 0.00000;
-  gl_FragData[0] = c_1;
-}
-
-
-
-#endif"
-}
-SubProgram "gles " {
-Keywords { "POINT_COOKIE" }
-"!!GLES
-#define SHADER_API_GLES 1
-#define tex2D texture2D
-
-
-#ifdef VERTEX
-#define gl_ModelViewProjectionMatrix glstate_matrix_mvp
-uniform mat4 glstate_matrix_mvp;
-
-varying highp vec3 xlv_TEXCOORD3;
-varying mediump vec3 xlv_TEXCOORD2;
-varying lowp vec3 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform highp vec4 unity_Scale;
-
-uniform highp vec4 _WorldSpaceLightPos0;
-uniform highp mat4 _Object2World;
-uniform highp vec4 _MainTex_ST;
-uniform highp mat4 _LightMatrix0;
-attribute vec4 _glesMultiTexCoord0;
-attribute vec3 _glesNormal;
-attribute vec4 _glesColor;
-attribute vec4 _glesVertex;
-void main ()
-{
-  lowp vec3 tmpvar_1;
-  mediump vec3 tmpvar_2;
-  mat3 tmpvar_3;
-  tmpvar_3[0] = _Object2World[0].xyz;
-  tmpvar_3[1] = _Object2World[1].xyz;
-  tmpvar_3[2] = _Object2World[2].xyz;
-  highp vec3 tmpvar_4;
-  tmpvar_4 = (tmpvar_3 * (normalize(_glesNormal) * unity_Scale.w));
-  tmpvar_1 = tmpvar_4;
-  highp vec3 tmpvar_5;
-  tmpvar_5 = (_WorldSpaceLightPos0.xyz - (_Object2World * _glesVertex).xyz);
-  tmpvar_2 = tmpvar_5;
-  gl_Position = (gl_ModelViewProjectionMatrix * _glesVertex);
-  xlv_TEXCOORD0 = ((_glesMultiTexCoord0.xy * _MainTex_ST.xy) + _MainTex_ST.zw);
-  xlv_COLOR0 = _glesColor;
-  xlv_TEXCOORD1 = tmpvar_1;
-  xlv_TEXCOORD2 = tmpvar_2;
-  xlv_TEXCOORD3 = (_LightMatrix0 * (_Object2World * _glesVertex)).xyz;
-}
-
-
-
-#endif
-#ifdef FRAGMENT
-
-varying highp vec3 xlv_TEXCOORD3;
-varying mediump vec3 xlv_TEXCOORD2;
-varying lowp vec3 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform highp float _MainTexInt;
-uniform sampler2D _MainTex;
-uniform sampler2D _LightTextureB0;
-uniform samplerCube _LightTexture0;
-uniform lowp vec4 _LightColor0;
-uniform highp vec4 _Color;
-void main ()
-{
-  lowp vec4 c_1;
-  lowp vec3 lightDir_2;
-  highp vec4 tmpvar_3;
-  tmpvar_3 = xlv_COLOR0;
-  lowp vec3 tmpvar_4;
-  lowp float tmpvar_5;
-  mediump vec4 c_6;
-  lowp vec4 tmpvar_7;
-  tmpvar_7 = texture2D (_MainTex, xlv_TEXCOORD0);
-  highp vec4 tmpvar_8;
-  tmpvar_8 = (tmpvar_7 * _Color);
-  c_6 = tmpvar_8;
-  highp vec3 tmpvar_9;
-  tmpvar_9 = (c_6.xyz * (tmpvar_3.xyz * _MainTexInt));
-  c_6.xyz = tmpvar_9;
-  mediump vec3 tmpvar_10;
-  tmpvar_10 = c_6.xyz;
-  tmpvar_4 = tmpvar_10;
-  mediump float tmpvar_11;
-  tmpvar_11 = c_6.w;
-  tmpvar_5 = tmpvar_11;
-  mediump vec3 tmpvar_12;
-  tmpvar_12 = normalize(xlv_TEXCOORD2);
-  lightDir_2 = tmpvar_12;
-  highp float tmpvar_13;
-  tmpvar_13 = dot (xlv_TEXCOORD3, xlv_TEXCOORD3);
-  lowp vec4 tmpvar_14;
-  tmpvar_14 = texture2D (_LightTextureB0, vec2(tmpvar_13));
-  lowp vec4 tmpvar_15;
-  tmpvar_15 = textureCube (_LightTexture0, xlv_TEXCOORD3);
-  mediump vec3 lightDir_16;
-  lightDir_16 = lightDir_2;
-  mediump float atten_17;
-  atten_17 = (tmpvar_14.w * tmpvar_15.w);
-  mediump vec4 c_18;
-  c_18.xyz = ((tmpvar_4 * _LightColor0.xyz) * ((dot (xlv_TEXCOORD1, lightDir_16) * atten_17) * 2.00000));
-  c_18.w = tmpvar_5;
-  c_1.xyz = c_18.xyz;
-  c_1.w = 0.00000;
-  gl_FragData[0] = c_1;
-}
-
-
-
-#endif"
-}
-SubProgram "gles " {
-Keywords { "DIRECTIONAL_COOKIE" }
-"!!GLES
-#define SHADER_API_GLES 1
-#define tex2D texture2D
-
-
-#ifdef VERTEX
-#define gl_ModelViewProjectionMatrix glstate_matrix_mvp
-uniform mat4 glstate_matrix_mvp;
-
-varying highp vec2 xlv_TEXCOORD3;
-varying mediump vec3 xlv_TEXCOORD2;
-varying lowp vec3 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform highp vec4 unity_Scale;
-
-uniform lowp vec4 _WorldSpaceLightPos0;
-uniform highp mat4 _Object2World;
-uniform highp vec4 _MainTex_ST;
-uniform highp mat4 _LightMatrix0;
-attribute vec4 _glesMultiTexCoord0;
-attribute vec3 _glesNormal;
-attribute vec4 _glesColor;
-attribute vec4 _glesVertex;
-void main ()
-{
-  lowp vec3 tmpvar_1;
-  mediump vec3 tmpvar_2;
-  mat3 tmpvar_3;
-  tmpvar_3[0] = _Object2World[0].xyz;
-  tmpvar_3[1] = _Object2World[1].xyz;
-  tmpvar_3[2] = _Object2World[2].xyz;
-  highp vec3 tmpvar_4;
-  tmpvar_4 = (tmpvar_3 * (normalize(_glesNormal) * unity_Scale.w));
-  tmpvar_1 = tmpvar_4;
-  highp vec3 tmpvar_5;
-  tmpvar_5 = _WorldSpaceLightPos0.xyz;
-  tmpvar_2 = tmpvar_5;
-  gl_Position = (gl_ModelViewProjectionMatrix * _glesVertex);
-  xlv_TEXCOORD0 = ((_glesMultiTexCoord0.xy * _MainTex_ST.xy) + _MainTex_ST.zw);
-  xlv_COLOR0 = _glesColor;
-  xlv_TEXCOORD1 = tmpvar_1;
-  xlv_TEXCOORD2 = tmpvar_2;
-  xlv_TEXCOORD3 = (_LightMatrix0 * (_Object2World * _glesVertex)).xy;
-}
-
-
-
-#endif
-#ifdef FRAGMENT
-
-varying highp vec2 xlv_TEXCOORD3;
-varying mediump vec3 xlv_TEXCOORD2;
-varying lowp vec3 xlv_TEXCOORD1;
-varying lowp vec4 xlv_COLOR0;
-varying highp vec2 xlv_TEXCOORD0;
-uniform highp float _MainTexInt;
-uniform sampler2D _MainTex;
-uniform sampler2D _LightTexture0;
-uniform lowp vec4 _LightColor0;
-uniform highp vec4 _Color;
-void main ()
-{
-  lowp vec4 c_1;
-  lowp vec3 lightDir_2;
-  highp vec4 tmpvar_3;
-  tmpvar_3 = xlv_COLOR0;
-  lowp vec3 tmpvar_4;
-  lowp float tmpvar_5;
-  mediump vec4 c_6;
-  lowp vec4 tmpvar_7;
-  tmpvar_7 = texture2D (_MainTex, xlv_TEXCOORD0);
-  highp vec4 tmpvar_8;
-  tmpvar_8 = (tmpvar_7 * _Color);
-  c_6 = tmpvar_8;
-  highp vec3 tmpvar_9;
-  tmpvar_9 = (c_6.xyz * (tmpvar_3.xyz * _MainTexInt));
-  c_6.xyz = tmpvar_9;
-  mediump vec3 tmpvar_10;
-  tmpvar_10 = c_6.xyz;
-  tmpvar_4 = tmpvar_10;
-  mediump float tmpvar_11;
-  tmpvar_11 = c_6.w;
-  tmpvar_5 = tmpvar_11;
-  lightDir_2 = xlv_TEXCOORD2;
-  lowp vec4 tmpvar_12;
-  tmpvar_12 = texture2D (_LightTexture0, xlv_TEXCOORD3);
-  mediump vec3 lightDir_13;
-  lightDir_13 = lightDir_2;
-  mediump float atten_14;
-  atten_14 = tmpvar_12.w;
-  mediump vec4 c_15;
-  c_15.xyz = ((tmpvar_4 * _LightColor0.xyz) * ((dot (xlv_TEXCOORD1, lightDir_13) * atten_14) * 2.00000));
-  c_15.w = tmpvar_5;
-  c_1.xyz = c_15.xyz;
-  c_1.w = 0.00000;
-  gl_FragData[0] = c_1;
-}
-
-
-
-#endif"
-}
-}
-Program "fp" {
-SubProgram "gles " {
-Keywords { "POINT" }
-"!!GLES"
-}
-SubProgram "gles " {
-Keywords { "DIRECTIONAL" }
-"!!GLES"
-}
-SubProgram "gles " {
-Keywords { "SPOT" }
-"!!GLES"
-}
-SubProgram "gles " {
-Keywords { "POINT_COOKIE" }
-"!!GLES"
-}
-SubProgram "gles " {
-Keywords { "DIRECTIONAL_COOKIE" }
-"!!GLES"
-}
-}
- }
-}
-Fallback "Diffuse"
+    Properties
+    {
+        _Color ("Color", Color) = (1,1,1,1)
+        _MainTex ("Base (RGB)", 2D) = "white" {}
+        _MainTexInt ("Base Intensity", Range(0,4)) = 1
+    }
+    SubShader
+    {
+        Tags { "RenderType"="Opaque" }
+        Pass
+        {
+            Name "FORWARD"
+            Tags { "LIGHTMODE"="ForwardBase" "RenderType"="Opaque" }
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #include "UnityCG.cginc"
+            // float4x4 _Object2World;
+            float4 _MainTex_ST;
+            float _MainTexInt;
+            sampler2D _MainTex;
+            #include "UnityLightingCommon.cginc"
+            float4 _Color;
+            struct appdata_t
+            {
+                float4 texcoord0 : TEXCOORD0;
+                float3 normal : NORMAL;
+                float4 color : COLOR;
+                float4 vertex : POSITION;
+            };
+            struct v2f
+            {
+                float3 texcoord2 : TEXCOORD2;
+                float3 texcoord1 : TEXCOORD1;
+                float4 color0 : COLOR0;
+                float2 texcoord0 : TEXCOORD0;
+                float4 vertex : POSITION;
+            };
+            v2f vert(appdata_t v)
+            {
+                v2f o;
+                float3 shlight_1;
+                float3 tmpvar_2;
+                float3 tmpvar_3;
+                float3x3 tmpvar_4;
+                tmpvar_4[0] = unity_ObjectToWorld[0].xyz;
+                tmpvar_4[1] = unity_ObjectToWorld[1].xyz;
+                tmpvar_4[2] = unity_ObjectToWorld[2].xyz;
+                float3 tmpvar_5;
+                tmpvar_5 = mul(tmpvar_4, (normalize(v.normal) * 1.0));
+                tmpvar_2 = tmpvar_5;
+                float4 tmpvar_6;
+                tmpvar_6.w = 1.00000;
+                tmpvar_6.xyz = tmpvar_5;
+                float3 tmpvar_7;
+                float4 normal_8;
+                normal_8 = tmpvar_6;
+                float3 x3_9;
+                float vC_10;
+                float3 x2_11;
+                float3 x1_12;
+                float tmpvar_13;
+                tmpvar_13 = dot (unity_SHAr, normal_8);
+                x1_12.x = tmpvar_13;
+                float tmpvar_14;
+                tmpvar_14 = dot (unity_SHAg, normal_8);
+                x1_12.y = tmpvar_14;
+                float tmpvar_15;
+                tmpvar_15 = dot (unity_SHAb, normal_8);
+                x1_12.z = tmpvar_15;
+                float4 tmpvar_16;
+                tmpvar_16 = (normal_8.xyzz * normal_8.yzzx);
+                float tmpvar_17;
+                tmpvar_17 = dot (unity_SHBr, tmpvar_16);
+                x2_11.x = tmpvar_17;
+                float tmpvar_18;
+                tmpvar_18 = dot (unity_SHBg, tmpvar_16);
+                x2_11.y = tmpvar_18;
+                float tmpvar_19;
+                tmpvar_19 = dot (unity_SHBb, tmpvar_16);
+                x2_11.z = tmpvar_19;
+                float tmpvar_20;
+                tmpvar_20 = ((normal_8.x * normal_8.x) - (normal_8.y * normal_8.y));
+                vC_10 = tmpvar_20;
+                float3 tmpvar_21;
+                tmpvar_21 = (unity_SHC.xyz * vC_10);
+                x3_9 = tmpvar_21;
+                tmpvar_7 = ((x1_12 + x2_11) + x3_9);
+                shlight_1 = tmpvar_7;
+                tmpvar_3 = shlight_1;
+                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.texcoord0 = ((v.texcoord0.xy * _MainTex_ST.xy) + _MainTex_ST.zw);
+                o.color0 = v.color;
+                o.texcoord1 = tmpvar_2;
+                o.texcoord2 = tmpvar_3;
+                return o;
+            }
+            float4 frag(v2f i) : SV_TARGET
+            {
+                float4 c_1;
+                float4 tmpvar_2;
+                tmpvar_2 = i.color0;
+                float3 tmpvar_3;
+                float tmpvar_4;
+                float4 c_5;
+                float4 tmpvar_6;
+                tmpvar_6 = tex2D (_MainTex, i.texcoord0);
+                float4 tmpvar_7;
+                tmpvar_7 = (tmpvar_6 * _Color);
+                c_5 = tmpvar_7;
+                float3 tmpvar_8;
+                tmpvar_8 = (c_5.xyz * (tmpvar_2.xyz * _MainTexInt));
+                c_5.xyz = tmpvar_8;
+                float3 tmpvar_9;
+                tmpvar_9 = c_5.xyz;
+                tmpvar_3 = tmpvar_9;
+                float tmpvar_10;
+                tmpvar_10 = c_5.w;
+                tmpvar_4 = tmpvar_10;
+                float3 lightDir_11;
+                lightDir_11 = _WorldSpaceLightPos0.xyz;
+                float4 c_12;
+                c_12.xyz = ((tmpvar_3 * _LightColor0.xyz) * (dot (i.texcoord1, lightDir_11) * 2.00000));
+                c_12.w = tmpvar_4;
+                c_1 = c_12;
+                c_1.xyz = (c_1.xyz + (tmpvar_3 * i.texcoord2));
+                return c_1;
+            }
+            ENDCG
+        }
+        Pass
+        {
+            Name "FORWARD"
+            Tags { "LIGHTMODE"="ForwardAdd" "RenderType"="Opaque" }
+            ZWrite Off
+            Fog {
+            Color (0,0,0,0)
+            }
+            Blend One One
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #include "UnityCG.cginc"
+            // float4x4 _Object2World;
+            float4 _MainTex_ST;
+            float4x4 unity_WorldToLight;
+            float _MainTexInt;
+            sampler2D _MainTex;
+            sampler2D _LightTexture0;
+            #include "UnityLightingCommon.cginc"
+            float4 _Color;
+            struct appdata_t
+            {
+                float4 texcoord0 : TEXCOORD0;
+                float3 normal : NORMAL;
+                float4 color : COLOR;
+                float4 vertex : POSITION;
+            };
+            struct v2f
+            {
+                float3 texcoord3 : TEXCOORD3;
+                float3 texcoord2 : TEXCOORD2;
+                float3 texcoord1 : TEXCOORD1;
+                float4 color0 : COLOR0;
+                float2 texcoord0 : TEXCOORD0;
+                float4 vertex : POSITION;
+            };
+            v2f vert(appdata_t v)
+            {
+                v2f o;
+                float3 tmpvar_1;
+                float3 tmpvar_2;
+                float3x3 tmpvar_3;
+                tmpvar_3[0] = unity_ObjectToWorld[0].xyz;
+                tmpvar_3[1] = unity_ObjectToWorld[1].xyz;
+                tmpvar_3[2] = unity_ObjectToWorld[2].xyz;
+                float3 tmpvar_4;
+                tmpvar_4 = mul(tmpvar_3, (normalize(v.normal) * 1.0));
+                tmpvar_1 = tmpvar_4;
+                float3 tmpvar_5;
+                tmpvar_5 = (_WorldSpaceLightPos0.xyz - mul(unity_ObjectToWorld, v.vertex).xyz);
+                tmpvar_2 = tmpvar_5;
+                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.texcoord0 = ((v.texcoord0.xy * _MainTex_ST.xy) + _MainTex_ST.zw);
+                o.color0 = v.color;
+                o.texcoord1 = tmpvar_1;
+                o.texcoord2 = tmpvar_2;
+                o.texcoord3 = mul(unity_WorldToLight, mul(unity_ObjectToWorld, v.vertex)).xyz;
+                return o;
+            }
+            float4 frag(v2f i) : SV_TARGET
+            {
+                float4 c_1;
+                float3 lightDir_2;
+                float4 tmpvar_3;
+                tmpvar_3 = i.color0;
+                float3 tmpvar_4;
+                float tmpvar_5;
+                float4 c_6;
+                float4 tmpvar_7;
+                tmpvar_7 = tex2D (_MainTex, i.texcoord0);
+                float4 tmpvar_8;
+                tmpvar_8 = (tmpvar_7 * _Color);
+                c_6 = tmpvar_8;
+                float3 tmpvar_9;
+                tmpvar_9 = (c_6.xyz * (tmpvar_3.xyz * _MainTexInt));
+                c_6.xyz = tmpvar_9;
+                float3 tmpvar_10;
+                tmpvar_10 = c_6.xyz;
+                tmpvar_4 = tmpvar_10;
+                float tmpvar_11;
+                tmpvar_11 = c_6.w;
+                tmpvar_5 = tmpvar_11;
+                float3 tmpvar_12;
+                tmpvar_12 = normalize(i.texcoord2);
+                lightDir_2 = tmpvar_12;
+                float tmpvar_13;
+                tmpvar_13 = dot (i.texcoord3, i.texcoord3);
+                float4 tmpvar_14;
+                tmpvar_14 = tex2D (_LightTexture0, tmpvar_13.xx);
+                float3 lightDir_15;
+                lightDir_15 = lightDir_2;
+                float atten_16;
+                atten_16 = tmpvar_14.w;
+                float4 c_17;
+                c_17.xyz = ((tmpvar_4 * _LightColor0.xyz) * ((dot (i.texcoord1, lightDir_15) * atten_16) * 2.00000));
+                c_17.w = tmpvar_5;
+                c_1.xyz = c_17.xyz;
+                c_1.w = 0.00000;
+                return c_1;
+            }
+            ENDCG
+        }
+    }
+    Fallback "Diffuse"
 }
