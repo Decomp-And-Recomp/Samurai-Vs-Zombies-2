@@ -67,7 +67,7 @@ public class LoadingScreen : MonoBehaviour
 			yield return null;
 			LogStep("BEFORE Handheld.PlayFullScreenMovie");
 			AJavaTools.UI.StopIndeterminateProgress();
-			Handheld.PlayFullScreenMovie("SVZ2_intro_1280x720.3gp", Color.black, FullScreenMovieControlMode.CancelOnInput, FullScreenMovieScalingMode.AspectFit);
+			//Handheld.PlayFullScreenMovie("SVZ2_intro_1280x720.3gp", Color.black, FullScreenMovieControlMode.CancelOnInput, FullScreenMovieScalingMode.AspectFit);
 			LogStep("AFTER Handheld.PlayFullScreenMovie");
 			yield return new WaitForSeconds(0.5f);
 			LogStep("AFTER Handheld.PlayFullScreenMovie 1");

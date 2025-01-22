@@ -10,16 +10,31 @@ namespace ULegacyRipper
 
         public int indentationLevel;
 
+        private int indentationMultiplier;
+
+        public IndentedWriter(int indentationMultiplier = 4)
+        {
+            this.indentationMultiplier = indentationMultiplier;
+        }
+
         public void WriteLine(string line)
         {
-            lines.Add(new string(' ', indentationLevel * 4) + line);
+            lines.Add(new string(' ', indentationLevel * indentationMultiplier) + line);
         }
 
         public void WriteLines(List<string> lines)
         {
             foreach (string line in lines)
             {
-                this.lines.Add(new string(' ', indentationLevel * 4) + line);//
+                this.lines.Add(new string(' ', indentationLevel * indentationMultiplier) + line);//
+            }
+        }
+
+        public void WriteLines(params string[] lines)
+        {
+            foreach (string line in lines)
+            {
+                this.lines.Add(new string(' ', indentationLevel * indentationMultiplier) + line);//
             }
         }
 
@@ -53,6 +68,139 @@ namespace ULegacyRipper
 
         public int indentationLevel, lineIndex;
 
+        public bool IsAtEnd()
+        {
+            return lineIndex >= lines.Length - 1;
+        }
+
+        public string NextLine()
+        {
+            if (lineIndex >= lines.Length - 2)
+            {
+                return "";
+            }
+            
+            RecalculateIndentation(lineIndex);
+            string line = lines[lineIndex];
+
+            RecalculateIndentation();
+            return line;
+        }
+
+        public bool NextIndentationIsLess()
+        {
+            if (lineIndex >= lines.Length - 2)
+            {
+                return false;
+            }
+
+            int originalIndentation = indentationLevel;
+            lineIndex++;
+
+            RecalculateIndentation();
+            bool less = indentationLevel < originalIndentation;
+
+            lineIndex--;
+            RecalculateIndentation();
+
+            return less;
+        }
+
+        public bool NextIndentationIsEqual()
+        {
+            if (lineIndex >= lines.Length - 2)
+            {
+                return false;
+            }
+
+            int originalIndentation = indentationLevel;
+            lineIndex++;
+
+            RecalculateIndentation();
+            bool equal = indentationLevel == originalIndentation;
+
+            lineIndex--;
+            RecalculateIndentation();
+            return equal;
+        }
+
+        public bool NextIndentationIsMore()
+        {
+            if (lineIndex >= lines.Length - 2)
+            {
+                return false;
+            }
+
+            int originalIndentation = indentationLevel;
+            lineIndex++;
+
+            RecalculateIndentation();
+            bool more = indentationLevel > originalIndentation;
+
+            lineIndex--;
+            RecalculateIndentation();
+
+            return more;
+        }
+
+        public bool LastIndentationIsLess()
+        {
+            if (lineIndex >= lines.Length - 2)
+            {
+                return false;
+            }
+
+            int originalIndentation = indentationLevel;
+            lineIndex--;
+
+            RecalculateIndentation();
+            bool less = indentationLevel < originalIndentation;
+
+            lineIndex++;
+            RecalculateIndentation();
+
+            return less;
+        }
+
+        public bool LastIndentationIsEqual()
+        {
+            if (lineIndex >= lines.Length - 2)
+            {
+                return false;
+            }
+
+            int originalIndentation = indentationLevel;
+            lineIndex--;
+
+            RecalculateIndentation();
+            bool equal = indentationLevel == originalIndentation;
+
+            lineIndex++;
+            RecalculateIndentation();
+            return equal;
+        }
+
+        public bool LastIndentationIsMore()
+        {
+            if (lineIndex >= lines.Length - 2)
+            {
+                return false;
+            }
+
+            int originalIndentation = indentationLevel;
+            lineIndex--;
+
+            RecalculateIndentation();
+            bool more = indentationLevel > originalIndentation;
+
+            ULegacyUtils.Debug(lines[lineIndex - 1] + " (" + originalIndentation + ") " + lines[lineIndex + 1] + " (" + indentationLevel + ")");
+
+            lineIndex++;
+            RecalculateIndentation();
+
+            return more;
+        }
+
         private void RecalculateIndentation()
         {
             indentationLevel = 0;
@@ -85,7 +233,7 @@ namespace ULegacyRipper
 
         public IndentedReader(string content)
         {
-            lines = content.Split('\n');
+            lines = content.Split(new string[3] { "\r\n", "\n", "\r" }, System.StringSplitOptions.None);
             RecalculateIndentation();
         }
 

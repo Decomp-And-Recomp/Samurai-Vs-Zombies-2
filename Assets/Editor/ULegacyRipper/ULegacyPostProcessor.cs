@@ -5,11 +5,13 @@ using UnityEditor;
 using System;
 using System.Linq;
 using System.IO;
+using UnityEngine.Experimental.UIElements.StyleEnums;
 
 namespace ULegacyRipper
 {
     public class ULegacyPostProcessor : Editor
     {
+        [MenuItem("ULegacyRipper/Post Process")]
         //[UnityEditor.Callbacks.DidReloadScripts]
         private static void PromptProcess()
         {
@@ -30,7 +32,7 @@ namespace ULegacyRipper
 
         private static void PostProcess()
         {
-            ULegacyUtils.TryMethod(TranslateShaders, "Shader translation");
+            //ULegacyUtils.TryMethod(TranslateShaders, "Shader translation");
             ULegacyUtils.TryMethod(GenerateLightmapData, "Lightmap generation");
             ULegacyUtils.TryMethod(RebuildNavMeshes, "NavMesh reconstruction");
             ULegacyUtils.TryMethod(ConvertMeshes, "Mesh conversion");
@@ -39,8 +41,8 @@ namespace ULegacyRipper
         private static void TranslateShaders()
         {
             //handled in ULegacyShaderTranslator (see class below)
-            //quite complicated as to avoid any and all compiler errors
-            //surface shaders are very limited, for proper support we require a code extraction tool from all the surface generated code.
+            //quite complicated as to avoid any and all compiler errors (still WIP in this regard, matrix multiplication and vector initialization still causes errors.)
+            //surface shaders do not match the original shaders. this requires code extraction (almost entirely from fragment) and surface pragma detection
 
             string[] shaders = ULegacyUtils.GetAllAssets("t:Shader");
 
@@ -54,8 +56,10 @@ namespace ULegacyRipper
         private static void GenerateLightmapData()
         {
             //generate 2017.4.40f1's LightMapData asset based on all scenes containing any lightmap textures
-            //this requires recreation of the editor write function in the post processor
+            //this requires recreation of the editor yaml export function
             //finally point the scene to the generated lightmap
+
+            ULegacyLightmapGenerator.GenerateLightmap("Assets/Scenes/WalledFortress_Night.unity");
         }
 
         private static void RebuildNavMeshes()
@@ -87,11 +91,16 @@ namespace ULegacyRipper
             }
             catch (Exception e)
             {
-                if (!EditorUtility.DisplayDialog("Post Processing Error", "An error has occured during " + function + " Continue post processing?\nERROR:\n" + e.ToString(), "Continue", "Cancel"))
+                if (!EditorUtility.DisplayDialog("Post Processing Error", "An error has occured during " + function + ". Continue post processing?\nERROR:\n" + e.ToString(), "Continue", "Cancel"))
                 {
                     throw new Exception("Post Processing Cancelled");
                 }
             }
+        }
+
+        public static void Debug(object message)
+        {
+            EditorUtility.DisplayDialog("Post Processing Debug Message", message.ToString(), "Ok");
         }
 
         public static string[] GetAllAssets(string filter)

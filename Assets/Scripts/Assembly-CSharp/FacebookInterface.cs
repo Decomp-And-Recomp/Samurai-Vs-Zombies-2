@@ -151,12 +151,12 @@ public class FacebookInterface : MonoBehaviour
 
 	public static void FeedDialog(string message, string caption, string description, string toUser, string url, string imageLink, Action<string> onDone)
 	{
-		if (PlayHavenManager.instance != null && !PlayHavenManager.instance.isNetworkReachable)
-		{
-			MultiplayerData.NetworkRequiredDialog();
-			onDone(string.Empty);
-			return;
-		}
+		//if (PlayHavenManager.instance != null && !PlayHavenManager.instance.isNetworkReachable)
+		//{
+		//	MultiplayerData.NetworkRequiredDialog();
+		//	onDone(string.Empty);
+		//	return;
+		//}
 		smOnFinishedPost = onDone;
 		FacebookListener.PostFinished += onPostFinished;
 		if (Facebook.IsLoggedIn())

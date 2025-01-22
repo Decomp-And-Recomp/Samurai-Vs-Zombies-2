@@ -52,32 +52,32 @@ public static class PortableQualitySettings
 		return GetQualityOfAndroidDevice();
 	}
 
-	public static EPortableQualitySetting GetQualityOfIOSDevice(UnityEngine.iOS.DeviceGeneration generation, bool warnOnUnknownDevice)
-	{
-		switch (generation)
-		{
-		case UnityEngine.iOS.DeviceGeneration.iPhone:
-		case UnityEngine.iOS.DeviceGeneration.iPhone3G:
-		case UnityEngine.iOS.DeviceGeneration.iPodTouch1Gen:
-		case UnityEngine.iOS.DeviceGeneration.iPodTouch2Gen:
-		case UnityEngine.iOS.DeviceGeneration.iPodTouch3Gen:
-		case UnityEngine.iOS.DeviceGeneration.iPad1Gen:
-			return EPortableQualitySetting.Low;
-		case UnityEngine.iOS.DeviceGeneration.iPhone3GS:
-		case UnityEngine.iOS.DeviceGeneration.iPhone4:
-		case UnityEngine.iOS.DeviceGeneration.iPodTouch4Gen:
-			return EPortableQualitySetting.Medium;
-		case UnityEngine.iOS.DeviceGeneration.iPad2Gen:
-		case UnityEngine.iOS.DeviceGeneration.iPhone4S:
-		case UnityEngine.iOS.DeviceGeneration.iPad3Gen:
-			return EPortableQualitySetting.High;
-		default:
-			if (warnOnUnknownDevice)
-			{
-			}
-			return EPortableQualitySetting.High;
-		}
-	}
+	//public static EPortableQualitySetting GetQualityOfIOSDevice(UnityEngine.iOS.DeviceGeneration generation, bool warnOnUnknownDevice)
+	//{
+	//	switch (generation)
+	//	{
+	//	case UnityEngine.iOS.DeviceGeneration.iPhone:
+	//	case UnityEngine.iOS.DeviceGeneration.iPhone3G:
+	//	case UnityEngine.iOS.DeviceGeneration.iPodTouch1Gen:
+	//	case UnityEngine.iOS.DeviceGeneration.iPodTouch2Gen:
+	//	case UnityEngine.iOS.DeviceGeneration.iPodTouch3Gen:
+	//	case UnityEngine.iOS.DeviceGeneration.iPad1Gen:
+	//		return EPortableQualitySetting.Low;
+	//	case UnityEngine.iOS.DeviceGeneration.iPhone3GS:
+	//	case UnityEngine.iOS.DeviceGeneration.iPhone4:
+	//	case UnityEngine.iOS.DeviceGeneration.iPodTouch4Gen:
+	//		return EPortableQualitySetting.Medium;
+	//	case UnityEngine.iOS.DeviceGeneration.iPad2Gen:
+	//	case UnityEngine.iOS.DeviceGeneration.iPhone4S:
+	//	case UnityEngine.iOS.DeviceGeneration.iPad3Gen:
+	//		return EPortableQualitySetting.High;
+	//	default:
+	//		if (warnOnUnknownDevice)
+	//		{
+	//		}
+	//		return EPortableQualitySetting.High;
+	//	}
+	//}
 
 	public static EPortableQualitySetting GetQualityOfAndroidDevice()
 	{
