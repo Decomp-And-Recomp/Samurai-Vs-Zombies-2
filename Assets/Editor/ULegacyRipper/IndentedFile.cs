@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -193,8 +194,6 @@ namespace ULegacyRipper
             RecalculateIndentation();
             bool more = indentationLevel > originalIndentation;
 
-            ULegacyUtils.Debug(lines[lineIndex - 1] + " (" + originalIndentation + ") " + lines[lineIndex + 1] + " (" + indentationLevel + ")");
-
             lineIndex++;
             RecalculateIndentation();
 
@@ -231,9 +230,9 @@ namespace ULegacyRipper
             }
         }
 
-        public IndentedReader(string content)
+        public IndentedReader(string[] content)
         {
-            lines = content.Split(new string[3] { "\r\n", "\n", "\r" }, System.StringSplitOptions.None);
+            lines = content;
             RecalculateIndentation();
         }
 
@@ -243,13 +242,13 @@ namespace ULegacyRipper
 
             while (line == "")
             {
+                line = lines[lineIndex++].Substring(indentationLevel);
+                RecalculateIndentation();
+
                 if (lineIndex >= lines.Length - 1)
                 {
                     break;
                 }
-
-                line = lines[lineIndex++].Substring(indentationLevel);
-                RecalculateIndentation();
             }
 
             return line;

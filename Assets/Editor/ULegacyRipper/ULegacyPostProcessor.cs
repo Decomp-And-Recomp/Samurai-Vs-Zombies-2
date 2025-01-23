@@ -40,7 +40,7 @@ namespace ULegacyRipper
 
         private static void TranslateShaders()
         {
-            //handled in ULegacyShaderTranslator (see class below)
+            //handled in ULegacyShaderTranslator
             //quite complicated as to avoid any and all compiler errors (still WIP in this regard, matrix multiplication and vector initialization still causes errors.)
             //surface shaders do not match the original shaders. this requires code extraction (almost entirely from fragment) and surface pragma detection
 
@@ -55,11 +55,34 @@ namespace ULegacyRipper
 
         private static void GenerateLightmapData()
         {
+            //handled in ULegacyLightmapGenerator
             //generate 2017.4.40f1's LightMapData asset based on all scenes containing any lightmap textures
-            //this requires recreation of the editor yaml export function
-            //finally point the scene to the generated lightmap
+            
+            string[] scenes = ULegacyUtils.GetAllAssets("t:Scene");
+            List<string> scenesWithLightmap = new List<string>();
 
-            ULegacyLightmapGenerator.GenerateLightmap("Assets/Scenes/WalledFortress_Night.unity");
+            foreach (string scene in scenes)
+            {
+                string folderPath = Path.Combine(Path.GetDirectoryName(scene), Path.GetFileNameWithoutExtension(scene));
+
+                if (Directory.Exists(folderPath))
+                {
+                    foreach (string file in Directory.GetFiles(folderPath))
+                    {
+                        if (Path.GetFileName(file).Contains("Lightmap"))
+                        {
+                            scenesWithLightmap.Add(scene);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            for (int i = 0; i < scenesWithLightmap.Count; i++)
+            {
+                EditorUtility.DisplayProgressBar("ULegacy Post Processor", "Generating Lightmap for " + Path.GetFileName(scenesWithLightmap[i]), i == 0 ? 0 : (i / (float)scenesWithLightmap.Count));
+                ULegacyLightmapGenerator.GenerateLightmap(scenesWithLightmap[i]);
+            }
         }
 
         private static void RebuildNavMeshes()
@@ -98,9 +121,20 @@ namespace ULegacyRipper
             }
         }
 
+        //Debug.Log isn't working outside of runtime??
         public static void Debug(object message)
         {
-            EditorUtility.DisplayDialog("Post Processing Debug Message", message.ToString(), "Ok");
+            if (!File.Exists("Assets/Debug.log"))
+            {
+                File.WriteAllText("Assets/Debug.log", message.ToString());
+            }
+            else
+            {
+                List<string> lines = File.ReadAllLines("Assets/Debug.log").ToList();
+                lines.Add(message.ToString());
+
+                File.WriteAllLines("Assets/Debug.log", lines.ToArray());
+            }
         }
 
         public static string[] GetAllAssets(string filter)

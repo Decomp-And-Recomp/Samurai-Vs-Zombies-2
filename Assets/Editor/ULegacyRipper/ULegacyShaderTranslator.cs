@@ -124,7 +124,7 @@ namespace ULegacyRipper
 
         public static void TranslateShader(string assetPath)
         {
-            Shader shader = ReadCompiledShader(File.ReadAllText(assetPath));
+            Shader shader = ReadCompiledShader(File.ReadAllLines(assetPath));
 
             if (shader != null)
             {
@@ -413,14 +413,7 @@ namespace ULegacyRipper
             return name.Substring(OutputVariable.Length).ToUpper().Replace("VERTEX", "POSITION").Replace("MULTI", "");
         }
 
-        private static void Log(string message)
-        {
-            //placeholder because APPARENTLY debug.logerror doesn't do anything now
-            Debug.LogError(message);
-            EditorUtility.DisplayDialog("Log", message, "Ok");
-        }
-
-        private static Shader ReadCompiledShader(string content)
+        private static Shader ReadCompiledShader(string[] content)
         {
             IndentedReader reader = new IndentedReader(content);
 
