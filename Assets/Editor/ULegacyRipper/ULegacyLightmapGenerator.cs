@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -13,8 +11,7 @@ namespace ULegacyRipper
 		public static void GenerateLightmap(string scenePath)
 		{
 			//you should probably make a yaml WRITER at some point yk
-			ULegacyUtils.Debug("tf?");
-			YAML yaml = YAMLReader.Read(File.ReadAllLines(scenePath));
+			YAML yaml = YAMLReader.Read(File.ReadAllText(scenePath));
 			IndentedWriter writer = new IndentedWriter(2);
 
 			writer.WriteLines("%YAML 1.1",
@@ -39,17 +36,7 @@ namespace ULegacyRipper
 				writer.WriteLine("- serializedVersion: 2");
 				writer.indentationLevel++;
 
-				string originalPath = AssetDatabase.GUIDToAssetPath((string)lightmaps.ArrayValue("m_Lightmap", i)["guid"].value);
-
-				Texture2D texture = new Texture2D(1, 1, TextureFormat.DXT5, false);
-				texture.LoadImage(File.ReadAllBytes(originalPath));
-
-				string newPath = AssetDatabase.GUIDToAssetPath((string)lightmaps.ArrayValue("m_Lightmap", i)["guid"].value).Replace(".png", ".asset");
-				AssetDatabase.CreateAsset(texture, newPath);
-
-				File.Delete(originalPath);
-
-				writer.WriteLines("m_Lightmap: {fileID: 2800000, guid: " + AssetDatabase.AssetPathToGUID(AssetDatabase.GUIDToAssetPath((string)lightmaps.ArrayValue("m_Lightmap", i)["guid"].value).Replace(".png", ".asset")) + ", type: 2}",
+				writer.WriteLines("m_Lightmap: {fileID: 2800000, guid: " + lightmaps.ArrayValue("m_Lightmap", i)["guid"].value + ", type: 2}",
 				"m_DirLightmap: {fileID: 0}",
 				"m_ShadowMask: {fileID: 0}");
 
@@ -144,15 +131,9 @@ namespace ULegacyRipper
 			writer.WriteLines("m_BakedReflectionProbeCubemaps: []",
 			"m_BakedReflectionProbes: []",
 			"m_EnlightenData:",
-			"m_EnlightenDataVersion: 112");	
+			"m_EnlightenDataVersion: 112");
 
-			string lightingDataPath = Path.Combine(Path.Combine(Path.GetDirectoryName(scenePath), Path.GetFileNameWithoutExtension(scenePath)), "LightingData.asset");
-			File.WriteAllText(lightingDataPath, writer.ToString());
-
-			List<string> sceneLines = File.ReadAllLines(scenePath).ToList();
-			sceneLines.Insert(sceneLines.IndexOf("LightmapSettings:") + 1, "  m_LightingDataAsset: {fileID: 112000000, guid: " + AssetDatabase.AssetPathToGUID(lightingDataPath) + ", type: 2}");
-
-			File.WriteAllLines(scenePath, sceneLines.ToArray());
+			File.WriteAllText(Path.Combine(Path.Combine(Path.GetDirectoryName(scenePath), Path.GetFileNameWithoutExtension(scenePath)), "LightingData.asset"), writer.ToString());
 		}
 	}
 }

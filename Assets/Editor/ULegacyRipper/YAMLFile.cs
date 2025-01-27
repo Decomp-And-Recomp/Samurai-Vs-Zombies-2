@@ -143,7 +143,7 @@ namespace ULegacyRipper
 
     public static class YAMLReader
     {
-        public static YAML Read(string[] content)
+        public static YAML Read(string content)
         {
             IndentedReader reader = new IndentedReader(content);
             YAML yaml = new YAML();
@@ -223,6 +223,11 @@ namespace ULegacyRipper
                             {
                                 //IDK WHY THIS IS HAPPENING
                                 continue;
+                            }
+
+                            if (objectKeyValue.Length == 1)
+                            {
+                                ULegacyUtils.Debug(objectKeyValue[0]);
                             }
                             
                             YAMLObject childObject = new YAMLObject
