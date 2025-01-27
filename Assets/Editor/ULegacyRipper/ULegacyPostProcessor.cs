@@ -19,7 +19,7 @@ namespace ULegacyRipper
             {
                 if (EditorUtility.DisplayDialog("Post Processor", "Exported project has been fully imported. would you like to run the Post Processor? (HIGHLY RECOMMENDED, ports Lightmaps, Shaders, NavMeshes, Meshes, ETC)", "Yes", "No"))
                 {
-                    ULegacyUtils.TryMethod(PostProcess, "Post processing");
+                    PostProcess();
                     EditorUtility.ClearProgressBar();
 
                     AssetDatabase.Refresh();
@@ -33,14 +33,14 @@ namespace ULegacyRipper
         private static void PostProcess()
         {
             //ULegacyUtils.TryMethod(TranslateShaders, "Shader translation");
-            ULegacyUtils.TryMethod(GenerateLightmapData, "Lightmap generation");
+            ULegacyUtils.TryMethod(GenerateLightmapData, "Lightmap translation");
             ULegacyUtils.TryMethod(RebuildNavMeshes, "NavMesh reconstruction");
             ULegacyUtils.TryMethod(ConvertMeshes, "Mesh conversion");
         }
 
         private static void TranslateShaders()
         {
-            //handled in ULegacyShaderTranslator (see class below)
+            //handled in ULegacyShaderTranslator
             //quite complicated as to avoid any and all compiler errors (still WIP in this regard, matrix multiplication and vector initialization still causes errors.)
             //surface shaders do not match the original shaders. this requires code extraction (almost entirely from fragment) and surface pragma detection
 
@@ -55,11 +55,34 @@ namespace ULegacyRipper
 
         private static void GenerateLightmapData()
         {
+            //handled in ULegacyLightmapGenerator
             //generate 2017.4.40f1's LightMapData asset based on all scenes containing any lightmap textures
-            //this requires recreation of the editor yaml export function
-            //finally point the scene to the generated lightmap
 
-            ULegacyLightmapGenerator.GenerateLightmap("Assets/Scenes/WalledFortress_Night.unity");
+            string[] scenes = ULegacyUtils.GetAllAssets("t:Scene");
+            List<string> scenesWithLightmap = new List<string>();
+
+            foreach (string scene in scenes)
+            {
+                string folderPath = Path.Combine(Path.GetDirectoryName(scene), Path.GetFileNameWithoutExtension(scene));
+
+                if (Directory.Exists(folderPath))
+                {
+                    foreach (string file in Directory.GetFiles(folderPath))
+                    {
+                        if (Path.GetFileName(file).Contains("Lightmap"))
+                        {
+                            scenesWithLightmap.Add(scene);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            for (int i = 0; i < scenesWithLightmap.Count; i++)
+            {
+                EditorUtility.DisplayProgressBar("ULegacy Post Processor", "Generating Lightmap for " + Path.GetFileName(scenesWithLightmap[i]), i == 0 ? 0 : (i / (float)scenesWithLightmap.Count));
+                ULegacyLightmapGenerator.GenerateLightmap(scenesWithLightmap[i]);
+            }
         }
 
         private static void RebuildNavMeshes()
@@ -96,11 +119,6 @@ namespace ULegacyRipper
                     throw new Exception("Post Processing Cancelled");
                 }
             }
-        }
-
-        public static void Debug(object message)
-        {
-            EditorUtility.DisplayDialog("Post Processing Debug Message", message.ToString(), "Ok");
         }
 
         public static string[] GetAllAssets(string filter)

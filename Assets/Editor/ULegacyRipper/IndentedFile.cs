@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -73,136 +74,28 @@ namespace ULegacyRipper
             return lineIndex >= lines.Length - 1;
         }
 
-        public string NextLine()
+        public bool HasEnded()
         {
-            if (lineIndex >= lines.Length - 2)
+            return lineIndex >= lines.Length;
+        }
+
+        public string CurrentLine()
+        {
+            if (HasEnded())
             {
                 return "";
             }
-            
-            RecalculateIndentation(lineIndex);
-            string line = lines[lineIndex];
 
-            RecalculateIndentation();
-            return line;
+            return lines[lineIndex].Substring(indentationLevel);
         }
 
-        public bool NextIndentationIsLess()
+        public void RecalculateIndentation()
         {
-            if (lineIndex >= lines.Length - 2)
+            if (IsAtEnd())
             {
-                return false;
+                return;
             }
 
-            int originalIndentation = indentationLevel;
-            lineIndex++;
-
-            RecalculateIndentation();
-            bool less = indentationLevel < originalIndentation;
-
-            lineIndex--;
-            RecalculateIndentation();
-
-            return less;
-        }
-
-        public bool NextIndentationIsEqual()
-        {
-            if (lineIndex >= lines.Length - 2)
-            {
-                return false;
-            }
-
-            int originalIndentation = indentationLevel;
-            lineIndex++;
-
-            RecalculateIndentation();
-            bool equal = indentationLevel == originalIndentation;
-
-            lineIndex--;
-            RecalculateIndentation();
-            return equal;
-        }
-
-        public bool NextIndentationIsMore()
-        {
-            if (lineIndex >= lines.Length - 2)
-            {
-                return false;
-            }
-
-            int originalIndentation = indentationLevel;
-            lineIndex++;
-
-            RecalculateIndentation();
-            bool more = indentationLevel > originalIndentation;
-
-            lineIndex--;
-            RecalculateIndentation();
-
-            return more;
-        }
-
-        public bool LastIndentationIsLess()
-        {
-            if (lineIndex >= lines.Length - 2)
-            {
-                return false;
-            }
-
-            int originalIndentation = indentationLevel;
-            lineIndex--;
-
-            RecalculateIndentation();
-            bool less = indentationLevel < originalIndentation;
-
-            lineIndex++;
-            RecalculateIndentation();
-
-            return less;
-        }
-
-        public bool LastIndentationIsEqual()
-        {
-            if (lineIndex >= lines.Length - 2)
-            {
-                return false;
-            }
-
-            int originalIndentation = indentationLevel;
-            lineIndex--;
-
-            RecalculateIndentation();
-            bool equal = indentationLevel == originalIndentation;
-
-            lineIndex++;
-            RecalculateIndentation();
-            return equal;
-        }
-
-        public bool LastIndentationIsMore()
-        {
-            if (lineIndex >= lines.Length - 2)
-            {
-                return false;
-            }
-
-            int originalIndentation = indentationLevel;
-            lineIndex--;
-
-            RecalculateIndentation();
-            bool more = indentationLevel > originalIndentation;
-
-            ULegacyUtils.Debug(lines[lineIndex - 1] + " (" + originalIndentation + ") " + lines[lineIndex + 1] + " (" + indentationLevel + ")");
-
-            lineIndex++;
-            RecalculateIndentation();
-
-            return more;
-        }
-
-        private void RecalculateIndentation()
-        {
             indentationLevel = 0;
 
             for (int i = 0; i < lines[lineIndex].Length; i++)
@@ -231,9 +124,9 @@ namespace ULegacyRipper
             }
         }
 
-        public IndentedReader(string content)
+        public IndentedReader(string[] content)
         {
-            lines = content.Split(new string[3] { "\r\n", "\n", "\r" }, System.StringSplitOptions.None);
+            lines = content;
             RecalculateIndentation();
         }
 
@@ -243,7 +136,7 @@ namespace ULegacyRipper
 
             while (line == "")
             {
-                if (lineIndex >= lines.Length - 1)
+                if (HasEnded())
                 {
                     break;
                 }
@@ -336,22 +229,6 @@ namespace ULegacyRipper
             }
 
             return line;
-        }
-
-        public bool IsFirst(string first, string second)
-        {
-            int previousIndex = lineIndex;
-            ReadUntil(first);
-
-            int firstIndex = lineIndex;
-            lineIndex = previousIndex;
-
-            ReadUntil(second);
-            int secondIndex = lineIndex;
-
-            lineIndex = previousIndex;
-
-            return firstIndex < secondIndex;
         }
     }
 }

@@ -6,242 +6,361 @@ using UnityEngine;
 
 namespace ULegacyRipper
 {
-    public class YAML : IEnumerable<KeyValuePair<long, YAMLObject>>
+    public class YAML
     {
-        public Dictionary<long, YAMLObject> objects = new Dictionary<long, YAMLObject>();
+        public Dictionary<long, YAMLNode> nodes = new Dictionary<long, YAMLNode>();
 
-        public YAMLObject this[long tag]
+        public YAMLNode FindNode(string name)
         {
-            get
+            foreach (KeyValuePair<long, YAMLNode> node in nodes)
             {
-                return objects[tag];
-            }
-            set
-            {
-                if (!objects.ContainsKey(tag))
+                if (node.Value.name == name)
                 {
-                    objects.Add(tag, value);
-                }
-                else
-                {
-                    objects[tag] = value;
-                }
-            }
-        }
-
-        public long Find(string key)
-        {
-            foreach (KeyValuePair<long, YAMLObject> kvp in objects)
-            {
-                if (kvp.Value.name == key)
-                {
-                    return kvp.Key;
+                    return node.Value;
                 }
             }
 
-            return 0;
+            throw new Exception("No node matching " + name + " exists!");
         }
 
-        public IEnumerator<KeyValuePair<long, YAMLObject>> GetEnumerator()
+        public long Find(string name)
         {
-            return objects.GetEnumerator();
-        }
+            foreach (KeyValuePair<long, YAMLNode> node in nodes)
+            {
+                if (node.Value.name == name)
+                {
+                    return node.Key;
+                }
+            }
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
+            throw new Exception("No node matching " + name + " exists!");
         }
     }
 
-    public class YAMLObject : IEnumerable<KeyValuePair<string, YAMLObject>>
+    public class YAMLNode
     {
-        public string name;
+        public Dictionary<string, YAMLNode> childNodes = new Dictionary<string, YAMLNode>();
 
-        public object value;
+        public Dictionary<string, string> table = new Dictionary<string, string>();
 
-        public Dictionary<string, YAMLObject> values = new Dictionary<string, YAMLObject>();
+        public List<YAMLNode> nodeList = new List<YAMLNode>();
 
-        private Dictionary<string, int> arrayCounts = new Dictionary<string, int>();
+        public YAMLNode parentNode;
 
-        public YAMLObject this[string key]
+        public string name, value;
+
+        public long type;
+
+        public void CopyTable(YAMLNode source)
         {
-            get
+            table = new Dictionary<string, string>(source.table);
+        }
+
+        public YAMLNode AddNode(string name, string value)
+        {
+            YAMLNode node = new YAMLNode
             {
-                return values[key];
+                name = name,
+                value = value
+            };
+
+            childNodes.Add(name, node);
+            return node;
+        }
+
+        public YAMLNode AddNode(string name)
+        {
+            YAMLNode node = new YAMLNode
+            {
+                name = name
+            };
+
+            childNodes.Add(name, node);
+            return node;
+        }
+
+        public YAMLNode CopyNode(string name, YAMLNode destination)
+        {
+            destination.name = name;
+            childNodes.Add(name, destination);
+
+            return childNodes[name];
+        }
+    }
+
+    public static class YAMLUnityExtensions
+    {
+        public static YAMLNode AddEmptyFileIDNode(this YAMLNode node, string name)
+        {
+            YAMLNode childNode = new YAMLNode
+            {
+                name = name
+            };
+
+            childNode.table.Add("fileID", "0");
+            node.childNodes.Add(name, childNode);
+
+            return childNode;
+        }
+
+        public static YAMLNode AddEmptyVector4(this YAMLNode node, string name)
+        {
+            YAMLNode childNode = new YAMLNode
+            {
+                name = name
+            };
+
+            childNode.table.Add("x", "0");
+            childNode.table.Add("y", "0");
+            childNode.table.Add("z", "0");
+            childNode.table.Add("w", "0");
+
+            node.childNodes.Add(name, childNode);
+
+            return childNode;
+        }
+
+        public static YAMLNode AddEmptyVector4ST(this YAMLNode node, string name)
+        {
+            YAMLNode childNode = new YAMLNode
+            {
+                name = name
+            };
+
+            childNode.table.Add("x", "1");
+            childNode.table.Add("y", "1");
+            childNode.table.Add("z", "0");
+            childNode.table.Add("w", "0");
+
+            node.childNodes.Add(name, childNode);
+
+            return childNode;
+        }
+    }
+
+    public static class YAMLWriter
+    {
+        public static string WriteYAML(YAML yaml)
+        {
+            IndentedWriter writer = new IndentedWriter(2);
+
+            writer.WriteLines("%YAML 1.1",
+            "%TAG !u! tag:unity3d.com,2011:");
+
+            foreach (KeyValuePair<long, YAMLNode> node in yaml.nodes)
+            {
+                writer.WriteLine("--- !u!" + node.Value.type + " &" + node.Key);
+                WriteYAMLNode(node.Value, writer);
             }
-            set
+
+            writer.WriteLine(""); //extra newline at the end of unity yamls for some reason
+
+            return writer.ToString();
+        }
+
+        private static void WriteYAMLNode(YAMLNode node, IndentedWriter writer, bool isArrayElement = false)
+        {
+            string line = (isArrayElement ? (string.IsNullOrEmpty(node.name) ? "-" : "- ") : "") + (string.IsNullOrEmpty(node.name) ? "" : (node.name + ":"));
+
+            if (node.table.Count > 0)
             {
-                if (!values.ContainsKey(key))
+                line += " {";
+                int index = 0;
+
+                foreach (KeyValuePair<string, string> entry in node.table)
                 {
-                    values.Add(key, value);
+                    if (index >= node.table.Count - 1)
+                    {
+                        line += entry.Key + ": " + entry.Value + "}";
+                    }
+                    else
+                    {
+                        line += entry.Key + ": " + entry.Value + ", ";
+                    }
+
+                    index++;
                 }
-                else
-                {
-                    values[key] = value;
-                }
-            }
-        }
 
-        public float TryGetFloat()
-        {
-            if (value.GetType() == typeof(string))
-            {
-                throw new Exception("a string is not a float");
-            }
-            else if (value.GetType() == typeof(long))
-            {
-                return (long)value;
-            }
-
-            return (float)value;
-        }
-
-        public bool HasObject(string name)
-        {
-            return values.ContainsKey(name);
-        }
-
-        public int ArrayCount(string key)
-        {
-            if (!arrayCounts.ContainsKey("ARR_" + key))
-            {
-                return 0;
-            }
-
-            return arrayCounts["ARR_" + key] + 1;
-        }
-
-        public YAMLObject ArrayValue(string key, int index)
-        {
-            return this["ARR_" + key + "_" + index];
-        }
-
-        public void ArrayAdd(YAMLObject obj, string name)
-        {
-            if (!arrayCounts.ContainsKey(name))
-            {
-                arrayCounts.Add(name, 0);
+                writer.WriteLine(line);
             }
             else
             {
-                arrayCounts[name]++;
+                if (!string.IsNullOrEmpty(node.value))
+                {
+                    line += " " + node.value;
+                }
+
+                writer.WriteLine(line);
+
+                if (node.nodeList.Count > 0)
+                {
+                    foreach (YAMLNode childNode in node.nodeList)
+                    {
+                        WriteYAMLNode(childNode, writer, true);
+                    }
+                }
             }
-            
-            this[name + "_" + arrayCounts[name]] = obj;
-        }
 
-        public IEnumerator<KeyValuePair<string, YAMLObject>> GetEnumerator()
-        {
-            return values.GetEnumerator();
-        }
+            if (node.childNodes.Count > 0)
+            {
+                writer.indentationLevel++;
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
+                foreach (KeyValuePair<string, YAMLNode> childNode in node.childNodes)
+                {
+                    WriteYAMLNode(childNode.Value, writer);
+                }
+
+                writer.indentationLevel--;
+            }
         }
     }
 
     public static class YAMLReader
     {
-        public static YAML Read(string content)
+        public static YAML ReadYAML(string[] content)
         {
             IndentedReader reader = new IndentedReader(content);
             YAML yaml = new YAML();
 
-            while (!reader.IsAtEnd())
+            long currentTag = 0;
+            long currentType = 0;
+
+            while (!reader.HasEnded())
             {
                 string line = reader.ReadLine();
 
                 if (line.StartsWith("---"))
                 {
-                    yaml[long.Parse(line.Split(' ')[2].Substring(1))] = ReadYAMLObject(reader);
+                    currentTag = long.Parse(line.Split(' ')[2].Substring(1));
+                    currentType = long.Parse(line.Split(' ')[1].Substring(3));
+                }
+                else if (!line.StartsWith("%"))
+                {
+                    reader.lineIndex--;
+                    reader.RecalculateIndentation();
+
+                    YAMLNode node = ReadNode(reader);
+                    node.type = currentType;
+
+                    yaml.nodes.Add(currentTag, node);
                 }
             }
 
             return yaml;
         }
 
-        private static YAMLObject ReadYAMLObject(IndentedReader reader)
+        private static YAMLNode ReadNode(IndentedReader reader, bool isArrayElement = false)
         {
+            int currentIndentation = reader.indentationLevel;
+
             string line = reader.ReadLine();
-            List<string> values = line.Split(new string[1] { ": " }, System.StringSplitOptions.None).ToList();
 
-            if (!line.Contains(" "))
+            if (line.StartsWith("- ") && !line.Substring(2).StartsWith("{"))
             {
-                values = new List<string> { line.Replace(":", "") };
+                line = line.Substring(2);
             }
 
-            bool isArray = values[0].StartsWith("-");
+            YAMLNode node = ReadSimpleKeyValue(line, reader);
 
-            if (isArray)
+            while (reader.indentationLevel == currentIndentation + 2 || (reader.CurrentLine().StartsWith("- ") && reader.indentationLevel == currentIndentation))
             {
-                values[0] = values[0].Substring(2);
-            }
-
-            YAMLObject yamlObject = new YAMLObject
-            {
-                name = ((isArray ? "ARR_" : "") + values[0]).Replace("{", "")
-            };
-
-            if (reader.LastIndentationIsLess() || reader.NextLine().StartsWith("- "))
-            {
-                do
+                if (reader.HasEnded())
                 {
-                    YAMLObject childObject = ReadYAMLObject(reader);
+                    break;
+                }
 
-                    if (childObject.name.StartsWith("ARR_"))
+                if (reader.CurrentLine().StartsWith("- "))
+                {
+                    if (isArrayElement)
                     {
-                        yamlObject.ArrayAdd(childObject, childObject.name);
+                        break;
                     }
-                    else
+
+                    YAMLNode childNode = ReadNode(reader, true);
+                    childNode.parentNode = node;
+
+                    node.nodeList.Add(childNode);
+                }
+                else
+                {
+                    YAMLNode childNode = ReadNode(reader);
+                    childNode.parentNode = node;
+                    
+                    node.childNodes.Add(childNode.name, childNode);
+                }
+            }
+
+            return node;
+        }
+
+        private static YAMLNode ReadSimpleKeyValue(string line, IndentedReader reader)
+        {
+            if (line.StartsWith("- ") && line.Substring(2).StartsWith("{"))
+            {
+                YAMLNode entry = new YAMLNode();
+
+                while (true)
+                {
+                    if (HandleValue(entry, line.Substring(2), reader))
                     {
-                        yamlObject[childObject.name] = childObject;
+                        break;
                     }
                 }
-                while (reader.LastIndentationIsEqual());
+
+                return entry;
             }
 
-            if (values.Count > 1)
+            int valueIndex = line.IndexOf(":") + 1;
+
+            if (valueIndex < 1)
             {
-                if (values[1].StartsWith("{"))
+                return new YAMLNode()
+                {
+                    value = line
+                };
+            }
+
+            YAMLNode node = new YAMLNode()
+            {
+                name = line.Substring(0, valueIndex - 1)
+            };
+
+            if (line.Length > valueIndex)
+            {
+                while (true)
+                {
+                    if (HandleValue(node, line.Substring(valueIndex + 1), reader))
+                    {
+                        break;
+                    }
+                }
+            }
+
+            return node;
+        }
+
+        private static bool HandleValue(YAMLNode node, string value, IndentedReader reader)
+        {
+            if (value.StartsWith("{"))
+            {
+                if (value != "{}")
                 {
                     while (true)
                     {
-                        string[] objectValues = line.Substring(values[0].Length + 3).Split(new string[1] { ", " }, System.StringSplitOptions.None);
+                        string[] values = value.Replace("{", "").Replace("}", "").Split(new string[1] { ", " }, StringSplitOptions.None);
 
-                        for (int i = 0; i < objectValues.Length; i++)
+                        for (int i = 0; i < values.Length; i++)
                         {
-                            if (objectValues[i].Replace("}", "") == "")
-                            {
-                                //idk why this would happen but it did so
-                                continue;
-                            }
+                            YAMLNode childNode = ReadSimpleKeyValue(values[i], reader);
+                            childNode.parentNode = node;
 
-                            string[] objectKeyValue = objectValues[i].Replace("}", "").Split(new string[1] { ": " }, System.StringSplitOptions.None);
-
-                            if (objectKeyValue.Length < 2)
-                            {
-                                //IDK WHY THIS IS HAPPENING
-                                continue;
-                            }
-
-                            if (objectKeyValue.Length == 1)
-                            {
-                                ULegacyUtils.Debug(objectKeyValue[0]);
-                            }
-                            
-                            YAMLObject childObject = new YAMLObject
-                            {
-                                name = objectKeyValue[0],
-                                value = StringToYamlObject(objectKeyValue[1])
-                            };
-
-                            yamlObject[childObject.name] = childObject;
+                            node.table.Add(childNode.name, childNode.value);
                         }
 
-                        if (!line.Contains("}"))
+                        if (!value.Contains("}"))
                         {
-                            line = reader.ReadLine();
+                            Debug.LogError("well that's a problem"); //implement this if it ever gets logged
+                            break; //this wouldn't usually break here but y'know
                         }
                         else
                         {
@@ -249,32 +368,13 @@ namespace ULegacyRipper
                         }
                     }
                 }
-                else
-                {
-                    yamlObject.value = StringToYamlObject(values[1]);
-                }
-            }
-
-            return yamlObject;
-        }
-
-        private static object StringToYamlObject(string value)
-        {
-            long num;
-            float dec;
-
-            if (long.TryParse(value, out num))
-            {
-                return num;
-            }
-            else if (float.TryParse(value, out dec))
-            {
-                return dec;
             }
             else
             {
-                return value;
+                node.value = value;
             }
+
+            return true;
         }
     }
 }
