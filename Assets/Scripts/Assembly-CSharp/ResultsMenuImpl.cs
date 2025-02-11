@@ -95,10 +95,6 @@ public class ResultsMenuImpl : UIHandler<ResultsMenuImpl>, IGluiActionHandler
 					Singleton<Profile>.Instance.lastCompletedDailyChallenge = Profile.GetDailyChallengeDaysSinceStart();
 					int dailyChallengesCompleted = Singleton<Profile>.Instance.dailyChallengesCompleted + 1;
 					Singleton<Profile>.Instance.dailyChallengesCompleted = dailyChallengesCompleted;
-					if (!AJavaTools.Properties.IsBuildAmazon() && PlayGameServices.IsSignedIn)
-					{
-						PlayGameServices.SubmitScore(Profile.kDailyChallengeLeaderboard, Singleton<Profile>.Instance.dailyChallengesCompleted);
-					}
 				}
 			}
 			if (!Singleton<Profile>.Instance.inDailyChallenge)

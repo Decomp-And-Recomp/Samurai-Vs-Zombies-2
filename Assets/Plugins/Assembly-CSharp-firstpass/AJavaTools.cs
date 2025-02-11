@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using Glu.Plugins.AJavaTools_Private;
 using Glu.Plugins.AMiscUtils;
+using UnityEditor;
 using UnityEngine;
 
 public class AJavaTools : MonoBehaviour
@@ -11,12 +13,10 @@ public class AJavaTools : MonoBehaviour
 	{
 		public static void DataChanged()
 		{
-			AJTB_DataChanged();
 		}
 
 		public static void RequestRestore()
 		{
-			AJTB_RequestRestore();
 		}
 
 		public static void RequestRestoreIfNoData()
@@ -64,134 +64,18 @@ public class AJavaTools : MonoBehaviour
 
 		private static bool IsGluDebug_value;
 
-		public static int GetScreenWidth()
-		{
-			if (GetScreenWidth_value == 0)
-			{
-				GetScreenWidth_value = AJTDI_GetScreenWidth();
-			}
-			return GetScreenWidth_value;
-		}
-
-		public static int GetScreenHeight()
-		{
-			if (GetScreenHeight_value == 0)
-			{
-				GetScreenHeight_value = AJTDI_GetScreenHeight();
-			}
-			return GetScreenHeight_value;
-		}
-
-		public static int GetScreenLayout()
-		{
-			if (GetScreenLayout_value == 0)
-			{
-				GetScreenLayout_value = AJTDI_GetScreenLayout();
-			}
-			return GetScreenLayout_value;
-		}
-
-		public static double GetScreenDiagonalInches()
-		{
-			if (GetScreenDiagonalInches_value == 0.0)
-			{
-				GetScreenDiagonalInches_value = AJTDI_GetScreenDiagonalInches();
-			}
-			return GetScreenDiagonalInches_value;
-		}
-
-		public static bool IsTablet()
-		{
-			return GetScreenDiagonalInches() >= 6.0;
-		}
-
-		public static string GetDeviceLanguage()
-		{
-			if (GetDeviceLanguage_value == null)
-			{
-				GetDeviceLanguage_value = AJTDI_GetDeviceLanguage();
-			}
-			return GetDeviceLanguage_value;
-		}
-
-		public static string GetDeviceCountry()
-		{
-			if (GetDeviceCountry_value == null)
-			{
-				GetDeviceCountry_value = AJTDI_GetDeviceCountry();
-			}
-			return GetDeviceCountry_value;
-		}
-
 		public static string GetDeviceLocale()
 		{
-			string text = GetDeviceLanguage();
-			if (text.Equals("zh"))
-			{
-				text += GetDeviceCountry().ToLower();
-			}
-			else if (text.Equals("pt"))
-			{
-				text += GetDeviceCountry().ToLower();
-			}
-			return text;
+			return CultureInfo.CurrentUICulture.Name.Split('-')[0];
 		}
 
 		public static void SetDeviceLocale(string language, string country = "")
 		{
-			AJTDI_SetDeviceLocale(language, country);
-		}
-
-		public static int GetDeviceSDKVersion()
-		{
-			if (GetDeviceSDKVersion_value == 0)
-			{
-				GetDeviceSDKVersion_value = AJTDI_GetDeviceSDKVersion();
-			}
-			return GetDeviceSDKVersion_value;
-		}
-
-		public static bool IsExternalStorageMounted()
-		{
-			return AJTDI_IsExternalStorageMounted();
 		}
 
 		public static bool IsDeviceRooted()
 		{
-			if (!IsDeviceRooted_checked)
-			{
-				IsDeviceRooted_checked = true;
-				IsDeviceRooted_value = AJTDI_IsDeviceRooted();
-			}
-			return IsDeviceRooted_value;
-		}
-
-		public static string GetAndroidID()
-		{
-			if (GetAndroidID_value == null)
-			{
-				GetAndroidID_value = AJTDI_GetAndroidID();
-			}
-			return GetAndroidID_value;
-		}
-
-		public static string GetExternalStorageDirectory()
-		{
-			if (GetExternalStorageDirectory_value == null)
-			{
-				GetExternalStorageDirectory_value = AJTDI_GetExternalStorageDirectory();
-			}
-			return GetExternalStorageDirectory_value;
-		}
-
-		public static bool IsGluDebug()
-		{
-			if (!IsGluDebug_checked)
-			{
-				IsGluDebug_checked = true;
-				IsGluDebug_value = AJTDI_IsGluDebug();
-			}
-			return IsGluDebug_value;
+			return false;
 		}
 	}
 
@@ -209,29 +93,12 @@ public class AJavaTools : MonoBehaviour
 
 		public static string GetPackageName()
 		{
-			if (GetPackageName_value == null)
-			{
-				GetPackageName_value = AJTGI_GetPackageName();
-			}
-			return GetPackageName_value;
+			return "com.zweronz.svz2";
 		}
 
 		public static string GetVersionName()
 		{
-			if (GetVersionName_value == null)
-			{
-				GetVersionName_value = AJTGI_GetVersionName();
-			}
-			return GetVersionName_value;
-		}
-
-		public static int GetVersionCode()
-		{
-			if (GetVersionCode_value == 0)
-			{
-				GetVersionCode_value = AJTGI_GetVersionCode();
-			}
-			return GetVersionCode_value;
+			return Application.version;
 		}
 
 		public static int GetVersionMajor()
@@ -272,20 +139,12 @@ public class AJavaTools : MonoBehaviour
 
 		public static string GetFilesPath()
 		{
-			if (GetFilesPath_value == null)
-			{
-				GetFilesPath_value = AJTGI_GetFilesPath();
-			}
-			return GetFilesPath_value;
+			return Application.persistentDataPath;
 		}
 
 		public static string GetExternalFilesPath()
 		{
-			if (GetExternalFilesPath_value == null)
-			{
-				GetExternalFilesPath_value = AJTGI_GetExternalFilesPath();
-			}
-			return GetExternalFilesPath_value;
+			return Application.persistentDataPath;
 		}
 	}
 
@@ -293,7 +152,6 @@ public class AJavaTools : MonoBehaviour
 	{
 		public static void LoadWebView(string url, string gameObjectName = "")
 		{
-			AJTI_LoadWebView(url, gameObjectName);
 		}
 
 		public static string GetGameURL()
@@ -347,62 +205,51 @@ public class AJavaTools : MonoBehaviour
 
 		public static void ShowToast(string message)
 		{
-			AJTUI_ShowToast(message);
 		}
 
 		public static void StartIndeterminateProgress(int gravity)
 		{
-			AJTUI_StartIndeterminateProgress(gravity);
 		}
 
 		public static void StopIndeterminateProgress()
 		{
-			AJTUI_StopIndeterminateProgress();
 		}
 
 		public static void ShowAlert(string title, string message, string button)
 		{
-			AJTUI_ShowAlert(string.Empty, string.Empty, title, message, button, string.Empty, string.Empty);
 		}
 
 		public static void ShowAlert(string gameObjectName, string callbackName, string title, string message, string buttonPositive, string buttonNegative = "", string buttonNeutral = "")
 		{
-			AJTUI_ShowAlert(gameObjectName, callbackName, title, message, buttonPositive, buttonNegative, buttonNeutral);
 		}
 
 		public static void SetAlertGravity(int gravity, int xOffset, int yOffset)
 		{
-			AJTUI_SetAlertGravity(gravity, xOffset, yOffset);
 		}
 
 		public static void SetAlertDimBehind(bool flag)
 		{
-			AJTUI_SetAlertDimBehind(flag);
 		}
 
 		public static void SetAlertModeless(bool flag)
 		{
-			AJTUI_SetAlertModeless(flag);
 		}
 
 		public static void CancelAlert()
 		{
-			AJTUI_CancelAlert();
 		}
 
 		public static void ShowNotificationPrompt(string gameObjectName, string callbackName)
 		{
-			AJTUI_ShowNotificationPrompt(gameObjectName, callbackName);
 		}
 
 		public static void ShowExitPrompt(string gameObjectName = "", string callbackName = "")
 		{
-			AJTUI_ShowExitPrompt(gameObjectName, callbackName);
 		}
 
 		public static string GetString(string key, params string[] replace)
 		{
-			return AJTUI_GetString(key, replace);
+			return "";
 		}
 	}
 
@@ -418,51 +265,17 @@ public class AJavaTools : MonoBehaviour
 
 		private static int GetRunCountThisVersion_value = -1;
 
-		public static bool LaunchGame(string packageName, string altURL = "")
-		{
-			return AJTU_LaunchGame(packageName, altURL);
-		}
-
 		public static void RelaunchGame()
 		{
-			AJTU_RelaunchGame();
-		}
-
-		public static string GetOBBDownloadPlan()
-		{
-			if (GetOBBDownloadPlan_value == null)
-			{
-				GetOBBDownloadPlan_value = AJTU_GetOBBDownloadPlan();
-			}
-			return GetOBBDownloadPlan_value;
 		}
 
 		public static void LogEventOBB()
 		{
-			string oBBDownloadPlan = GetOBBDownloadPlan();
-			if (!oBBDownloadPlan.Equals("old"))
-			{
-				if (IsFirstLaunch())
-				{
-					Debug.Log("OBB Flurry: ANDROID_OBB_FIRST_TIME_INSTALL_SUCCEEDED: " + oBBDownloadPlan);
-					AStats.Flurry.LogEvent("ANDROID_OBB_FIRST_TIME_INSTALL_SUCCEEDED", oBBDownloadPlan);
-				}
-				else
-				{
-					Debug.Log("OBB Flurry: ANDROID_OBB_UPGRADE_SUCCEEDED: " + oBBDownloadPlan);
-					AStats.Flurry.LogEvent("ANDROID_OBB_UPGRADE_SUCCEEDED", oBBDownloadPlan);
-				}
-			}
 		}
 
 		public static bool IsDataRestored()
 		{
-			if (!IsDataRestored_checked)
-			{
-				IsDataRestored_checked = true;
-				IsDataRestored_value = AJTU_IsDataRestored();
-			}
-			return IsDataRestored_value;
+			return false;
 		}
 
 		public static void LogEventDataRestored()
@@ -476,11 +289,7 @@ public class AJavaTools : MonoBehaviour
 
 		public static int GetRunCount()
 		{
-			if (GetRunCount_value == -1)
-			{
-				GetRunCount_value = AJTU_GetRunCount();
-			}
-			return GetRunCount_value;
+			return 0;
 		}
 
 		public static bool IsFirstLaunch()
@@ -490,11 +299,7 @@ public class AJavaTools : MonoBehaviour
 
 		public static int GetRunCountThisVersion()
 		{
-			if (GetRunCountThisVersion_value == -1)
-			{
-				GetRunCountThisVersion_value = AJTU_GetRunCountThisVersion();
-			}
-			return GetRunCountThisVersion_value;
+			return 0;
 		}
 
 		public static bool IsFirstLaunchThisVersion()
@@ -502,14 +307,8 @@ public class AJavaTools : MonoBehaviour
 			return GetRunCountThisVersion() == 0;
 		}
 
-		public static void SendBroadcast(string action, string uri = "")
-		{
-			AJTU_SendBroadcast(action, uri);
-		}
-
 		public static void VerifySignature()
 		{
-			AJTU_VerifySignature();
 		}
 	}
 
@@ -559,41 +358,19 @@ public class AJavaTools : MonoBehaviour
 
 		private static string GetChartBoostAppSignature_value;
 
-		public static string GetProperty(string key, string defaultValue = null)
-		{
-			string text = AJTU_GetProperty(key);
-			return (text != null) ? text : defaultValue;
-		}
-
-		public static int GetPropertyInt(string key, int defaultValue = -1)
-		{
-			string text = AJTU_GetProperty(key);
-			return (text != null) ? Convert.ToInt32(text) : defaultValue;
-		}
-
-		public static bool GetPropertyBool(string key, bool defaultValue = false)
-		{
-			string text = AJTU_GetProperty(key);
-			return (text != null) ? Convert.ToBoolean(text) : defaultValue;
-		}
-
 		public static string GetBuildType()
 		{
-			if (GetBuildType_value == null)
-			{
-				GetBuildType_value = GetProperty("BUILD_TYPE", "google");
-			}
-			return GetBuildType_value;
+			return "";
 		}
 
 		public static bool IsBuildGoogle()
 		{
-			return GetBuildType().Equals("google");
+			return false;
 		}
 
 		public static bool IsBuildAmazon()
 		{
-			return GetBuildType().Equals("amazon");
+			return false;
 		}
 
 		public static bool IsBuildTStore()
@@ -603,435 +380,23 @@ public class AJavaTools : MonoBehaviour
 
 		public static string GetBuildTag()
 		{
-			if (GetBuildTag_value == null)
-			{
-				GetBuildTag_value = GetProperty("BUILD_TAG");
-			}
-			return GetBuildTag_value;
+			return "";
 		}
 
 		public static string GetBuildLocale()
 		{
-			if (GetBuildLocale_value == null)
-			{
-				GetBuildLocale_value = GetProperty("BUILD_LOCALE", "default");
-			}
-			return GetBuildLocale_value;
-		}
-
-		public static bool IsLocaleDefault()
-		{
-			return GetBuildLocale().Equals("default");
-		}
-
-		public static string GetAppPublicKey()
-		{
-			if (GetAppPublicKey_value == null)
-			{
-				GetAppPublicKey_value = GetProperty("APP_PUBLIC_KEY", string.Empty);
-			}
-			return GetAppPublicKey_value;
-		}
-
-		public static string GetTapjoyAppID()
-		{
-			if (GetTapjoyAppID_value == null)
-			{
-				GetTapjoyAppID_value = GetProperty("TAPJOY_APPID", string.Empty);
-			}
-			return GetTapjoyAppID_value;
-		}
-
-		public static string GetTapjoySecretKey()
-		{
-			if (GetTapjoySecretKey_value == null)
-			{
-				GetTapjoySecretKey_value = GetProperty("TAPJOY_SECRETKEY", string.Empty);
-			}
-			return GetTapjoySecretKey_value;
-		}
-
-		public static string GetTapjoyPPASubscription()
-		{
-			if (GetTapjoyPPASubscription_value == null)
-			{
-				GetTapjoyPPASubscription_value = GetProperty("TAPJOY_PPA_SUBSCRIPTION", string.Empty);
-			}
-			return GetTapjoyPPASubscription_value;
-		}
-
-		public static string GetPlayHavenToken()
-		{
-			if (GetPlayHavenToken_value == null)
-			{
-				GetPlayHavenToken_value = GetProperty("PLAYHAVEN_TOKEN", string.Empty);
-			}
-			return GetPlayHavenToken_value;
-		}
-
-		public static string GetPlayHavenSecret()
-		{
-			if (GetPlayHavenSecret_value == null)
-			{
-				GetPlayHavenSecret_value = GetProperty("PLAYHAVEN_SECRET", string.Empty);
-			}
-			return GetPlayHavenSecret_value;
-		}
-
-		public static string GetAmazonAdAppID()
-		{
-			if (GetAmazonAdAppID_value == null)
-			{
-				GetAmazonAdAppID_value = GetProperty("AMAZON_AD_APPID", string.Empty);
-			}
-			return GetAmazonAdAppID_value;
-		}
-
-		public static string GetDefaultAdProvider()
-		{
-			if (GetDefaultAdProvider_value == null)
-			{
-				GetDefaultAdProvider_value = GetProperty("DEFAULT_AD_PROVIDER", string.Empty);
-			}
-			return GetDefaultAdProvider_value;
-		}
-
-		public static string GetFacebookAppID()
-		{
-			if (GetFacebookAppID_value == null)
-			{
-				GetFacebookAppID_value = GetProperty("FACEBOOK_APPID", string.Empty);
-			}
-			return GetFacebookAppID_value;
-		}
-
-		public static string GetFlurryKey()
-		{
-			if (GetFlurryKey_value == null)
-			{
-				GetFlurryKey_value = GetProperty((!Debug.isDebugBuild) ? "FLURRY_KEY_LIVE" : "FLURRY_KEY_STAGE", string.Empty);
-			}
-			return GetFlurryKey_value;
-		}
-
-		public static string GetKontagentKey()
-		{
-			if (GetKontagentKey_value == null)
-			{
-				string text = ((!Debug.isDebugBuild) ? "KONTAGENT_KEY_LIVE" : "KONTAGENT_KEY_STAGE");
-				if (DeviceInfo.IsDeviceRooted())
-				{
-					string property = GetProperty(text + "_JAILBROKEN");
-					if (!string.IsNullOrEmpty(property))
-					{
-						GetKontagentKey_value = property;
-					}
-				}
-				if (GetKontagentKey_value == null)
-				{
-					GetKontagentKey_value = GetProperty(text, string.Empty);
-				}
-			}
-			return GetKontagentKey_value;
-		}
-
-		public static string GetMobileAppTrackingPackage()
-		{
-			if (GetMobileAppTrackingPackage_value == null)
-			{
-				GetMobileAppTrackingPackage_value = GetProperty("MAT_PACKAGE", string.Empty);
-			}
-			return GetMobileAppTrackingPackage_value;
-		}
-
-		public static string GetMobileAppTrackingKey()
-		{
-			if (GetMobileAppTrackingKey_value == null)
-			{
-				GetMobileAppTrackingKey_value = GetProperty("MAT_KEY", string.Empty);
-			}
-			return GetMobileAppTrackingKey_value;
-		}
-
-		public static string GetGWalletSKU()
-		{
-			if (GetGWalletSKU_value == null)
-			{
-				GetGWalletSKU_value = GetProperty("GWALLET_SKU", string.Empty);
-			}
-			return GetGWalletSKU_value;
-		}
-
-		public static string GetGGNSRC()
-		{
-			if (GetGGNSRC_value == null)
-			{
-				GetGGNSRC_value = GetProperty("GGN_SRC", string.Empty);
-			}
-			return GetGGNSRC_value;
-		}
-
-		public static string GetIAPOrdering()
-		{
-			if (GetIAPOrdering_value == null)
-			{
-				GetIAPOrdering_value = GetProperty("IAP_ORDERING", "ssssssssiiiiiiiiiiii");
-			}
-			return GetIAPOrdering_value;
-		}
-
-		public static string GetGATrackingID()
-		{
-			if (GetGATrackingID_value == null)
-			{
-				GetGATrackingID_value = GetProperty("GOOGLE_ANALYTICS_TRACKING_ID", string.Empty);
-			}
-			return GetGATrackingID_value;
-		}
-
-		public static string GetChartBoostAppID()
-		{
-			if (GetChartBoostAppID_value == null)
-			{
-				GetChartBoostAppID_value = GetProperty("CHARTBOOST_APP_ID", string.Empty);
-			}
-			return GetChartBoostAppID_value;
-		}
-
-		public static string GetChartBoostAppSignature()
-		{
-			if (GetChartBoostAppSignature_value == null)
-			{
-				GetChartBoostAppSignature_value = GetProperty("CHARTBOOST_APP_SIGNATURE", string.Empty);
-			}
-			return GetChartBoostAppSignature_value;
+			return "";
 		}
 	}
 
 	public static class DebugUtil
 	{
-		private static IDictionary<string, string> debugProperties;
-
-		private static IDictionary<string, string> DebugProperties
-		{
-			get
-			{
-				if (debugProperties == null)
-				{
-					string buildTag = Properties.GetBuildTag();
-					AJTDU_DeleteInvalidDebugProperties(buildTag);
-					string path = AJTDU_GetDebugPropertyPath(buildTag);
-					debugProperties = ReadDebugProperties(path);
-				}
-				return debugProperties;
-			}
-		}
-
-		public static void ListAllSignatures()
-		{
-			AJTDU_ListAllSignatures();
-		}
-
-		public static void PullInternalData()
-		{
-			AJTDU_PullInternalData();
-		}
-
-		public static void PushInternalData()
-		{
-			AJTDU_PushInternalData();
-		}
-
-		public static string GetDebugProperty(string key, string defaultValue = null)
-		{
-			if (key.IsEmpty())
-			{
-				return null;
-			}
-			string value;
-			if (DebugProperties.TryGetValue(key, out value))
-			{
-				return value;
-			}
-			return defaultValue;
-		}
-
-		public static void SetDebugProperty(string key, string value)
-		{
-			if (!Debug.isDebugBuild)
-			{
-				Debug.LogWarning("You can't set debug properties in release build");
-			}
-			else if (!key.IsEmpty())
-			{
-				IDictionary<string, string> dictionary = DebugProperties;
-				dictionary[key] = value;
-				string buildTag = Properties.GetBuildTag();
-				string path = AJTDU_GetDebugPropertyPath(buildTag);
-				string directoryName = Path.GetDirectoryName(path);
-				try
-				{
-					Directory.CreateDirectory(directoryName);
-					JavaProperties.Save(path, dictionary);
-				}
-				catch (Exception ex)
-				{
-					Debug.LogWarning(ex.ToString());
-				}
-			}
-		}
-
-		private static IDictionary<string, string> ReadDebugProperties(string path)
-		{
-			if (!File.Exists(path))
-			{
-				return new Dictionary<string, string>();
-			}
-			IDictionary<string, string> dictionary = null;
-			try
-			{
-				dictionary = JavaProperties.Load(path);
-			}
-			catch (Exception)
-			{
-				dictionary = new Dictionary<string, string>();
-			}
-			if (Debug.isDebugBuild)
-			{
-				return dictionary;
-			}
-			string property = Properties.GetProperty("DEBUG_PROPERTIES_IN_RELEASE", string.Empty);
-			Dictionary<string, string> dictionary2 = new Dictionary<string, string>();
-			string[] array = property.Split('|');
-			foreach (string key in array)
-			{
-				string value;
-				if (dictionary.TryGetValue(key, out value))
-				{
-					dictionary2[key] = value;
-				}
-			}
-			return dictionary2;
-		}
 	}
 
 	private static GameObject pluginsGameObject;
 
-	private static AndroidJavaClass _ajt;
-
-	private static AndroidJavaClass _ajtb;
-
-	private static AndroidJavaClass _ajtdu;
-
-	private static AndroidJavaClass _ajtdi;
-
-	private static AndroidJavaClass _ajtgi;
-
-	private static AndroidJavaClass _ajti;
-
-	private static AndroidJavaClass _ajtui;
-
-	private static AndroidJavaClass _ajtu;
-
-	public static AndroidJavaClass ajt
-	{
-		get
-		{
-			if (_ajt == null)
-			{
-				_ajt = new AndroidJavaClass("com.glu.plugins.AJavaTools");
-			}
-			return _ajt;
-		}
-	}
-
-	public static AndroidJavaClass ajtb
-	{
-		get
-		{
-			if (_ajtb == null)
-			{
-				_ajtb = new AndroidJavaClass("com.glu.plugins.AJTBackup");
-			}
-			return _ajtb;
-		}
-	}
-
-	public static AndroidJavaClass ajtdu
-	{
-		get
-		{
-			if (_ajtdu == null)
-			{
-				_ajtdu = new AndroidJavaClass("com.glu.plugins.AJTDebugUtil");
-			}
-			return _ajtdu;
-		}
-	}
-
-	public static AndroidJavaClass ajtdi
-	{
-		get
-		{
-			if (_ajtdi == null)
-			{
-				_ajtdi = new AndroidJavaClass("com.glu.plugins.AJTDeviceInfo");
-			}
-			return _ajtdi;
-		}
-	}
-
-	public static AndroidJavaClass ajtgi
-	{
-		get
-		{
-			if (_ajtgi == null)
-			{
-				_ajtgi = new AndroidJavaClass("com.glu.plugins.AJTGameInfo");
-			}
-			return _ajtgi;
-		}
-	}
-
-	public static AndroidJavaClass ajti
-	{
-		get
-		{
-			if (_ajti == null)
-			{
-				_ajti = new AndroidJavaClass("com.glu.plugins.AJTInternet");
-			}
-			return _ajti;
-		}
-	}
-
-	public static AndroidJavaClass ajtui
-	{
-		get
-		{
-			if (_ajtui == null)
-			{
-				_ajtui = new AndroidJavaClass("com.glu.plugins.AJTUI");
-			}
-			return _ajtui;
-		}
-	}
-
-	public static AndroidJavaClass ajtu
-	{
-		get
-		{
-			if (_ajtu == null)
-			{
-				_ajtu = new AndroidJavaClass("com.glu.plugins.AJTUtil");
-			}
-			return _ajtu;
-		}
-	}
-
 	public static void Init(GameObject gameObject = null)
 	{
-		AJT_Init(Debug.isDebugBuild);
 		if (gameObject != null)
 		{
 			gameObject.AddComponent<AJavaTools>();
@@ -1051,259 +416,6 @@ public class AJavaTools : MonoBehaviour
 			pluginsGameObject = gameObject;
 		}
 		return pluginsGameObject;
-	}
-
-	private static void AJT_Init(bool debug)
-	{
-		ajt.CallStatic("Init", debug);
-	}
-
-	private static void AJTB_DataChanged()
-	{
-		ajtb.CallStatic("DataChanged");
-	}
-
-	private static void AJTB_RequestRestore()
-	{
-		ajtb.CallStatic("RequestRestore");
-	}
-
-	private static void AJTDU_ListAllSignatures()
-	{
-		ajtdu.CallStatic("ListAllSignatures");
-	}
-
-	private static void AJTDU_PullInternalData()
-	{
-		ajtdu.CallStatic("PullInternalData");
-	}
-
-	private static void AJTDU_PushInternalData()
-	{
-		ajtdu.CallStatic("PushInternalData");
-	}
-
-	private static int AJTDI_GetScreenWidth()
-	{
-		return ajtdi.CallStatic<int>("GetScreenWidth", new object[0]);
-	}
-
-	private static int AJTDI_GetScreenHeight()
-	{
-		return ajtdi.CallStatic<int>("GetScreenHeight", new object[0]);
-	}
-
-	private static int AJTDI_GetScreenLayout()
-	{
-		return ajtdi.CallStatic<int>("GetScreenLayout", new object[0]);
-	}
-
-	private static double AJTDI_GetScreenDiagonalInches()
-	{
-		return ajtdi.CallStatic<double>("GetScreenDiagonalInches", new object[0]);
-	}
-
-	private static string AJTDI_GetDeviceLanguage()
-	{
-		return ajtdi.CallStatic<string>("GetDeviceLanguage", new object[0]);
-	}
-
-	private static string AJTDI_GetDeviceCountry()
-	{
-		return ajtdi.CallStatic<string>("GetDeviceCountry", new object[0]);
-	}
-
-	private static void AJTDI_SetDeviceLocale(string language, string country)
-	{
-		ajtdi.CallStatic("SetDeviceLocale", language, country);
-	}
-
-	private static int AJTDI_GetDeviceSDKVersion()
-	{
-		return ajtdi.CallStatic<int>("GetDeviceSDKVersion", new object[0]);
-	}
-
-	private static bool AJTDI_IsExternalStorageMounted()
-	{
-		return ajtdi.CallStatic<bool>("IsExternalStorageMounted", new object[0]);
-	}
-
-	private static bool AJTDI_IsDeviceRooted()
-	{
-		return ajtdi.CallStatic<bool>("IsDeviceRooted", new object[0]);
-	}
-
-	private static string AJTDI_GetAndroidID()
-	{
-		return ajtdi.CallStatic<string>("GetAndroidID", new object[0]);
-	}
-
-	private static string AJTDI_GetExternalStorageDirectory()
-	{
-		return ajtdi.CallStatic<string>("GetExternalStorageDirectory", new object[0]);
-	}
-
-	private static bool AJTDI_IsGluDebug()
-	{
-		return ajtdi.CallStatic<bool>("IsGluDebug", new object[0]);
-	}
-
-	private static string AJTGI_GetPackageName()
-	{
-		return ajtgi.CallStatic<string>("GetPackageName", new object[0]);
-	}
-
-	private static string AJTGI_GetVersionName()
-	{
-		return ajtgi.CallStatic<string>("GetVersionName", new object[0]);
-	}
-
-	private static int AJTGI_GetVersionCode()
-	{
-		return ajtgi.CallStatic<int>("GetVersionCode", new object[0]);
-	}
-
-	private static string AJTGI_GetFilesPath()
-	{
-		return ajtgi.CallStatic<string>("GetFilesPath", new object[0]);
-	}
-
-	private static string AJTGI_GetExternalFilesPath()
-	{
-		return ajtgi.CallStatic<string>("GetExternalFilesPath", new object[0]);
-	}
-
-	private static void AJTI_LoadWebView(string url, string gameObjectName)
-	{
-		ajti.CallStatic("LoadWebView", url, gameObjectName);
-	}
-
-	private static void AJTUI_ShowToast(string message)
-	{
-		ajtui.CallStatic("ShowToast", message);
-	}
-
-	private static void AJTUI_StartIndeterminateProgress(int gravity)
-	{
-		ajtui.CallStatic("StartIndeterminateProgress", gravity);
-	}
-
-	private static void AJTUI_StopIndeterminateProgress()
-	{
-		ajtui.CallStatic("StopIndeterminateProgress");
-	}
-
-	private static void AJTUI_ShowAlert(string gameObjectName, string callbackName, string title, string message, string buttonPositive, string buttonNegative, string buttonNeutral)
-	{
-		if (gameObjectName == null)
-		{
-			gameObjectName = string.Empty;
-		}
-		if (callbackName == null)
-		{
-			callbackName = string.Empty;
-		}
-		if (title == null)
-		{
-			title = string.Empty;
-		}
-		if (message == null)
-		{
-			message = string.Empty;
-		}
-		if (buttonPositive == null)
-		{
-			buttonPositive = string.Empty;
-		}
-		if (buttonNegative == null)
-		{
-			buttonNegative = string.Empty;
-		}
-		if (buttonNeutral == null)
-		{
-			buttonNeutral = string.Empty;
-		}
-		ajtui.CallStatic("ShowAlert", gameObjectName, callbackName, title, message, buttonPositive, buttonNegative, buttonNeutral);
-	}
-
-	private static void AJTUI_SetAlertGravity(int gravity, int xOffset, int yOffset)
-	{
-		ajtui.CallStatic("SetAlertGravity", gravity, xOffset, yOffset);
-	}
-
-	private static void AJTUI_SetAlertDimBehind(bool flag)
-	{
-		ajtui.CallStatic("SetAlertDimBehind", flag);
-	}
-
-	private static void AJTUI_SetAlertModeless(bool flag)
-	{
-		ajtui.CallStatic("SetAlertModeless", flag);
-	}
-
-	private static void AJTUI_CancelAlert()
-	{
-		ajtui.CallStatic("CancelAlert");
-	}
-
-	private static void AJTUI_ShowNotificationPrompt(string gameObjectName, string callbackName)
-	{
-		ajtui.CallStatic("ShowNotificationPrompt", gameObjectName, callbackName);
-	}
-
-	private static void AJTUI_ShowExitPrompt(string gameObjectName, string callbackName)
-	{
-		ajtui.CallStatic("ShowExitPrompt", gameObjectName, callbackName);
-	}
-
-	private static string AJTUI_GetString(string key, string[] replace)
-	{
-		return ajtui.CallStatic<string>("GetString", new object[2] { key, replace });
-	}
-
-	private static bool AJTU_LaunchGame(string packageName, string altURL)
-	{
-		return ajtu.CallStatic<bool>("LaunchGame", new object[2] { packageName, altURL });
-	}
-
-	private static void AJTU_RelaunchGame()
-	{
-		ajtu.CallStatic("RelaunchGame");
-	}
-
-	private static string AJTU_GetProperty(string key)
-	{
-		return ajtu.CallStatic<string>("GetProperty", new object[1] { key });
-	}
-
-	private static string AJTU_GetOBBDownloadPlan()
-	{
-		return ajtu.CallStatic<string>("GetOBBDownloadPlan", new object[0]);
-	}
-
-	private static bool AJTU_IsDataRestored()
-	{
-		return ajtu.CallStatic<bool>("IsDataRestored", new object[0]);
-	}
-
-	private static int AJTU_GetRunCount()
-	{
-		return ajtu.CallStatic<int>("GetRunCount", new object[0]);
-	}
-
-	private static int AJTU_GetRunCountThisVersion()
-	{
-		return ajtu.CallStatic<int>("GetRunCountThisVersion", new object[0]);
-	}
-
-	private static void AJTU_SendBroadcast(string action, string uri)
-	{
-		ajtu.CallStatic("SendBroadcast", action, uri);
-	}
-
-	private static void AJTU_VerifySignature()
-	{
-		ajtu.CallStatic("VerifySignature");
 	}
 
 	private static string AJTDU_GetDebugPropertyPath(string buildTag)

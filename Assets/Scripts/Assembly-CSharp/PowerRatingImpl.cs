@@ -30,20 +30,10 @@ public class PowerRatingImpl : MonoBehaviour, IGluiActionHandler
 			GameObject.Find("Button_GameCenter").gameObject.SetActive(false);
 			if (!AJavaTools.Properties.IsBuildAmazon())
 			{
-				if (PlayGameServices.IsSignedIn)
-				{
-					_leaderboardsButton.gameObject.SetActive(true);
-					_achievementsButton.gameObject.SetActive(true);
-					_leaderboardsButton.gameObject.FindChildComponent<GluiSprite>("Art_Leaderboards").Texture = ResourceCache.GetCachedResource("UI/Textures/DynamicIcons/Misc/Button_Leaderboards_PGS", 1).Resource as Texture2D;
-					_achievementsButton.FindChildComponent<GluiSprite>("Art_Achievements").Texture = ResourceCache.GetCachedResource("UI/Textures/DynamicIcons/Misc/Button_Achievements_PGS", 1).Resource as Texture2D;
-				}
-				else
-				{
-					GameObject.Find("10_AchievementsEarned").FindChild("Text_Stat").SetActive(false);
-					GameObject.Find("10_AchievementsEarned").FindChild("SwapText_Points").SetActive(false);
-					Vector3 localPosition = GameObject.Find("11_DailyRewards").transform.localPosition;
-					GameObject.Find("11_DailyRewards").transform.localPosition = new Vector3(localPosition.x, localPosition.y + 47f, localPosition.z);
-				}
+				GameObject.Find("10_AchievementsEarned").FindChild("Text_Stat").SetActive(false);
+				GameObject.Find("10_AchievementsEarned").FindChild("SwapText_Points").SetActive(false);
+				Vector3 localPosition = GameObject.Find("11_DailyRewards").transform.localPosition;
+				GameObject.Find("11_DailyRewards").transform.localPosition = new Vector3(localPosition.x, localPosition.y + 47f, localPosition.z);
 			}
 		}
 		if (RatingsToDisplay == null)
@@ -80,10 +70,8 @@ public class PowerRatingImpl : MonoBehaviour, IGluiActionHandler
 		case "GAMECENTER_LEADERBOARD":
 			return true;
 		case "INGAME_ACHIEVEMENTS":
-			PlayGameServices.ShowAchievements();
 			return true;
 		case "LEADERBOARDS":
-			PlayGameServices.ShowLeaderboards();
 			return true;
 		default:
 			return false;

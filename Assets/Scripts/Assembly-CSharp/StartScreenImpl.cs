@@ -117,19 +117,7 @@ public class StartScreenImpl : MonoBehaviour, IGluiActionHandler
 		{
 			_leaderboardsButton.FindChildComponent<GluiSprite>("Art_Leaderboard").Texture = ResourceCache.GetCachedResource("UI/Textures/DynamicIcons/Misc/Button_Leaderboards_PGS", 1).Resource as Texture2D;
 			_achievementsButton.FindChildComponent<GluiSprite>("Art_Achievement").Texture = ResourceCache.GetCachedResource("UI/Textures/DynamicIcons/Misc/Button_Achievements_PGS", 1).Resource as Texture2D;
-			if (PlayGameServices.IsSignedIn)
-			{
-				_leaderboardsButton.gameObject.SetActive(true);
-				_achievementsButton.gameObject.SetActive(true);
-				_iCloudButton.gameObject.SetActive(true);
-				_playerButton.gameObject.SetActive(true);
-				_playerButton.FindChildComponent<GluiText>("Text_Name").Text = PlayGameServices.GetDisplayName();
-				_googlePlusButton.gameObject.SetActive(false);
-			}
-			else
-			{
-				_googlePlusButton.gameObject.SetActive(true);
-			}
+			_googlePlusButton.gameObject.SetActive(true);
 		}
 		PlayerPrefs.SetInt("gameLoadedCorrectly", 1);
 		PlayerPrefs.SetString("gameTag", AJavaTools.Properties.GetBuildTag());
@@ -211,17 +199,11 @@ public class StartScreenImpl : MonoBehaviour, IGluiActionHandler
 				{
 					AJavaTools.UI.ShowToast(StringUtils.GetStringFromStringRef("LocalizedStrings", "IDS_ICLOUD_REQUIRE_INTERNET_ANDROID"));
 				}
-				else
-				{
-					PlayGameServices.SignIn();
-				}
 			}
 			return true;
 		case "POPUP_ACHIEVEMENTS":
-			PlayGameServices.ShowAchievements();
 			return true;
 		case "POPUP_LEADERBOARDS":
-			PlayGameServices.ShowLeaderboards();
 			return true;
 		default:
 			return false;
@@ -236,10 +218,6 @@ public class StartScreenImpl : MonoBehaviour, IGluiActionHandler
 			if (Application.internetReachability == NetworkReachability.NotReachable)
 			{
 				AJavaTools.UI.ShowToast(StringUtils.GetStringFromStringRef("LocalizedStrings", "IDS_ICLOUD_REQUIRE_INTERNET_ANDROID"));
-			}
-			else
-			{
-				PlayGameServices.SignIn();
 			}
 		}
 		AJavaTools.UI.ShowNotificationPrompt(base.gameObject.name, "setNotification");
@@ -275,20 +253,7 @@ public class StartScreenImpl : MonoBehaviour, IGluiActionHandler
 	private IEnumerator checkButtons()
 	{
 		yield return new WaitForSeconds(0.25f);
-		if (PlayGameServices.IsSignedIn)
-		{
-			if (_leaderboardsButton != null && _achievementsButton != null && _googlePlusButton != null && _iCloudButton != null)
-			{
-				_leaderboardsButton.gameObject.SetActive(true);
-				_achievementsButton.gameObject.SetActive(true);
-				_iCloudButton.gameObject.SetActive(true);
-				_playerButton.gameObject.SetActive(true);
-				_playerButton.FindChildComponent<GluiText>("Text_Name").Text = PlayGameServices.GetDisplayName();
-				_googlePlusButton.gameObject.SetActive(false);
-				Singleton<Profile>.Instance.MultiplayerData.SetAndroidID(PlayGameServices.GetPlayerID());
-			}
-		}
-		else if (_leaderboardsButton != null && _achievementsButton != null && _googlePlusButton != null && _iCloudButton != null)
+		if (_leaderboardsButton != null && _achievementsButton != null && _googlePlusButton != null && _iCloudButton != null)
 		{
 			_leaderboardsButton.gameObject.SetActive(false);
 			_achievementsButton.gameObject.SetActive(false);

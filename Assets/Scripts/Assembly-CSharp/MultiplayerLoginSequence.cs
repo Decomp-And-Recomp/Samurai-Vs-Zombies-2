@@ -56,17 +56,6 @@ public class MultiplayerLoginSequence
 
 	private static void LoginSuccess(bool accountLoadSkipped)
 	{
-		if (PlayGameServices.IsSignedIn)
-		{
-			try
-			{
-				Singleton<Profile>.Instance.MultiplayerData.SetAndroidID(PlayGameServices.GetPlayerID());
-				SingletonSpawningMonoBehaviour<ApplicationUtilities>.Instance.AndroidGoogleFriendsRead();
-			}
-			catch (Exception)
-			{
-			}
-		}
 		if ((Singleton<Profile>.Instance.MultiplayerData.Account.New && !accountLoadSkipped) || string.IsNullOrEmpty(Singleton<Profile>.Instance.MultiplayerData.UserName))
 		{
 			GluiActionSender.SendGluiAction("MULTIPLAYER_LOGIN_CREATED", sender, null);

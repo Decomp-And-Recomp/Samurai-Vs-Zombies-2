@@ -18,23 +18,6 @@ namespace Glu.Plugins.AMiscUtils
 
 		public Logger(string name)
 		{
-			name.ArgumentNotNull("name");
-			Name = name;
-			sb = new StringBuilder();
-			level = AJavaTools.Properties.GetPropertyInt("LOGGER_LEVEL_{0}".Fmt(Name));
-			if (level < 0)
-			{
-				level = AJavaTools.Properties.GetPropertyInt("LOGGER_LEVEL", 1000);
-			}
-			string property = AJavaTools.Properties.GetProperty("LOGGER_PRINT_STACK_TRACE_{0}".Fmt(Name));
-			if (property == null)
-			{
-				property = AJavaTools.Properties.GetProperty("LOGGER_PRINT_STACK_TRACE");
-			}
-			if (property != null)
-			{
-				bool.TryParse(property, out printStackTrace);
-			}
 		}
 
 		public void D(string format, params object[] args)

@@ -1,5 +1,5 @@
 using Glu.Plugins.ASocial;
 
-internal class PGSComponent : PlayGameServices
+internal class PGSComponent
 {
 }

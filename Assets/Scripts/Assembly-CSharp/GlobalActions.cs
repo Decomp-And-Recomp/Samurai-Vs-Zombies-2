@@ -29,10 +29,6 @@ public class GlobalActions : GluiGlobalActionHandler
 		case "MULTIPLAYER_GENERATE_DEFAULT_PLAYER_NAME":
 		{
 			string tag = "Player" + UnityEngine.Random.Range(100000, 999999);
-			if (PlayGameServices.IsSignedIn)
-			{
-				tag = PlayGameServices.GetDisplayName();
-			}
 			SingletonSpawningMonoBehaviour<GluiPersistentDataCache>.Instance.Save("MULTIPLAYER_NAME_ENTRY_TEXT", tag);
 			return true;
 		}

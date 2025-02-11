@@ -9,8 +9,4 @@ public class ASocial
 	public class Amazon : Glu.Plugins.ASocial.Amazon
 	{
 	}
-
-	public class PlayGameServices : Glu.Plugins.ASocial.PlayGameServices
-	{
-	}
 }

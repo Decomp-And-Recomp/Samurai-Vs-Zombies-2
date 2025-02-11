@@ -452,12 +452,10 @@ public class GluiWidget : GluiBase, IInputHandler
 			}
 			if (mesh != null)
 			{
-				UnityEngine.Object.DestroyImmediate(mesh);
 				mesh = null;
 			}
 			if (meshB != null)
 			{
-				UnityEngine.Object.DestroyImmediate(meshB);
 				meshB = null;
 			}
 			material = null;

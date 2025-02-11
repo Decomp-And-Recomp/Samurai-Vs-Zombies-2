@@ -20,12 +20,6 @@ public class iCloudScreenImpl : MonoBehaviour, IGluiActionHandler
 	private void Start()
 	{
 		initializeAutoSaveButton();
-		PlayGameServices.onCloudLoadNetworkErrorNoDataHandler += delegate
-		{
-		};
-		PlayGameServices.onCloudLoadNetworkErrorHandler += delegate
-		{
-		};
 	}
 
 	public bool HandleAction(string action, GameObject sender, object data)
@@ -36,20 +30,8 @@ public class iCloudScreenImpl : MonoBehaviour, IGluiActionHandler
 			setAutoSaveButton(!ApplicationUtilities._autoSave);
 			return true;
 		case "ICLOUD_SAVE":
-			if (PlayGameServices.IsSignedIn)
-			{
-				PlayGameServices.SaveToCloud(SingletonSpawningMonoBehaviour<ApplicationUtilities>.Instance.readSaveFile(AJavaTools.GameInfo.GetFilesPath() + "/local"));
-				SingletonSpawningMonoBehaviour<GluiPersistentDataCache>.Instance.Save("TEXT_POPUP_GENERIC", "LocalizedStrings.IDS_ICLOUD_SAVE_FILE_QUEUE_ANDROID");
-				SingletonSpawningMonoBehaviour<GluiPersistentDataCache>.Instance.Save("TEXT_POPUP_GENERIC_BTN", "MenuFixedStrings.ok");
-				GluiActionSender.SendGluiAction("ALERT_BLOCK_INPUT", base.gameObject, null);
-			}
 			return true;
 		case "ICLOUD_LOAD":
-			if (PlayGameServices.IsSignedIn)
-			{
-				ApplicationUtilities._restoreCloudSaveButtonPressed = true;
-				PlayGameServices.LoadFromCloud();
-			}
 			return true;
 		default:
 			return false;

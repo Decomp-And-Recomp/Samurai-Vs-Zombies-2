@@ -31,20 +31,6 @@ namespace Glu.Plugins.ASocial
 
 		private static List<Dictionary<string, string>> mFriends;
 
-		private static AndroidJavaClass _facebook;
-
-		public static AndroidJavaClass facebook
-		{
-			get
-			{
-				if (_facebook == null)
-				{
-					_facebook = new AndroidJavaClass("com.glu.plugins.FacebookGlu");
-				}
-				return _facebook;
-			}
-		}
-
 		[method: MethodImpl(32)]
 		public static event EventHandler<FacebookEventArgs> FacebookLoginHandler;
 
@@ -281,73 +267,57 @@ namespace Glu.Plugins.ASocial
 
 		private static void API_Init()
 		{
-			facebook.CallStatic("Init", go.name);
 		}
 
 		private static void API_OnPause()
 		{
-			facebook.CallStatic("onPause");
 		}
 
 		private static void API_OnResume()
 		{
-			facebook.CallStatic("onResume");
 		}
 
 		private static void API_OnDestroy()
 		{
-			facebook.CallStatic("onDestroy");
 		}
 
 		private static void API_Login()
 		{
-			facebook.CallStatic("Login");
 		}
 
 		private static bool API_IsLoggedIn()
 		{
-			return facebook.CallStatic<bool>("IsLoggedIn", new object[0]);
+			return false;
 		}
 
 		private static void API_Post(Dictionary<FeedType, string> parameters, bool showDialog)
 		{
-			using (AndroidJavaObject androidJavaObject = ASocial.DictionaryToHashMap(parameters))
-			{
-				facebook.CallStatic("Post", androidJavaObject, showDialog);
-			}
 		}
 
 		private static void API_PostPhoto(string path, string caption)
 		{
-			facebook.CallStatic("PostPhoto", path, caption);
 		}
 
 		private static void API_Request(Dictionary<AppRequestType, string> parameters)
 		{
-			using (AndroidJavaObject androidJavaObject = ASocial.DictionaryToHashMap(parameters))
-			{
-				facebook.CallStatic("Request", false, androidJavaObject);
-			}
 		}
 
 		private static void API_FQLQuery(string query)
 		{
-			facebook.CallStatic("FQLQuery", query);
 		}
 
 		private static string API_GetUserInfo(string key)
 		{
-			return facebook.CallStatic<string>("GetUserInfo", new object[1] { key });
+			return "";
 		}
 
 		private static string API_GetAppId()
 		{
-			return facebook.CallStatic<string>("GetAppID", new object[0]);
+			return "";
 		}
 
 		private static void API_Logout()
 		{
-			facebook.CallStatic("Logout");
 		}
 	}
 }

@@ -157,7 +157,6 @@ public class ApplicationUtilities : SingletonSpawningMonoBehaviour<ApplicationUt
 			PlayerPrefs.SetInt("autoSave", 1);
 		}
 		Glu.Plugins.ASocial.Facebook.Init();
-		PlayGameServices.Init();
 		if (AJavaTools.Properties.IsBuildAmazon())
 		{
 			Amazon.Init((Amazon.GameCircleFeatures)6);
@@ -260,15 +259,6 @@ public class ApplicationUtilities : SingletonSpawningMonoBehaviour<ApplicationUt
 	{
 		Glu.Plugins.ASocial.Facebook.FacebookLoginHandler -= onFacebookLoginComplete;
 		Glu.Plugins.ASocial.Facebook.FacebookFeedPostCompleteHandler -= onFacebookFeedPostComplete;
-		PlayGameServices.onCloudLoadSuccessHandler -= onCloudLoadSuccess;
-		PlayGameServices.onCloudConflictHandler -= onCloudConflict;
-		PlayGameServices.onCloudLoadNoDataHandler -= onCloudLoadNoData;
-		PlayGameServices.onConnectedToPGSHandler -= onGPGS_SignInSuccess;
-		PlayGameServices.onDisconnectedFromPGSHandler -= onGPGS_SignOutSuccess;
-		PlayGameServices.onConnectionToPGSFailed -= onGPGS_SignOutSuccess;
-		PlayGameServices.onLoadedFriendsListHandler -= onGPGS_FriendsLoaded;
-		PlayGameServices.LoadFriends();
-		PlayGameServices.onLoadedFriendsListHandler -= onGPGS_FriendsLoaded;
 		base.OnDestroy();
 	}
 
@@ -425,49 +415,6 @@ public class ApplicationUtilities : SingletonSpawningMonoBehaviour<ApplicationUt
 
 	public void AndroidGoogleFriendsRead()
 	{
-		string text = "androidid IN (";
-		int num = 0;
-		List<PlayGameServices.Friend> friends = PlayGameServices.FriendsList;
-		if (friends == null)
-		{
-			return;
-		}
-		foreach (PlayGameServices.Friend item in friends)
-		{
-			if (num > 0)
-			{
-				text += ", ";
-			}
-			text = text + "'" + item.ID + "'";
-			num++;
-		}
-		text += ")";
-		string[] fieldNames = new string[3] { "ownerid", "gamecenterid", "androidid" };
-		GripNetwork.SearchRecords("UserData", fieldNames, text, string.Empty, null, num, 1, delegate(GripNetwork.Result result, GripField[,] data)
-		{
-			if (result == GripNetwork.Result.Success && data != null)
-			{
-				for (int i = 0; i < data.GetLength(0); i++)
-				{
-					if (data[i, 0].mInt.HasValue)
-					{
-						string friendName = string.Empty;
-						foreach (PlayGameServices.Friend item2 in friends)
-						{
-							if (item2.ID == data[i, 2].mString)
-							{
-								friendName = item2.DisplayName;
-								break;
-							}
-						}
-						Singleton<Profile>.Instance.MultiplayerData.AddFriend(data[i, 0].mInt.Value, data[i, 2].mString, null, friendName, true);
-					}
-				}
-			}
-			else if (data != null)
-			{
-			}
-		});
 	}
 
 	public void AndroidFacebookLogIn(Action<string, string, string, string> onDone = null)
@@ -505,11 +452,6 @@ public class ApplicationUtilities : SingletonSpawningMonoBehaviour<ApplicationUt
 
 	public void performAutoSave()
 	{
-		if (_allowAutoSave && PlayGameServices.IsSignedIn)
-		{
-			PlayGameServices.SaveToCloud(readSaveFile(AJavaTools.GameInfo.GetFilesPath() + "/local"));
-		}
-		_allowAutoSave = false;
 	}
 
 	public byte[] readSaveFile(string path)
@@ -536,9 +478,6 @@ public class ApplicationUtilities : SingletonSpawningMonoBehaviour<ApplicationUt
 
 	private void onCloudLoadSuccess(object sender, EventArgs args)
 	{
-		_restoreCloudSaveButtonPressed = false;
-		byte[] array = PlayGameServices.GetcloudSave();
-		AJavaTools.UI.ShowAlert(base.gameObject.name, "onGameResetPopup", StringUtils.GetStringFromStringRef("LocalizedStrings", "IDS_RESTORE_GAME_TITLE"), StringUtils.GetStringFromStringRef("LocalizedStrings", "IDS_ICLOUD_SAVE_FILE_SUCCESSFULLY_LOADED_ANDROID") + "\n\n" + StringUtils.GetStringFromStringRef("LocalizedStrings", "IDS_GAME_RESTARTED"), StringUtils.GetStringFromStringRef("LocalizedStrings", "IDS_RESTART"), StringUtils.GetStringFromStringRef("LocalizedStrings", "cancel"), string.Empty);
 	}
 
 	private void onCloudConflict(object sender, EventArgs args)
@@ -571,41 +510,10 @@ public class ApplicationUtilities : SingletonSpawningMonoBehaviour<ApplicationUt
 
 	private void onGameResetPopup(string info)
 	{
-		int num = Convert.ToInt32(info);
-		_restoreCloudSaveButtonPressed = false;
-		switch (num)
-		{
-		case -1:
-		{
-			PlayGameServices.ResolveConflict(true);
-			byte[] data = PlayGameServices.GetcloudSave();
-			SingletonSpawningMonoBehaviour<ApplicationUtilities>.Instance.writeSaveFile(AJavaTools.GameInfo.GetFilesPath() + "/local.restore", data);
-			AJavaTools.Util.RelaunchGame();
-			break;
-		}
-		}
 	}
 
 	private void onGPGS_SignInSuccess(object sender, EventArgs args)
 	{
-		if (StartScreenImpl._leaderboardsButton != null && StartScreenImpl._achievementsButton != null && StartScreenImpl._googlePlusButton != null)
-		{
-			StartScreenImpl._leaderboardsButton.gameObject.SetActive(true);
-			StartScreenImpl._achievementsButton.gameObject.SetActive(true);
-			StartScreenImpl._iCloudButton.gameObject.SetActive(true);
-			StartScreenImpl._googlePlusButton.gameObject.SetActive(false);
-		}
-		if (Singleton<Profile>.Instance != null)
-		{
-			Singleton<Profile>.Instance.MultiplayerData.SetAndroidID(PlayGameServices.GetPlayerID());
-		}
-		PlayGameServices.LoadFriends();
-		if (PlayerPrefs.GetInt("loadCloudSaveOnFirstLaunch", 0) == 0)
-		{
-			PlayerPrefs.SetInt("loadCloudSaveOnFirstLaunch", 1);
-			PlayGameServices.LoadFromCloud();
-		}
-		Singleton<Achievements>.Instance.ReportOfflineProgress();
 	}
 
 	private void onGPGS_SignOutSuccess(object sender, EventArgs args)
@@ -626,24 +534,6 @@ public class ApplicationUtilities : SingletonSpawningMonoBehaviour<ApplicationUt
 
 	private void onGPGS_ConnectionToPGSFailed(object sender, EventArgs args)
 	{
-		if (PlayGameServices.IsSignedIn)
-		{
-			if (StartScreenImpl._leaderboardsButton != null && StartScreenImpl._achievementsButton != null && StartScreenImpl._googlePlusButton != null)
-			{
-				StartScreenImpl._leaderboardsButton.gameObject.SetActive(true);
-				StartScreenImpl._achievementsButton.gameObject.SetActive(true);
-				StartScreenImpl._iCloudButton.gameObject.SetActive(true);
-				StartScreenImpl._googlePlusButton.gameObject.SetActive(false);
-				Singleton<Profile>.Instance.MultiplayerData.SetAndroidID(PlayGameServices.GetPlayerID());
-			}
-		}
-		else if (StartScreenImpl._leaderboardsButton != null && StartScreenImpl._achievementsButton != null && StartScreenImpl._googlePlusButton != null)
-		{
-			StartScreenImpl._leaderboardsButton.gameObject.SetActive(false);
-			StartScreenImpl._achievementsButton.gameObject.SetActive(false);
-			StartScreenImpl._iCloudButton.gameObject.SetActive(false);
-			StartScreenImpl._googlePlusButton.gameObject.SetActive(true);
-		}
 	}
 
 	private IEnumerator onFacebookLoginTasks()

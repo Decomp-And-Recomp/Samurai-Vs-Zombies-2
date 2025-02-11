@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class GluiCore
@@ -305,16 +306,11 @@ public class GluiCore
 
 	private static void CreateShaders()
 	{
-		string contents = "Shader \"GluiDefault\"\n        {\n\t\t\tProperties\n\t\t\t{\n        \t\t_MainTex (\"Texture\", 2D) = \"white\" {}\n        \t\t_Color (\"Color\", Color) = (1, 1, 1, 1)\n        \t}\n        \tSubShader\n        \t{\n        \t\tTags\n        \t\t{\n        \t\t\t\"Queue\" = \"Transparent\"\n        \t\t}\n        \t\tPass\n        \t\t{\n\t\t\t\t\tBlend SrcAlpha OneMinusSrcAlpha\n\t\t\t\t\tZWrite On\n\t\t\t\t\tZTest LEqual\n\t\t\t\t\tLighting Off\n\t\t\t\t\tCull Off\n\t\t\t\t\tSetTexture [_MainTex]\n\t\t\t\t\t{\n\t\t\t\t\t\tConstantColor [_Color]\n\t\t\t\t\t\tcombine texture * constant\n\t            \t}\n\t            }\n        \t}\n        }";
-		string contents2 = "Shader \"GluiAlphaOnly\"\n        {\n\t\t\tProperties\n\t\t\t{\n        \t\t_MainTex (\"Texture\", 2D) = \"white\" {}\n        \t\t_Color (\"Color\", Color) = (1, 1, 1, 1)\n        \t}\n        \tSubShader\n        \t{\n        \t\tTags\n        \t\t{\n        \t\t\t\"Queue\" = \"Transparent\"\n        \t\t}\n        \t\tPass\n        \t\t{\n\t\t\t\t\tBlend SrcAlpha OneMinusSrcAlpha\n\t\t\t\t\tZWrite On\n\t\t\t\t\tZTest LEqual \n\t\t\t\t\tLighting Off\n\t\t\t\t\tCull Off\n\t\t\t\t\tFog { Mode Off }\n\t\t\t\t\tSetTexture [_MainTex]\n\t\t\t\t\t{\n\t\t\t\t\t\tConstantColor [_Color]\n\t\t\t\t\t\tcombine constant, texture * constant\n\t            \t}\n\t            }\n        \t}\n        }";
-		string contents3 = "Shader \"GluiAdditiveColored\"\n        {\n\t\t\tProperties\n\t\t\t{\n        \t\t_MainTex (\"Texture\", 2D) = \"white\" {}\n        \t\t_Color (\"Color\", Color) = (1, 1, 1, 1)\n        \t}\n        \tSubShader\n        \t{\n        \t\tTags\n        \t\t{\n        \t\t\t\"Queue\" = \"Transparent\"\n        \t\t}\n        \t\tPass\n        \t\t{\n\t\t\t\t\tBlend One One\n\t\t\t\t\tZWrite On\n\t\t\t\t\tLighting Off\n\t\t\t\t\tCull Off\n\t\t\t\t\tSetTexture [_MainTex]\n\t\t\t\t\t{\n\t\t\t\t\t\tConstantColor [_Color]\n\t\t\t\t\t\tcombine texture * constant\n\t            \t}\n\t            }\n        \t}\n        }";
-		string contents4 = "Shader \"GluiOpaqueColored\"\n        {\n\t\t\tProperties\n\t\t\t{\n        \t\t_MainTex (\"Texture\", 2D) = \"white\" {}\n        \t\t_Color (\"Color\", Color) = (1, 1, 1, 1)\n        \t}\n        \tSubShader\n        \t{\n        \t\tTags\n        \t\t{\n        \t\t\t\"Queue\" = \"Transparent\"\n        \t\t}\n        \t\tPass\n        \t\t{\n\t\t\t\t\tLighting Off\n\t\t\t\t\tCull Off\n\t\t\t\t\tZWrite On\n\t\t\t\t\tSetTexture [_MainTex]\n\t\t\t\t\t{\n\t\t\t\t\t\tConstantColor [_Color]\n\t\t\t\t\t\tcombine texture * constant\n\t            \t}\n\t            }\n        \t}\n        }";
-		defaultMaterial = new Material(contents);
-		alphaOnlyMaterial = new Material(contents2);
-		additiveColoredMaterial = new Material(contents3);
-		opaqueColoredMaterial = new Material(contents4);
+		defaultMaterial = new Material(Resources.Load<Shader>("shaders/GluiDefault"));
+		alphaOnlyMaterial = new Material(Resources.Load<Shader>("shaders/GluiAlphaOnly"));
+		additiveColoredMaterial = new Material(Resources.Load<Shader>("shaders/GluiAdditiveColored"));
+		opaqueColoredMaterial = new Material(Resources.Load<Shader>("shaders/GluiOpaqueColored"));
 		alphaDesaturateMaterial = new Material(Shader.Find("Glui/Texture/ABLEND/Unlit_Color-Desaturate"));
-		defaultMaterial = new Material(contents);
 		vertColorMaterial = new Material(Shader.Find("Glui/Texture/ABLEND/Unlit/VCOL"));
 		textAlphaBlendVCOL4ChannelMateral = new Material(Shader.Find("Glui/Texture4x8bit/ABLEND/Unlit/VCOL"));
 		defaultRenderQueue = defaultMaterial.renderQueue;

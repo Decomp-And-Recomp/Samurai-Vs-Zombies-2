@@ -3,19 +3,6 @@ using UnityEngine;
 
 internal static class JniHelper
 {
-	public static void CallStaticSafe(this AndroidJavaClass clazz, string methodName, params object[] args)
-	{
-		PushLocalFrame();
-		try
-		{
-			clazz.CallStatic(methodName, args);
-		}
-		finally
-		{
-			PopLocalFrame();
-		}
-	}
-
 	public static void PushLocalFrame()
 	{
 		PushLocalFrame(128);

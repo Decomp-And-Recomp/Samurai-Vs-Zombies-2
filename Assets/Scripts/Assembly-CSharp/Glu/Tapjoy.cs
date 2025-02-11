@@ -136,22 +136,12 @@ namespace Glu
 				{
 					dictionary.Add("TJC_OPTION_DISABLE_VIDEOS", "true");
 				}
-				if (LoggerSingleton<Logger>.GetLevel() >= 10)
-				{
-					TapjoyPlugin.EnableLogging(true);
-				}
-				if (userId != null)
-				{
-					TapjoyPlugin.SetUserID(userId);
-				}
-				TapjoyPlugin.RequestTapjoyConnect(appId, secretKey, dictionary);
 				_isInitialized = true;
 			}
 		}
 
 		public static void OpenOfferwall()
 		{
-			TapjoyPlugin.ShowOffers();
 			_instance.isOfferwallOpen = true;
 			if (_instance.offerwallStateChangedHandler != null)
 			{
@@ -168,7 +158,6 @@ namespace Glu
 		{
 			if (points <= _instance.serverTapjoyPoints)
 			{
-				TapjoyPlugin.SpendTapPoints((int)points);
 				_instance.serverTapjoyPoints -= points;
 			}
 		}

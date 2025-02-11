@@ -265,10 +265,6 @@ public class Achievements : Singleton<Achievements>
 		{
 			Amazon.UpdateProgress(achievement.achievement.Data.GameCenterID, achievement.progress);
 		}
-		else if (PlayGameServices.IsSignedIn)
-		{
-			PlayGameServices.UpdateProgress(achievement.achievement.Data.GameCenterID, achievement.progress);
-		}
 		else
 		{
 			achievement.dirty = true;
@@ -343,10 +339,6 @@ public class Achievements : Singleton<Achievements>
 		foreach (KeyValuePair<string, AchievementTracker> mAchievement in mAchievements)
 		{
 			float progress = 100f * (float)mAchievement.Value.completedCount / (float)Mathf.Max(1, mAchievement.Value.achievement.Data.CompletionCount);
-			if (!AJavaTools.Properties.IsBuildAmazon() && PlayGameServices.IsSignedIn)
-			{
-				PlayGameServices.UpdateProgress(mAchievement.Value.achievement.Data.GameCenterID, progress);
-			}
 		}
 	}
 

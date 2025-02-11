@@ -39,35 +39,22 @@ public class TapjoyInterfaceInternal : MonoBehaviour
 			gameObject = new GameObject("TapjoyPlugin");
 		}
 		Object.DontDestroyOnLoad(gameObject);
-		gameObject.AddComponent<TapjoyPlugin>();
 		return gameObject.AddComponent<TapjoyInterfaceInternal>();
 	}
 
 	private void Awake()
 	{
-		TapjoyPlugin.getTapPointsSucceeded += GetTapPointsSucceededHandler;
-		TapjoyPlugin.videoAdStarted += VideoAdStartedHandler;
-		TapjoyPlugin.videoAdFailed += VideoAdFailedHandler;
-		TapjoyPlugin.videoAdCompleted += VideoAdCompleteHandler;
-		TapjoyPlugin.viewClosed += ViewClosedHandler;
-		TapjoyPlugin.showOffersFailed += OfferwallFailedHandler;
 	}
 
 	private void OnApplicationPause(bool pause)
 	{
 		if (!pause)
 		{
-			TapjoyPlugin.GetTapPoints();
 		}
 	}
 
 	private void GetTapPointsSucceededHandler(int points)
 	{
-		int num = TapjoyPlugin.QueryTapPoints();
-		if (num >= 0)
-		{
-			serverTapjoyPoints = (uint)num;
-		}
 	}
 
 	private void VideoAdStartedHandler()
@@ -114,7 +101,6 @@ public class TapjoyInterfaceInternal : MonoBehaviour
 			{
 				offerwallStateChangedHandler(Tapjoy.OfferwallState.Closed);
 			}
-			TapjoyPlugin.GetTapPoints();
 		}
 	}
 }

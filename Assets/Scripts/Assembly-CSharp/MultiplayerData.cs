@@ -1252,11 +1252,6 @@ public class MultiplayerData : SaveProvider
 
 	private void UpdateMPLeaderboard()
 	{
-		if (!AJavaTools.Properties.IsBuildAmazon() && PlayGameServices.IsSignedIn)
-		{
-			int score = Singleton<Profile>.Instance.multiplayerWinRating / 10;
-			PlayGameServices.SubmitScore(Profile.kMultiplayerLeaderboard, score);
-		}
 	}
 
 	public void UpdateLoadout()

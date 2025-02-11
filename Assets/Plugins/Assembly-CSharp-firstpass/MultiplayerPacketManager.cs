@@ -40,7 +40,6 @@ public class MultiplayerPacketManager : MonoBehaviour
 
 	public void Init()
 	{
-		PlayGameServices.onMPMessageReceivedHandler += onMPMessageReceived;
 		Packet.SendMessage = (Action<object, byte[], bool>)Delegate.Combine(Packet.SendMessage, new Action<object, byte[], bool>(SendMessage));
 		mInitialized = true;
 		Reset();
@@ -88,14 +87,12 @@ public class MultiplayerPacketManager : MonoBehaviour
 
 	private void OnDestory()
 	{
-		PlayGameServices.onMPMessageReceivedHandler -= onMPMessageReceived;
 		Packet.SendMessage = (Action<object, byte[], bool>)Delegate.Remove(Packet.SendMessage, new Action<object, byte[], bool>(SendMessage));
 	}
 
 	private void SendMessage(object sender, byte[] data, bool reliable)
 	{
 		mTotalPacketsSent++;
-		PlayGameServices.SendMessage(data, reliable);
 		if (Debug.isDebugBuild)
 		{
 			Packet packet = (Packet)sender;

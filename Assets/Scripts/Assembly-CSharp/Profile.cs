@@ -1989,10 +1989,6 @@ public class Profile : Singleton<Profile>
 		{
 			Amazon.SubmitScore(kPlayerRatingLeaderboard, mPlayerAttackRating);
 		}
-		else if (saveScore && PlayGameServices.IsSignedIn)
-		{
-			PlayGameServices.SubmitScore(kPlayerRatingLeaderboard, mPlayerAttackRating);
-		}
 	}
 
 	private IEnumerator SaveInternal()

@@ -56,20 +56,6 @@ namespace Glu.Plugins.ASocial
 
 		public static EventHandler<AmazonEventArgs> QueryPlayerNameHandler;
 
-		private static AndroidJavaClass _amazon;
-
-		public static AndroidJavaClass amazon
-		{
-			get
-			{
-				if (_amazon == null)
-				{
-					_amazon = new AndroidJavaClass("com.glu.plugins.AmazonGameCircleGlu");
-				}
-				return _amazon;
-			}
-		}
-
 		public static void Init(GameCircleFeatures supportedFeatures = GameCircleFeatures.WhisperSync)
 		{
 			GameObject gameObject = new GameObject("AmazonGO");
@@ -265,82 +251,66 @@ namespace Glu.Plugins.ASocial
 
 		private static void API_Init(int supportedFeatures)
 		{
-			amazon.CallStatic("Init", "AmazonGO", supportedFeatures);
 		}
 
 		private static void API_Sync(string description, string conflictStrategy)
 		{
-			amazon.CallStatic("Sync", description, conflictStrategy);
 		}
 
 		private static void API_RequestRevert()
 		{
-			amazon.CallStatic("RequestRevert");
 		}
 
 		private static void API_GetPlayerName()
 		{
-			amazon.CallStatic("GetPlayerName");
 		}
 
 		private static void API_SetPopUpLocation(PopUpLocation location)
 		{
-			amazon.CallStatic("SetPopUpLocation", (int)location);
 		}
 
 		private static void API_UpdateProgress(string achievementID, float percentageComplete)
 		{
-			amazon.CallStatic("UpdateProgress", achievementID, percentageComplete);
 		}
 
 		private static void API_ShowAchievementsOverlay()
 		{
-			amazon.CallStatic("ShowAchievementsOverlay");
 		}
 
 		private static void API_ResetAchievement(string achievementID)
 		{
-			amazon.CallStatic("ResetAchievement", achievementID);
 		}
 
 		private static void API_ResetAchievements()
 		{
-			amazon.CallStatic("ResetAchievements");
 		}
 
 		private static void API_GetAchivementPercentileComplete(string achievementID)
 		{
-			amazon.CallStatic("GetAchivementPercentileComplete", achievementID);
 		}
 
 		private static void API_IsAchievementHidden(string achievementID)
 		{
-			amazon.CallStatic("IsAchievementHidden", achievementID);
 		}
 
 		private static void API_IsAchievementUnlocked(string achievementID)
 		{
-			amazon.CallStatic("IsAchievementUnlocked", achievementID);
 		}
 
 		private static void API_SubmitScore(string leaderboardID, long score)
 		{
-			amazon.CallStatic("SubmitScore", leaderboardID, score);
 		}
 
 		private static void API_ShowLeaderboardsOverlay()
 		{
-			amazon.CallStatic("ShowLeaderboardsOverlay");
 		}
 
 		private static void API_GetLBScore(string leaderboardID, string lbFilter)
 		{
-			amazon.CallStatic("GetLBScore", leaderboardID, lbFilter);
 		}
 
 		private static void API_GetLBRank(string leaderboardID, string lbFilter)
 		{
-			amazon.CallStatic("GetLBRank", leaderboardID, lbFilter);
 		}
 	}
 }

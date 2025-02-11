@@ -45,7 +45,6 @@ public class AndroidQualitySettings : MonoBehaviour
 			int num = (int)quality;
 			value = num.ToString();
 		}
-		AJavaTools.DebugUtil.SetDebugProperty("quality", value);
 		OverrideQualitySettingImpl(quality);
 	}
 
@@ -173,26 +172,6 @@ public class AndroidQualitySettings : MonoBehaviour
 
 	private static AndroidQuality ReadOverrideQuality()
 	{
-		string debugProperty = AJavaTools.DebugUtil.GetDebugProperty("quality");
-		if (debugProperty == null)
-		{
-			return AndroidQuality.Unknown;
-		}
-		int result;
-		if (!int.TryParse(debugProperty, out result))
-		{
-			Debug.LogWarning("Failed to parse quality setting: {0}".Fmt(debugProperty));
-			return AndroidQuality.Unknown;
-		}
-		Array values = Enum.GetValues(typeof(AndroidQuality));
-		foreach (int item in values)
-		{
-			if (item == result)
-			{
-				return (AndroidQuality)item;
-			}
-		}
-		Debug.LogWarning("Unknown quality setting: {0}".Fmt(debugProperty));
 		return AndroidQuality.Unknown;
 	}
 
