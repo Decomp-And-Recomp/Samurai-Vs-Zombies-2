@@ -219,6 +219,7 @@ public class BundleUtils
 
 	public static string GetSystemLanguage()
 	{
+		return "English"; // implement later!!!
 		string language = NUF.GetLanguage();
 		string[] supportedLanguages = GeneralConfig.SupportedLanguages;
 		foreach (string text in supportedLanguages)

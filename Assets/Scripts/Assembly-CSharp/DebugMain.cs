@@ -79,7 +79,7 @@ public class DebugMain : SingletonSpawningMonoBehaviour<DebugMain>
 
 	private void UpdateConsoleShowControls()
 	{
-		if ((Input.touchCount == 4 && (Allow4TouchActivate || Singleton<GrConsole>.Instance.Visible)) || (Input.GetKey(KeyCode.RightAlt) && Input.GetKey(KeyCode.LeftAlt)) || (Input.GetKey(KeyCode.LeftBracket) && Input.GetKey(KeyCode.RightBracket)) || (AJavaTools.Properties.IsBuildAmazon() && Input.touchCount == 2))
+		if ((PCInput.touchCount == 4 && (Allow4TouchActivate || Singleton<GrConsole>.Instance.Visible)) || (Input.GetKey(KeyCode.RightAlt) && Input.GetKey(KeyCode.LeftAlt)) || (Input.GetKey(KeyCode.LeftBracket) && Input.GetKey(KeyCode.RightBracket)) || (AJavaTools.Properties.IsBuildAmazon() && PCInput.touchCount == 2))
 		{
 			if (!consoleMenuInput)
 			{

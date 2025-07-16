@@ -132,7 +132,7 @@ public class LoadingScreen : MonoBehaviour
 		}
 		if (flag2 || !flag || PlayerPrefs.GetInt("gameLoadedCorrectly", 0) == 0 || PlayerPrefs.GetString("gameTag", "0").CompareTo(AJavaTools.Properties.GetBuildTag()) != 0)
 		{
-			StartCoroutine(UpdateSystem.CopyDataBundleFiles());
+			//StartCoroutine(UpdateSystem.CopyDataBundleFiles());
 		}
 		PlayerPrefs.SetInt("gameLoadedCorrectly", 0);
 		if (AJavaTools.Properties.IsBuildAmazon())

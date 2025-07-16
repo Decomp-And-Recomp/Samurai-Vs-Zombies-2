@@ -4,22 +4,22 @@ public class TouchInputDriver : IInputDriver
 {
 	private Touch GetTouchByIndex(int iTouchIndex)
 	{
-		return Input.touches[iTouchIndex];
+		return PCInput.touches[iTouchIndex];
 	}
 
 	public override int GetTouchCount()
 	{
-		return Input.touchCount;
+		return PCInput.touchCount;
 	}
 
 	public override void UpdatePinchGesture(InputGestureStatus gestureStatus, InputGesture_Pinch pinchy)
 	{
 		if (GetTouchCount() == 2)
 		{
-			Vector2 position = Input.GetTouch(0).position;
-			Vector2 position2 = Input.GetTouch(1).position;
-			Vector2 deltaPosition = Input.GetTouch(0).deltaPosition;
-			Vector2 deltaPosition2 = Input.GetTouch(1).deltaPosition;
+			Vector2 position = PCInput.GetTouch(0).position;
+			Vector2 position2 = PCInput.GetTouch(1).position;
+			Vector2 deltaPosition = PCInput.GetTouch(0).deltaPosition;
+			Vector2 deltaPosition2 = PCInput.GetTouch(1).deltaPosition;
 			Vector2 vector = position - position2;
 			Vector2 vector2 = position - deltaPosition - (position2 - deltaPosition2);
 			pinchy.PinchDeltaScalar = vector.magnitude - vector2.magnitude;
@@ -36,11 +36,11 @@ public class TouchInputDriver : IInputDriver
 	{
 		HandInfo hand = gestureStatus.Hand;
 		int num = 0;
-		for (int i = 0; i < Input.touches.Length; i++)
+		for (int i = 0; i < PCInput.touches.Length; i++)
 		{
 			if (num < hand.fingers.Length)
 			{
-				Touch touch = Input.touches[i];
+				Touch touch = PCInput.touches[i];
 				bool isFingerDown = false;
 				if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled && GetTouchCount() > 0)
 				{
@@ -76,7 +76,7 @@ public class TouchInputDriver : IInputDriver
 			}
 			if (!hand.fingers[num].WasFingerDown && hand.fingers[num].IsFingerDown)
 			{
-				if (hand.fingers[num].TouchIndex >= Input.touches.Length)
+				if (hand.fingers[num].TouchIndex >= PCInput.touches.Length)
 				{
 					break;
 				}
@@ -103,7 +103,7 @@ public class TouchInputDriver : IInputDriver
 			}
 			if (hand.fingers[num].IsFingerDown)
 			{
-				if (hand.fingers[num].TouchIndex >= Input.touches.Length)
+				if (hand.fingers[num].TouchIndex >= PCInput.touches.Length)
 				{
 					break;
 				}

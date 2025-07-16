@@ -9,18 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1989260915980934}
+  m_RootGameObject: {fileID: 1472919135441800}
   m_IsPrefabParent: 1
   m_IsExploded: 0
---- !u!1 &1989260915980934
+--- !u!1 &1472919135441800
 GameObject:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_Component:
-  - 4: {fileID: 4116294148532291}
-  - 114: {fileID: 114373370346643330}
+  - 4: {fileID: 4569280048089131}
+  - 114: {fileID: 114891151559022822}
   m_Layer: 0
   m_Name: BridgeSpirits_GrabEnemy
   m_TagString: Untagged
@@ -28,24 +28,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4116294148532291
+--- !u!4 &4569280048089131
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1989260915980934}
+  m_GameObject: {fileID: 1472919135441800}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4170898529830017}
+  - {fileID: 4852134878658500}
   m_Father: {fileID: 0}
---- !u!114 &114373370346643330
+--- !u!114 &114891151559022822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1989260915980934}
+  m_GameObject: {fileID: 1472919135441800}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56b88dcc4bb2c5eaf252d2940540398d, type: 3}
@@ -56,16 +56,16 @@ MonoBehaviour:
     recordKey: Themes.FX_BridgeSpirits
   onLoadedSoundEvent:
     recordKey: SoundThemeEnum.Attack
---- !u!1 &1980782752582229
+--- !u!1 &1472794149357664
 GameObject:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_Component:
-  - 4: {fileID: 4170898529830017}
-  - 198: {fileID: 198857286538702878}
-  - 199: {fileID: 199800890252473935}
+  - 4: {fileID: 4852134878658500}
+  - 198: {fileID: 198428615904966997}
+  - 199: {fileID: 199321689929820774}
   m_Layer: 0
   m_Name: Spirits_Particles
   m_TagString: Untagged
@@ -73,25 +73,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &4170898529830017
+--- !u!4 &4852134878658500
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1980782752582229}
+  m_GameObject: {fileID: 1472794149357664}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -1.8109319, y: 0.34006345, z: -0.21625498}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4378599861456315}
-  - {fileID: 4576200850707241}
-  m_Father: {fileID: 4116294148532291}
---- !u!198 &198857286538702878
+  - {fileID: 4250597655648409}
+  - {fileID: 4469447142811731}
+  m_Father: {fileID: 4569280048089131}
+--- !u!198 &198428615904966997
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1980782752582229}
+  m_GameObject: {fileID: 1472794149357664}
   lengthInSec: 1
   startDelay: 0
   speed: 1
@@ -1136,25 +1136,25 @@ ParticleSystem:
     voxelSize: 0.5
   SubModule:
     enabled: 1
-    subEmitterBirth: {fileID: 198605242964154931}
+    subEmitterBirth: {fileID: 198823660085356348}
     subEmitterBirth1: {fileID: 0}
     subEmitterCollision: {fileID: 0}
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &199800890252473935
+--- !u!199 &199321689929820774
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1980782752582229}
+  m_GameObject: {fileID: 1472794149357664}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 66abf2b9800b1a24590b42e9a2a69394, type: 2}
+  - {fileID: 2100000, guid: 91ab6e649ef16c94c831e8269bb3aec0, type: 2}
   m_SubsetIndices: []
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1172,16 +1172,16 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
---- !u!1 &1091586931893691
+--- !u!1 &1454631612539547
 GameObject:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_Component:
-  - 4: {fileID: 4378599861456315}
-  - 198: {fileID: 198970461081848516}
-  - 199: {fileID: 199183531651569365}
+  - 4: {fileID: 4250597655648409}
+  - 198: {fileID: 198307219430771789}
+  - 199: {fileID: 199305791286485450}
   m_Layer: 0
   m_Name: Burst
   m_TagString: Untagged
@@ -1189,23 +1189,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &4378599861456315
+--- !u!4 &4250597655648409
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1091586931893691}
+  m_GameObject: {fileID: 1454631612539547}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 1.9068472, y: -0.175149, z: -0.40501177}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4170898529830017}
---- !u!198 &198970461081848516
+  m_Father: {fileID: 4852134878658500}
+--- !u!198 &198307219430771789
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1091586931893691}
+  m_GameObject: {fileID: 1454631612539547}
   lengthInSec: 1
   startDelay: 0
   speed: 1
@@ -2181,19 +2181,19 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &199183531651569365
+--- !u!199 &199305791286485450
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1091586931893691}
+  m_GameObject: {fileID: 1454631612539547}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: cd5de587e6eb60e47bec040630ac475a, type: 2}
+  - {fileID: 2100000, guid: edfaaa07464092c4f865bf72f4843ebc, type: 2}
   m_SubsetIndices: []
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -2211,16 +2211,16 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
---- !u!1 &1137263752652762
+--- !u!1 &1191793982257263
 GameObject:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_Component:
-  - 4: {fileID: 4576200850707241}
-  - 198: {fileID: 198605242964154931}
-  - 199: {fileID: 199957182574725422}
+  - 4: {fileID: 4469447142811731}
+  - 198: {fileID: 198823660085356348}
+  - 199: {fileID: 199801053473129449}
   m_Layer: 0
   m_Name: Trail_Particles
   m_TagString: Untagged
@@ -2228,23 +2228,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &4576200850707241
+--- !u!4 &4469447142811731
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1137263752652762}
+  m_GameObject: {fileID: 1191793982257263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000002}
   m_Children: []
-  m_Father: {fileID: 4170898529830017}
---- !u!198 &198605242964154931
+  m_Father: {fileID: 4852134878658500}
+--- !u!198 &198823660085356348
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1137263752652762}
+  m_GameObject: {fileID: 1191793982257263}
   lengthInSec: 5
   startDelay: 0
   speed: 1
@@ -3260,19 +3260,19 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &199957182574725422
+--- !u!199 &199801053473129449
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1137263752652762}
+  m_GameObject: {fileID: 1191793982257263}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: cd5de587e6eb60e47bec040630ac475a, type: 2}
+  - {fileID: 2100000, guid: edfaaa07464092c4f865bf72f4843ebc, type: 2}
   m_SubsetIndices: []
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0

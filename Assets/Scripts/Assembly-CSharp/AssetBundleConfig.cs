@@ -188,7 +188,7 @@ public class AssetBundleConfig
 	{
 		get
 		{
-			return (!AJavaTools.Properties.IsBuildGoogle()) ? (AJavaTools.GameInfo.GetExternalFilesPath() + "/BundleData") : AJavaTools.GameInfo.GetFilesPath();
+			return Application.streamingAssetsPath;//(!AJavaTools.Properties.IsBuildGoogle()) ? (AJavaTools.GameInfo.GetExternalFilesPath() + "/BundleData") : AJavaTools.GameInfo.GetFilesPath();
 		}
 	}
 

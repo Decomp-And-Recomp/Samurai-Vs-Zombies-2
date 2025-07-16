@@ -9,18 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1768293115137203}
+  m_RootGameObject: {fileID: 1745318230307502}
   m_IsPrefabParent: 1
   m_IsExploded: 0
---- !u!1 &1768293115137203
+--- !u!1 &1745318230307502
 GameObject:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_Component:
-  - 4: {fileID: 4362055969216234}
-  - 114: {fileID: 114627250019194101}
+  - 4: {fileID: 4160025073980117}
+  - 114: {fileID: 114945720781706291}
   m_Layer: 0
   m_Name: BridgeSpirits_ambient
   m_TagString: Untagged
@@ -28,24 +28,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4362055969216234
+--- !u!4 &4160025073980117
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1768293115137203}
+  m_GameObject: {fileID: 1745318230307502}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.412123, y: -0.26637268, z: 28.744566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4698551107863278}
+  - {fileID: 4852673487588822}
   m_Father: {fileID: 0}
---- !u!114 &114627250019194101
+--- !u!114 &114945720781706291
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1768293115137203}
+  m_GameObject: {fileID: 1745318230307502}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56b88dcc4bb2c5eaf252d2940540398d, type: 3}
@@ -56,16 +56,16 @@ MonoBehaviour:
     recordKey: Themes.FX_BridgeSpirits
   onLoadedSoundEvent:
     recordKey: SoundThemeEnum.Loop
---- !u!1 &1895024701385279
+--- !u!1 &1845976541153307
 GameObject:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_Component:
-  - 4: {fileID: 4698551107863278}
-  - 198: {fileID: 198066847908257224}
-  - 199: {fileID: 199908175260697471}
+  - 4: {fileID: 4852673487588822}
+  - 198: {fileID: 198357768956621963}
+  - 199: {fileID: 199375118175794369}
   m_Layer: 0
   m_Name: Spirits_Particles
   m_TagString: Untagged
@@ -73,24 +73,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &4698551107863278
+--- !u!4 &4852673487588822
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1895024701385279}
+  m_GameObject: {fileID: 1845976541153307}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4369485418416363}
-  m_Father: {fileID: 4362055969216234}
---- !u!198 &198066847908257224
+  - {fileID: 4298107592873752}
+  m_Father: {fileID: 4160025073980117}
+--- !u!198 &198357768956621963
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1895024701385279}
+  m_GameObject: {fileID: 1845976541153307}
   lengthInSec: 5
   startDelay: 0
   speed: 1
@@ -1370,25 +1370,25 @@ ParticleSystem:
     voxelSize: 0.5
   SubModule:
     enabled: 1
-    subEmitterBirth: {fileID: 198483584546360814}
+    subEmitterBirth: {fileID: 198447923500504305}
     subEmitterBirth1: {fileID: 0}
     subEmitterCollision: {fileID: 0}
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &199908175260697471
+--- !u!199 &199375118175794369
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1895024701385279}
+  m_GameObject: {fileID: 1845976541153307}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 66abf2b9800b1a24590b42e9a2a69394, type: 2}
+  - {fileID: 2100000, guid: 91ab6e649ef16c94c831e8269bb3aec0, type: 2}
   m_SubsetIndices: []
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1406,16 +1406,16 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
---- !u!1 &1631587205932345
+--- !u!1 &1681371700887592
 GameObject:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_Component:
-  - 4: {fileID: 4369485418416363}
-  - 198: {fileID: 198483584546360814}
-  - 199: {fileID: 199701357244052701}
+  - 4: {fileID: 4298107592873752}
+  - 198: {fileID: 198447923500504305}
+  - 199: {fileID: 199697065970990603}
   m_Layer: 0
   m_Name: Trail_Particles
   m_TagString: Untagged
@@ -1423,23 +1423,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &4369485418416363
+--- !u!4 &4298107592873752
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1631587205932345}
+  m_GameObject: {fileID: 1681371700887592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000002}
   m_Children: []
-  m_Father: {fileID: 4698551107863278}
---- !u!198 &198483584546360814
+  m_Father: {fileID: 4852673487588822}
+--- !u!198 &198447923500504305
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1631587205932345}
+  m_GameObject: {fileID: 1681371700887592}
   lengthInSec: 5
   startDelay: 0
   speed: 1
@@ -2455,19 +2455,19 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &199701357244052701
+--- !u!199 &199697065970990603
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1631587205932345}
+  m_GameObject: {fileID: 1681371700887592}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: cd5de587e6eb60e47bec040630ac475a, type: 2}
+  - {fileID: 2100000, guid: edfaaa07464092c4f865bf72f4843ebc, type: 2}
   m_SubsetIndices: []
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0

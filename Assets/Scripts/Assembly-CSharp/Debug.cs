@@ -7,7 +7,8 @@ public sealed class Debug
 	{
 		get
 		{
-			return UnityEngine.Debug.isDebugBuild;
+			return false;
+			//return UnityEngine.Debug.isDebugBuild;
 		}
 	}
 
@@ -78,6 +79,7 @@ public sealed class Debug
 	[Conditional("LOGGING_LEVEL_ERROR")]
 	public static void LogError(object message)
 	{
+		UnityEngine.Debug.LogError(message);
 	}
 
 	[Conditional("LOGGING_LEVEL_ERROR")]

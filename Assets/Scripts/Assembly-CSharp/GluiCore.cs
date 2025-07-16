@@ -329,9 +329,9 @@ public class GluiCore
 		{
 			return false;
 		}
-		if (index < Input.touchCount)
+		if (index < PCInput.touchCount)
 		{
-			Touch touch = Input.touches[index];
+			Touch touch = PCInput.touches[index];
 			pos = touch.position;
 			LastValidCursorPosition = pos;
 			if (touch.phase == TouchPhase.Began)
@@ -352,7 +352,7 @@ public class GluiCore
 			}
 			return true;
 		}
-		if (Input.touchCount > 0)
+		if (PCInput.touchCount > 0)
 		{
 			pos = LastValidCursorPosition;
 			return false;

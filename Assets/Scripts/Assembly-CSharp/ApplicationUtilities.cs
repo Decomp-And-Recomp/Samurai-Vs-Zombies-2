@@ -13,7 +13,7 @@ public class ApplicationUtilities : SingletonSpawningMonoBehaviour<ApplicationUt
 
 	private static string localNotificationMessage = "Placeholder! Set using ApplicationUtilities.LocalNotificationMessage";
 
-	private float timeScaleBackup = Time.timeScale;
+	//private float timeScaleBackup = Time.timeScale;
 
 	public static bool _autoSave;
 

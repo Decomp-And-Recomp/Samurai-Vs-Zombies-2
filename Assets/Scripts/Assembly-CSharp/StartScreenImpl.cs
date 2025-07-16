@@ -11,7 +11,7 @@ public class StartScreenImpl : MonoBehaviour, IGluiActionHandler
 
 	private string titleLogoFileName = "Assets/Game/Resources/UI/textures/StartScreenTemp/Title_English.png";
 
-	private float timeScaleBackup = Time.timeScale;
+	private float timeScaleBackup;
 
 	public static GameObject _leaderboardsButton;
 
@@ -29,6 +29,7 @@ public class StartScreenImpl : MonoBehaviour, IGluiActionHandler
 
 	private void Awake()
 	{
+		timeScaleBackup = Time.timeScale;
 		if (!Singleton<Profile>.Exists)
 		{
 			StartCoroutine(Singleton<Profile>.Instance.Init());

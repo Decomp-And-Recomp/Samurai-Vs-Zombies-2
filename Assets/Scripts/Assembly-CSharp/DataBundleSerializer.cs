@@ -206,10 +206,10 @@ public class DataBundleSerializer
 		}
 		if (hashtable.ContainsKey(AssetBundleConfig.VersionKey))
 		{
-			if (!hashtable[AssetBundleConfig.VersionKey].ToString().Equals(Application.unityVersion))
-			{
-				throw new Exception(AssetBundleConfig.DataBundleName + " was built with a different verion of Unity. Expected:" + Application.unityVersion + " Found:" + hashtable[AssetBundleConfig.VersionKey].ToString());
-			}
+			//if (!hashtable[AssetBundleConfig.VersionKey].ToString().Equals(Application.unityVersion))
+			//{
+			//	throw new Exception(AssetBundleConfig.DataBundleName + " was built with a different verion of Unity. Expected:" + Application.unityVersion + " Found:" + hashtable[AssetBundleConfig.VersionKey].ToString());
+			//}
 			return hashtable;
 		}
 		throw new Exception(AssetBundleConfig.DataBundleName + ": No version information was found. Expected:" + Application.unityVersion);
@@ -236,10 +236,10 @@ public class DataBundleSerializer
 		}
 		if (list.Count > 0)
 		{
-			if (!list[0].Equals(firstChar + Application.unityVersion))
-			{
-				throw new Exception(AssetBundleConfig.DataBundleStringList + " was built with a different verion of Unity. Expected:" + Application.unityVersion + " Found:" + list[0]);
-			}
+			//if (!list[0].Equals(firstChar + Application.unityVersion))
+			//{
+			//	throw new Exception(AssetBundleConfig.DataBundleStringList + " was built with a different verion of Unity. Expected:" + Application.unityVersion + " Found:" + list[0]);
+			//}
 			return list;
 		}
 		throw new Exception(AssetBundleConfig.DataBundleStringList + ": No version information was found. Expected:" + Application.unityVersion);

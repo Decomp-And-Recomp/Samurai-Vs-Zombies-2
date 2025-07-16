@@ -189,10 +189,10 @@ public class BundleAssetInfo
 		}
 		if (AssetList.Count > 0)
 		{
-			if (!AssetList[AssetList.Count - 1].Equals(Application.unityVersion))
-			{
-				throw new Exception(AssetBundleConfig.BundleAssetList + " was built with a different verion of Unity. Expected:" + Application.unityVersion + " Found:" + AssetList[AssetList.Count - 1]);
-			}
+			//if (!AssetList[AssetList.Count - 1].Equals(Application.unityVersion))
+			//{
+			//	throw new Exception(AssetBundleConfig.BundleAssetList + " was built with a different verion of Unity. Expected:" + Application.unityVersion + " Found:" + AssetList[AssetList.Count - 1]);
+			//}
 			return;
 		}
 		throw new Exception(AssetBundleConfig.BundleAssetList + ": No version information was found. Expected:" + Application.unityVersion);

@@ -9,18 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1431957373837381}
+  m_RootGameObject: {fileID: 1338639827617022}
   m_IsPrefabParent: 1
   m_IsExploded: 0
---- !u!1 &1431957373837381
+--- !u!1 &1338639827617022
 GameObject:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_Component:
-  - 4: {fileID: 4817446736579873}
-  - 114: {fileID: 114145250458035316}
+  - 4: {fileID: 4199214350511451}
+  - 114: {fileID: 114432383368182790}
   m_Layer: 0
   m_Name: BloodSplatSmall
   m_TagString: Untagged
@@ -28,40 +28,40 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4817446736579873
+--- !u!4 &4199214350511451
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1431957373837381}
+  m_GameObject: {fileID: 1338639827617022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.4379888, y: -2.5449252, z: 3.696225}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4219599597012893}
-  - {fileID: 4447543454126687}
+  - {fileID: 4381570032439237}
+  - {fileID: 4642173992269576}
   m_Father: {fileID: 0}
---- !u!114 &114145250458035316
+--- !u!114 &114432383368182790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1431957373837381}
+  m_GameObject: {fileID: 1338639827617022}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1425cfafe549424a6c5c0c3f2b407eaf, type: 3}
   m_Name:
---- !u!1 &1243138619584832
+--- !u!1 &1447979906998718
 GameObject:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_Component:
-  - 4: {fileID: 4219599597012893}
-  - 198: {fileID: 198277076013938041}
-  - 199: {fileID: 199621858422893550}
-  - 114: {fileID: 114302513627177052}
+  - 4: {fileID: 4381570032439237}
+  - 198: {fileID: 198553664176172939}
+  - 199: {fileID: 199148145235641141}
+  - 114: {fileID: 114500654371447922}
   m_Layer: 0
   m_Name: BloodSplatMain
   m_TagString: Untagged
@@ -69,23 +69,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &4219599597012893
+--- !u!4 &4381570032439237
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1243138619584832}
+  m_GameObject: {fileID: 1447979906998718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4817446736579873}
---- !u!198 &198277076013938041
+  m_Father: {fileID: 4199214350511451}
+--- !u!198 &198553664176172939
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1243138619584832}
+  m_GameObject: {fileID: 1447979906998718}
   lengthInSec: 1.2
   startDelay: 0
   speed: 1
@@ -1081,19 +1081,19 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &199621858422893550
+--- !u!199 &199148145235641141
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1243138619584832}
+  m_GameObject: {fileID: 1447979906998718}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 8b4cb252349e26847b6f1819e5f05452, type: 2}
+  - {fileID: 2100000, guid: e0f4d6ecc5990e1468b6b0c7cbd2cb2b, type: 2}
   m_SubsetIndices: []
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1111,12 +1111,12 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
---- !u!114 &114302513627177052
+--- !u!114 &114500654371447922
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1243138619584832}
+  m_GameObject: {fileID: 1447979906998718}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56b88dcc4bb2c5eaf252d2940540398d, type: 3}
@@ -1127,16 +1127,16 @@ MonoBehaviour:
     recordKey: Themes.FX
   onLoadedSoundEvent:
     recordKey:
---- !u!1 &1557664355078185
+--- !u!1 &1823110213039569
 GameObject:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_Component:
-  - 4: {fileID: 4447543454126687}
-  - 198: {fileID: 198190181466338737}
-  - 199: {fileID: 199701037862068824}
+  - 4: {fileID: 4642173992269576}
+  - 198: {fileID: 198063233348987113}
+  - 199: {fileID: 199443986775102054}
   m_Layer: 0
   m_Name: BloodChunks
   m_TagString: Untagged
@@ -1144,23 +1144,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &4447543454126687
+--- !u!4 &4642173992269576
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1557664355078185}
+  m_GameObject: {fileID: 1823110213039569}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4817446736579873}
---- !u!198 &198190181466338737
+  m_Father: {fileID: 4199214350511451}
+--- !u!198 &198063233348987113
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1557664355078185}
+  m_GameObject: {fileID: 1823110213039569}
   lengthInSec: 1
   startDelay: 0
   speed: 1
@@ -2156,19 +2156,19 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &199701037862068824
+--- !u!199 &199443986775102054
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1557664355078185}
+  m_GameObject: {fileID: 1823110213039569}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 0158cb1b83aebcd4eb9b049faf06ff85, type: 2}
+  - {fileID: 2100000, guid: f1bed51d4d4ce4944a7e12fb6f1666f2, type: 2}
   m_SubsetIndices: []
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
