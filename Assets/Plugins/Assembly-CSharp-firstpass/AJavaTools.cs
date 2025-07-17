@@ -4,7 +4,6 @@ using System.Globalization;
 using System.IO;
 using Glu.Plugins.AJavaTools_Private;
 using Glu.Plugins.AMiscUtils;
-using UnityEditor;
 using UnityEngine;
 
 public class AJavaTools : MonoBehaviour
