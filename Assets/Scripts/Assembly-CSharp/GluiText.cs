@@ -1502,6 +1502,7 @@ public class GluiText : GluiWidget
 		{
 			result = ((!string.IsNullOrEmpty(taggedStringReference) && DataBundleRuntime.Instance != null) ? StringUtils.GetStringFromStringRef(taggedStringReference) : text);
 		}
+		else result = text; // FIX
 		return result;
 	}
 
