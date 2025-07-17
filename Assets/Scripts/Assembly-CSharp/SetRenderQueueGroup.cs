@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 [RequireComponent(typeof(Renderer))]
 public class SetRenderQueueGroup : MonoBehaviour
 {
