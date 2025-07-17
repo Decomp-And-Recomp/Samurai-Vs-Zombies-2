@@ -704,6 +704,9 @@ public class GluiWidget : GluiBase, IInputHandler
 
 	protected void InitWidget()
 	{
+#if UNITY_EDITOR
+		if (!Application.isPlaying) return;
+#endif
 		if (!isInitialized)
 		{
 			isInitialized = true;
