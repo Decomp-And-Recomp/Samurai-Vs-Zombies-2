@@ -81,19 +81,22 @@ public static class PortableQualitySettings
 
 	public static EPortableQualitySetting GetQualityOfAndroidDevice()
 	{
+#if UNITY_EDITOR
+		if (!Application.isPlaying) return EPortableQualitySetting.High;
+#endif
 		switch (AndroidQualitySettings.Quality)
 		{
-		case AndroidQuality.Tier_0:
-			return EPortableQualitySetting.Low;
-		case AndroidQuality.Tier_1:
-			return EPortableQualitySetting.Medium;
-		case AndroidQuality.Tier_2:
-			return EPortableQualitySetting.Medium;
-		case AndroidQuality.Tier_3:
-		case AndroidQuality.Tier_4:
-			return EPortableQualitySetting.High;
-		default:
-			return EPortableQualitySetting.High;
+			case AndroidQuality.Tier_0:
+				return EPortableQualitySetting.Low;
+			case AndroidQuality.Tier_1:
+				return EPortableQualitySetting.Medium;
+			case AndroidQuality.Tier_2:
+				return EPortableQualitySetting.Medium;
+			case AndroidQuality.Tier_3:
+			case AndroidQuality.Tier_4:
+				return EPortableQualitySetting.High;
+			default:
+				return EPortableQualitySetting.High;
 		}
 	}
 
