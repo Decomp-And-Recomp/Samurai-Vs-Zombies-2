@@ -62,7 +62,8 @@ public class DailyRewardsObserver : MonoBehaviour
 	public static bool CheckDailyRewards()
 	{
 		DateTime? lastDailyRewardDate = Singleton<Profile>.Instance.lastDailyRewardDate;
-		DateTime now = ApplicationUtilities.Now;
+		DateTime now = DateTime.Now; //ApplicationUtilities.Now;
+		UnityEngine.Debug.Log(lastDailyRewardDate);
 		if (!lastDailyRewardDate.HasValue)
 		{
 			RestartRewardsTracking();
@@ -105,7 +106,7 @@ public class DailyRewardsObserver : MonoBehaviour
 			num = 1;
 		}
 		Singleton<Profile>.Instance.lastDailyRewardIndex = num;
-		DateTime now = ApplicationUtilities.Now;
+		DateTime now = DateTime.Now; //= ApplicationUtilities.Now;
 		now = new DateTime(now.Year, now.Month, now.Day);
 		Singleton<Profile>.Instance.lastDailyRewardDate = now;
 		string stringFromStringRef = StringUtils.GetStringFromStringRef("LocalizedStrings", "Notification_DailyReward");
