@@ -6,10 +6,10 @@ public class CompletedCollectionPopup : MonoBehaviour, IGluiActionHandler
 
 	private void Start()
 	{
-		if (FacebookButton != null)
+		/*if (FacebookButton != null)
 		{
 			FacebookButton.gameObject.SetActive(true);
-		}
+		}*/
 		ApplicationUtilities.MakePlayHavenContentRequest("collection_complete");
 	}
 

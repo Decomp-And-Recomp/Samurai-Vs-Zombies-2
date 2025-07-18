@@ -10,16 +10,16 @@ public class CharacterUnlockPopupImpl : MonoBehaviour, IGluiActionHandler
 		ResultsMenuImpl.UnlockedFeature unlockedHero = ResultsMenuImpl.GetUnlockedHero();
 		if (unlockedHero == null)
 		{
-			if (FacebookButton != null)
+			/*if (FacebookButton != null)
 			{
 				FacebookButton.gameObject.SetActive(false);
-			}
+			}*/
 			throw new Exception("Invalid Hero Unlock Data.");
 		}
-		if (FacebookButton != null)
+		/*if (FacebookButton != null)
 		{
 			FacebookButton.gameObject.SetActive(true);
-		}
+		}*/
 		Draw(unlockedHero);
 	}
 

@@ -286,7 +286,7 @@ public class ResultsMenuImpl : UIHandler<ResultsMenuImpl>, IGluiActionHandler
 				{
 					if (Singleton<Profile>.Instance.inDailyChallenge)
 					{
-						FacebookButton.gameObject.SetActive(true);
+						//FacebookButton.gameObject.SetActive(true);
 						FacebookButton.onReleaseActions = new string[1] { "FACEBOOK_DAILY_CHALLENGE" };
 					}
 					else
@@ -299,7 +299,7 @@ public class ResultsMenuImpl : UIHandler<ResultsMenuImpl>, IGluiActionHandler
 							if (enemySchema != null)
 							{
 								mFacebookInfoString = StringUtils.GetStringFromStringRef(enemySchema.displayName);
-								FacebookButton.gameObject.SetActive(true);
+								//FacebookButton.gameObject.SetActive(true);
 							}
 						}
 					}
