@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Reflection;
 using UnityEngine;
+using UniDebug = UnityEngine.Debug;
 
 #if !UNITY_ANDROID || UNITY_EDITOR
 public class AndroidJavaObject : IDisposable
@@ -14,37 +14,37 @@ public class AndroidJavaObject : IDisposable
 
     public void Call(string str, params object[] args)
     {
-        Debug.Log("Call from: \"" + name + "\" to: " + str);
+        UniDebug.Log("Call from: \"" + name + "\" to: " + str);
     }
 
     public T Call<T>(string str, params object[] args)
     {
-        Debug.Log("RETURNING Call from: \"" + name + "\" to: " + str);
+        UniDebug.Log("RETURNING Call from: \"" + name + "\" to: " + str);
 
         return default(T);
     }
 
     public void CallStatic(string str, params object[] args)
     {
-        Debug.Log("CallStatic from: \"" + name + "\" to: " + str);
+        UniDebug.Log("CallStatic from: \"" + name + "\" to: " + str);
     }
 
     public T CallStatic<T>(string str, params object[] args)
     {
-        Debug.Log("RETURNING CallStatic from: \"" + name + "\" to: " + str);
+        UniDebug.Log("RETURNING CallStatic from: \"" + name + "\" to: " + str);
         return default(T);
     }
 
     public T Get<T>(string str)
     {
-        Debug.Log("RETURNING Get from: \"" + name + "\" in: " + str);
+        UniDebug.Log("RETURNING Get from: \"" + name + "\" in: " + str);
 
         return default(T);
     }
 
     public T GetStatic<T>(object str)
     {
-        Debug.Log("RETURNING GetStatic from: \"" + name);
+        UniDebug.Log("RETURNING GetStatic from: \"" + name);
 
         return default(T);
     }
@@ -76,24 +76,24 @@ public class AndroidJavaClass : IDisposable
 
     public void Call(string str, params object[] args)
     {
-        Debug.Log("Call from: \"" + name + "\" to: " + str);
+        UniDebug.Log("Call from: \"" + name + "\" to: " + str);
     }
 
     public T Call<T>(string str, params object[] args)
     {
-        Debug.Log("RETURNING Call from: \"" + name + "\" to: " + str);
+        UniDebug.Log("RETURNING Call from: \"" + name + "\" to: " + str);
 
         return default(T);
     }
 
     public void CallStatic(string str, params object[] args)
     {
-        Debug.Log("CallStatic from: \"" + name + "\" to: " + str);
+        UniDebug.Log("CallStatic from: \"" + name + "\" to: " + str);
     }
 
     public T CallStatic<T>(string str, params object[] args)
     {
-        Debug.Log("RETURNING CallStatic from: \"" + name + "\" to: " + str);
+        UniDebug.Log("RETURNING CallStatic from: \"" + name + "\" to: " + str);
 
         if (typeof(T) == typeof(AndroidJavaObject))
         {
@@ -112,14 +112,14 @@ public class AndroidJavaClass : IDisposable
 
     public T Get<T>(string str)
     {
-        Debug.Log("RETURNING Get from: \"" + name + "\" in: " + str);
+        UniDebug.Log("RETURNING Get from: \"" + name + "\" in: " + str);
 
         return default(T);
     }
 
     public T GetStatic<T>(object str)
     {
-        Debug.Log("RETURNING GetStatic from: \"" + name);
+        UniDebug.Log("RETURNING GetStatic from: \"" + name);
 
         return default(T);
     }
