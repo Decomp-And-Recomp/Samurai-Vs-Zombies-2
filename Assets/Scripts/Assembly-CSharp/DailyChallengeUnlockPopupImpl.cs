@@ -6,10 +6,10 @@ public class DailyChallengeUnlockPopupImpl : MonoBehaviour, IGluiActionHandler
 
 	private void Start()
 	{
-		if (FacebookButton != null)
+		/*if (FacebookButton != null)
 		{
 			FacebookButton.gameObject.SetActive(true);
-		}
+		}*/
 		Draw();
 	}
 
