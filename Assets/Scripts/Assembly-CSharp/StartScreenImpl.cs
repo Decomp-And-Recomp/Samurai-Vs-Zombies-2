@@ -76,11 +76,11 @@ public class StartScreenImpl : MonoBehaviour, IGluiActionHandler
 			bool iCloudEnabled = FileManager.CheckCloudStorageAvailability();
 			string iCloudPath = FileManager.GetCloudContainerDirectoryPath();
 		}
-		if (Facebook.IsInitialized() && Facebook.IsLoggedIn() && FacebookButton != null)
-		{
+		//if (Facebook.IsInitialized() && Facebook.IsLoggedIn() && FacebookButton != null)
+		//{
 			FacebookButton.Visible = false;
 			UnityEngine.Object.Destroy(FacebookButton.gameObject);
-		}
+		//}
 		SingletonSpawningMonoBehaviour<ApplicationUtilities>.Instance.canAwardGems = true;
 		_leaderboardsButton = GameObject.Find("Button_Leaderboard");
 		_achievementsButton = GameObject.Find("Button_Achievement");
@@ -97,7 +97,7 @@ public class StartScreenImpl : MonoBehaviour, IGluiActionHandler
 		_iCloudButton.gameObject.SetActive(false);
 		_gameCenterButton.gameObject.SetActive(false);
 		GameObject _anchor = GameObject.Find("Anchor_LeftBottom");
-		_googlePlusButton = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("UI/Prefabs/StartScreen/Button_GooglePlus"));
+		/*_googlePlusButton = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("UI/Prefabs/StartScreen/Button_GooglePlus"));
 		_googlePlusButton.transform.parent = _anchor.transform;
 		_googlePlusButton.transform.localPosition = new Vector3(_currentPosition2.x + 200f, _googlePlusButton.transform.localPosition.y, _googlePlusButton.transform.localPosition.z);
 		_playerButton = (GameObject)UnityEngine.Object.Instantiate(Resources.Load("UI/Prefabs/StartScreen/Button_PGS"));
@@ -119,10 +119,10 @@ public class StartScreenImpl : MonoBehaviour, IGluiActionHandler
 			_leaderboardsButton.FindChildComponent<GluiSprite>("Art_Leaderboard").Texture = ResourceCache.GetCachedResource("UI/Textures/DynamicIcons/Misc/Button_Leaderboards_PGS", 1).Resource as Texture2D;
 			_achievementsButton.FindChildComponent<GluiSprite>("Art_Achievement").Texture = ResourceCache.GetCachedResource("UI/Textures/DynamicIcons/Misc/Button_Achievements_PGS", 1).Resource as Texture2D;
 			_googlePlusButton.gameObject.SetActive(true);
-		}
+		}*/
 		PlayerPrefs.SetInt("gameLoadedCorrectly", 1);
 		PlayerPrefs.SetString("gameTag", AJavaTools.Properties.GetBuildTag());
-		if (PlayerPrefs.GetInt("pgsSignIn", 0) == 0)
+		/*if (PlayerPrefs.GetInt("pgsSignIn", 0) == 0)
 		{
 			AJavaTools.UI.ShowAlert(base.gameObject.name, "pgsSignInCallback", StringUtils.GetStringFromStringRef("LocalizedStrings", "IDS_G_SI_REQUIRED"), StringUtils.GetStringFromStringRef("LocalizedStrings", "SI_GOOGLE_CLOUD"), StringUtils.GetStringFromStringRef("LocalizedStrings", "IDS_SIGN_IN"), StringUtils.GetStringFromStringRef("LocalizedStrings", "IDS_SKIP"), string.Empty);
 			Time.timeScale = 0f;
@@ -130,7 +130,7 @@ public class StartScreenImpl : MonoBehaviour, IGluiActionHandler
 		}
 		if (AJavaTools.Properties.GetBuildType() == "tstore" && Singleton<Profile>.Instance != null)
 		{
-		}
+		}*/
 	}
 
 	private void Update()
