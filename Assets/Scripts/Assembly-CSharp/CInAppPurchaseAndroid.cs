@@ -30,8 +30,8 @@ public class CInAppPurchaseAndroid : ICInAppPurchase
 	{
 		if (m_gluGoogleIAP != IntPtr.Zero)
 		{
-			AndroidJNI.CallVoidMethod(m_gluGoogleIAP, m_onIAPDestroyMethod, new jvalue[0]);
-			AndroidJNI.DeleteGlobalRef(m_gluGoogleIAP);
+			//AndroidJNI.CallVoidMethod(m_gluGoogleIAP, m_onIAPDestroyMethod, new jvalue[0]);
+			//AndroidJNI.DeleteGlobalRef(m_gluGoogleIAP);
 		}
 	}
 
@@ -44,7 +44,7 @@ public class CInAppPurchaseAndroid : ICInAppPurchase
 
 	public override void Init(string[] products, string marketPublicKey)
 	{
-		if (products != null && marketPublicKey != null)
+		/*if (products != null && marketPublicKey != null)
 		{
 			IntPtr intPtr = AndroidJNI.FindClass("com/glu/android/iap/GluDebug");
 			IntPtr staticFieldID = AndroidJNI.GetStaticFieldID(intPtr, "m_debugLogEnabled", "Z");
@@ -75,7 +75,7 @@ public class CInAppPurchaseAndroid : ICInAppPurchase
 			{
 				m_validProducts[i] = new CInAppPurchaseProduct(products[i]);
 			}
-		}
+		}*/
 	}
 
 	public override CInAppPurchaseProduct[] GetAvailableProducts()
@@ -85,14 +85,14 @@ public class CInAppPurchaseAndroid : ICInAppPurchase
 
 	public override void BuyProduct(string product)
 	{
-		if (m_validProducts != null)
+		/*if (m_validProducts != null)
 		{
 			IntPtr intPtr = AndroidJNI.NewStringUTF(product);
 			jvalue[] array = new jvalue[1];
 			array[0].l = intPtr;
 			AndroidJNI.CallVoidMethod(m_gluGoogleIAP, m_buyProductMethod, array);
 			AndroidJNI.DeleteLocalRef(intPtr);
-		}
+		}*/
 	}
 
 	public override bool IsTurnedOn()
@@ -105,28 +105,28 @@ public class CInAppPurchaseAndroid : ICInAppPurchase
 
 	public override bool IsAvailable()
 	{
-		if (m_validProducts != null)
+		/*if (m_validProducts != null)
 		{
 			return AndroidJNI.CallBooleanMethod(m_gluGoogleIAP, m_isIAPSupportedMethod, new jvalue[0]);
-		}
+		}*/
 		return false;
 	}
 
 	public override string RetrieveProduct()
 	{
-		if (m_validProducts != null)
+		/*if (m_validProducts != null)
 		{
 			return AndroidJNI.CallStringMethod(m_gluGoogleIAP, m_retrieveProductMethod, new jvalue[0]);
-		}
+		}*/
 		return null;
 	}
 
 	public override TRANSACTION_STATE GetPurchaseTransactionStatus()
 	{
-		if (m_validProducts != null)
+		/*if (m_validProducts != null)
 		{
 			return (TRANSACTION_STATE)AndroidJNI.CallIntMethod(m_gluGoogleIAP, m_getTransactionStatusMethod, new jvalue[0]);
-		}
+		}*/
 		return TRANSACTION_STATE.NONE;
 	}
 
@@ -155,7 +155,7 @@ public class CInAppPurchaseAndroid : ICInAppPurchase
 
 	private string getJNIObjectClassName(IntPtr obj)
 	{
-		IntPtr intPtr = AndroidJNI.FindClass("java/lang/Class");
+		/*IntPtr intPtr = AndroidJNI.FindClass("java/lang/Class");
 		IntPtr intPtr2 = AndroidJNI.FindClass("java/lang/Object");
 		IntPtr methodID = AndroidJNI.GetMethodID(intPtr, "getName", "()Ljava/lang/String;");
 		IntPtr methodID2 = AndroidJNI.GetMethodID(intPtr2, "getClass", "()Ljava/lang/Class;");
@@ -164,6 +164,7 @@ public class CInAppPurchaseAndroid : ICInAppPurchase
 		AndroidJNI.DeleteLocalRef(obj2);
 		AndroidJNI.DeleteLocalRef(intPtr2);
 		AndroidJNI.DeleteLocalRef(intPtr);
-		return result;
+		return result;*/
+		return "";
 	}
 }

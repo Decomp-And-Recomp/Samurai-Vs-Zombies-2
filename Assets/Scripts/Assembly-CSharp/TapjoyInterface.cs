@@ -83,7 +83,7 @@ public class TapjoyInterface
 
 	private static void TJ_initialize(string appId, string secretKey, bool showVideoAds)
 	{
-		if (Debug.isDebugBuild)
+		/*if (Debug.isDebugBuild)
 		{
 			IntPtr intPtr = AndroidJNI.FindClass("com/tapjoy/TapjoyLog");
 			IntPtr staticMethodID = AndroidJNI.GetStaticMethodID(intPtr, "enableLogging", "(Z)V");
@@ -135,12 +135,12 @@ public class TapjoyInterface
 		AndroidJNI.DeleteLocalRef(intPtr3);
 		AndroidJNI.DeleteLocalRef(intPtr5);
 		AndroidJNI.DeleteLocalRef(intPtr4);
-		AndroidJNI.DeleteLocalRef(obj);
+		AndroidJNI.DeleteLocalRef(obj);*/
 	}
 
 	private static void TJ_destroy()
 	{
-		AndroidJNI.DeleteGlobalRef(m_tapjoyConnectInstance);
+		//AndroidJNI.DeleteGlobalRef(m_tapjoyConnectInstance);
 		m_tapjoyConnectInstance = IntPtr.Zero;
 	}
 
@@ -151,7 +151,7 @@ public class TapjoyInterface
 
 	private static void TJ_tick(int deltaMS)
 	{
-		jvalue[] array = new jvalue[1];
+		/*jvalue[] array = new jvalue[1];
 		array[0].i = deltaMS;
 		AndroidJNI.CallVoidMethod(m_tapjoyConnectInstance, m_tickMethod, array);
 		if (m_queryFeaturedApp)
@@ -186,31 +186,31 @@ public class TapjoyInterface
 			{
 				m_queryFeaturedApp = false;
 			}
-		}
+		}*/
 	}
 
 	private static string TJ_GetTapjoyID()
 	{
-		return AndroidJNI.CallStringMethod(m_tapjoyConnectInstance, m_getAppIDMethod, new jvalue[0]);
+		return "";//AndroidJNI.CallStringMethod(m_tapjoyConnectInstance, m_getAppIDMethod, new jvalue[0]);
 	}
 
 	private static string TJ_getUserID()
 	{
-		return AndroidJNI.CallStringMethod(m_tapjoyConnectInstance, m_getUserIDMethod, new jvalue[0]);
+		return "";//AndroidJNI.CallStringMethod(m_tapjoyConnectInstance, m_getUserIDMethod, new jvalue[0]);
 	}
 
 	private static void TJ_setUserID(string userId)
 	{
-		IntPtr intPtr = AndroidJNI.NewStringUTF(userId);
+		/*IntPtr intPtr = AndroidJNI.NewStringUTF(userId);
 		jvalue[] array = new jvalue[1];
 		array[0].l = intPtr;
 		AndroidJNI.CallVoidMethod(m_tapjoyConnectInstance, m_setUserIDMethod, array);
-		AndroidJNI.DeleteLocalRef(intPtr);
+		AndroidJNI.DeleteLocalRef(intPtr);*/
 	}
 
 	private static void TJ_openTapjoyInterface()
 	{
-		AndroidJNI.CallVoidMethod(m_tapjoyConnectInstance, m_showOffersMethod, new jvalue[0]);
+		//AndroidJNI.CallVoidMethod(m_tapjoyConnectInstance, m_showOffersMethod, new jvalue[0]);
 	}
 
 	private static void TJ_closeTapjoyInterface()
@@ -244,19 +244,19 @@ public class TapjoyInterface
 
 	private static uint TJ_getServerTapjoyPoints()
 	{
-		return (uint)AndroidJNI.CallIntMethod(m_tapjoyConnectInstance, m_getTapPointsTotalMethod, new jvalue[0]);
+		return 0;//(uint)AndroidJNI.CallIntMethod(m_tapjoyConnectInstance, m_getTapPointsTotalMethod, new jvalue[0]);
 	}
 
 	private static bool TJ_consumeServerTapjoyPoints(uint points)
 	{
-		int num = AndroidJNI.CallIntMethod(m_tapjoyConnectInstance, m_getTapPointsTotalMethod, new jvalue[0]);
+		/*int num = AndroidJNI.CallIntMethod(m_tapjoyConnectInstance, m_getTapPointsTotalMethod, new jvalue[0]);
 		if (num >= points)
 		{
 			jvalue[] array = new jvalue[1];
 			array[0].i = (int)points;
 			AndroidJNI.CallVoidMethod(m_tapjoyConnectInstance, m_spendTapPointsMethod, array);
 			return true;
-		}
+		}*/
 		return false;
 	}
 
@@ -285,7 +285,7 @@ public class TapjoyInterface
 
 	private static bool TJ_getFeaturedAppQueryState()
 	{
-		return m_queryFeaturedApp && !AndroidJNI.CallBooleanMethod(m_tapjoyConnectInstance, m_didReceiveFeaturedAppDataMethod, new jvalue[0]);
+		return false; //m_queryFeaturedApp && !AndroidJNI.CallBooleanMethod(m_tapjoyConnectInstance, m_didReceiveFeaturedAppDataMethod, new jvalue[0]);
 	}
 
 	private static TapjoyFeaturedAppInfo TJ_getFeaturedApp()
@@ -321,7 +321,7 @@ public class TapjoyInterface
 
 	private static void TJ_hideAd()
 	{
-		AndroidJNI.CallVoidMethod(m_tapjoyConnectInstance, m_hideBannerAdMethod, new jvalue[0]);
+		//AndroidJNI.CallVoidMethod(m_tapjoyConnectInstance, m_hideBannerAdMethod, new jvalue[0]);
 	}
 
 	private static void TJ_setVideoCacheCount(uint count)
@@ -339,7 +339,7 @@ public class TapjoyInterface
 
 	private static string getJNIObjectClassName(IntPtr obj)
 	{
-		IntPtr intPtr = AndroidJNI.FindClass("java/lang/Class");
+		/*IntPtr intPtr = AndroidJNI.FindClass("java/lang/Class");
 		IntPtr intPtr2 = AndroidJNI.FindClass("java/lang/Object");
 		IntPtr methodID = AndroidJNI.GetMethodID(intPtr, "getName", "()Ljava/lang/String;");
 		IntPtr methodID2 = AndroidJNI.GetMethodID(intPtr2, "getClass", "()Ljava/lang/Class;");
@@ -348,7 +348,8 @@ public class TapjoyInterface
 		AndroidJNI.DeleteLocalRef(obj2);
 		AndroidJNI.DeleteLocalRef(intPtr2);
 		AndroidJNI.DeleteLocalRef(intPtr);
-		return result;
+		return result;*/
+		return "";
 	}
 
 	public static void Initialize(string resId, string secretKey)
