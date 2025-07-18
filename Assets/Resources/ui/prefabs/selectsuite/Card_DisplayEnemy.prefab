@@ -2,8 +2,8 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1001 &100100000
 Prefab:
-  serializedVersion: 2
   m_ObjectHideFlags: 1
+  serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
@@ -11,15 +11,45 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1814575866104721}
   m_IsPrefabParent: 1
-  m_IsExploded: 0
---- !u!1 &1814575866104721
+--- !u!1 &1509151278835636
 GameObject:
-  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4482556584858603}
+  - component: {fileID: 4650809315469780}
+  m_Layer: 8
+  m_Name: Locator_EnemyModel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1558680096915551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4959954957343010}
+  - component: {fileID: 114150054464331152}
+  m_Layer: 8
+  m_Name: EditorOnly_Size
+  m_TagString: EditorOnly
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1814575866104721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4482556584858603}
   m_Layer: 8
   m_Name: Card_DisplayEnemy
   m_TagString: Untagged
@@ -40,21 +70,8 @@ Transform:
   - {fileID: 4650809315469780}
   - {fileID: 4959954957343010}
   m_Father: {fileID: 0}
---- !u!1 &1509151278835636
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4650809315469780}
-  m_Layer: 8
-  m_Name: Locator_EnemyModel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4650809315469780
 Transform:
   m_ObjectHideFlags: 0
@@ -66,22 +83,8 @@ Transform:
   m_LocalScale: {x: 150, y: 150, z: 150.00002}
   m_Children: []
   m_Father: {fileID: 4482556584858603}
---- !u!1 &1558680096915551
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4959954957343010}
-  - 114: {fileID: 114150054464331152}
-  m_Layer: 8
-  m_Name: EditorOnly_Size
-  m_TagString: EditorOnly
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4959954957343010
 Transform:
   m_ObjectHideFlags: 0
@@ -93,6 +96,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4482556584858603}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114150054464331152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +107,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d3c6adfba882a8e691a62d02a714027, type: 3}
-  m_Name:
+  m_Name: 
+  m_EditorClassIdentifier: 
   isEnabled: 1
   nativeWidth: 250
   nativeHeight: 320

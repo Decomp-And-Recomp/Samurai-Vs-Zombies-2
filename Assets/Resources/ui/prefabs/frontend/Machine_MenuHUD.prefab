@@ -2,8 +2,8 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1001 &100100000
 Prefab:
-  serializedVersion: 2
   m_ObjectHideFlags: 1
+  serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
@@ -11,18 +11,49 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1380682954019748}
   m_IsPrefabParent: 1
-  m_IsExploded: 0
 --- !u!1 &1380682954019748
 GameObject:
-  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4602837359502562}
-  - 114: {fileID: 114314092199284393}
+  - component: {fileID: 4602837359502562}
+  - component: {fileID: 114314092199284393}
   m_Layer: 0
   m_Name: Machine_MenuHUD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1577813400735612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4932974780080611}
+  - component: {fileID: 114980328332136699}
+  m_Layer: 0
+  m_Name: Empty
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1688563650697675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4720273442740498}
+  - component: {fileID: 114820175255035673}
+  m_Layer: 0
+  m_Name: MenuHUD_FrontEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,87 +72,8 @@ Transform:
   - {fileID: 4932974780080611}
   - {fileID: 4720273442740498}
   m_Father: {fileID: 0}
---- !u!114 &114314092199284393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1380682954019748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a883542e509b50b8aec020a6f1b5d82b, type: 3}
-  m_Name:
-  defaultState: Empty
-  defaultSkipsOnStartTransition: 0
-  defaultToPersistedStateName: 0
-  PersistCurrentStateName:
-  inputExclusivity: 0
-  defaultMetadata:
-    recordKey:
---- !u!1 &1577813400735612
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4932974780080611}
-  - 114: {fileID: 114980328332136699}
-  m_Layer: 0
-  m_Name: Empty
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4932974780080611
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1577813400735612}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4602837359502562}
---- !u!114 &114980328332136699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1577813400735612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e42ddadcb80f9936e6b0afcb0c7d29e, type: 3}
-  m_Name:
-  actionToHandle: MENU_HUD_EMPTY
-  actionToHandleReverse:
-  onStart:
-    actionOnDone:
-  onReady:
-    actionOnDone:
-  onExit:
-    actionOnDone:
-  defaultTransformInherit: 0
-  optionalMetadata:
-    recordKey:
---- !u!1 &1688563650697675
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4720273442740498}
-  - 114: {fileID: 114820175255035673}
-  m_Layer: 0
-  m_Name: MenuHUD_FrontEnd
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4720273442740498
 Transform:
   m_ObjectHideFlags: 0
@@ -133,6 +85,39 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4602837359502562}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4932974780080611
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1577813400735612}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4602837359502562}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114314092199284393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1380682954019748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a883542e509b50b8aec020a6f1b5d82b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultState: Empty
+  defaultSkipsOnStartTransition: 0
+  defaultToPersistedStateName: 0
+  PersistCurrentStateName: 
+  inputExclusivity: 0
+  defaultMetadata:
+    recordKey: 
 --- !u!114 &114820175255035673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,17 +127,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 923850e1b212defe83a2fe92ed23efdf, type: 3}
-  m_Name:
+  m_Name: 
+  m_EditorClassIdentifier: 
   actionToHandle: MENU_HUD_BANK
-  actionToHandleReverse:
+  actionToHandleReverse: 
   onStart:
-    actionOnDone:
+    actionOnDone: 
   onReady:
-    actionOnDone:
+    actionOnDone: 
   onExit:
-    actionOnDone:
+    actionOnDone: 
   defaultTransformInherit: 3
   optionalMetadata:
     recordKey: MenuPriorities.HUD
   resourceToLoad: UI/Prefabs/Global/Panel_HUD_FrontEnd
   unloadUnusedAssets: 0
+--- !u!114 &114980328332136699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1577813400735612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e42ddadcb80f9936e6b0afcb0c7d29e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionToHandle: MENU_HUD_EMPTY
+  actionToHandleReverse: 
+  onStart:
+    actionOnDone: 
+  onReady:
+    actionOnDone: 
+  onExit:
+    actionOnDone: 
+  defaultTransformInherit: 0
+  optionalMetadata:
+    recordKey: 

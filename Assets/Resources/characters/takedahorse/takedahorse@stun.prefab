@@ -2,8 +2,8 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1001 &100100000
 Prefab:
-  serializedVersion: 2
   m_ObjectHideFlags: 1
+  serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
@@ -11,16 +11,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1048611244069142}
   m_IsPrefabParent: 1
-  m_IsExploded: 0
 --- !u!1 &1048611244069142
 GameObject:
-  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4335339200995265}
-  - 111: {fileID: 111366793076740079}
+  - component: {fileID: 4335339200995265}
+  - component: {fileID: 111366793076740079}
   m_Layer: 0
   m_Name: takedahorse@stun
   m_TagString: Untagged
@@ -28,128 +27,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4335339200995265
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1048611244069142}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4499866907507334}
-  m_Father: {fileID: 0}
---- !u!111 &111366793076740079
-Animation:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1048611244069142}
-  m_Enabled: 1
-  m_Animation: {fileID: 7400000, guid: 413f2b9325d9b00428d5ff57f3eb1f32, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 413f2b9325d9b00428d5ff57f3eb1f32, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
-  m_UserAABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
---- !u!1 &1116341386365139
+--- !u!1 &1065341161400014
 GameObject:
-  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4499866907507334}
+  - component: {fileID: 4575126883219637}
   m_Layer: 0
-  m_Name: takedahorse:skeleton_root_joint
+  m_Name: takedahorse:weightSpine_grp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4499866907507334
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1116341386365139}
-  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4942406733277839}
-  m_Father: {fileID: 4335339200995265}
---- !u!1 &1409639135004539
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4942406733277839}
-  m_Layer: 0
-  m_Name: takedahorse:horse_Skeleton_grp
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4942406733277839
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1409639135004539}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4685587172913846}
-  - {fileID: 4575126883219637}
-  m_Father: {fileID: 4499866907507334}
---- !u!1 &1877823743172404
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4685587172913846}
-  m_Layer: 0
-  m_Name: takedahorse:horse_spine_low_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4685587172913846
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1877823743172404}
-  m_LocalRotation: {x: 0.2675907, y: -0.63525766, z: -0.15914997, w: 0.7067632}
-  m_LocalPosition: {x: -0.007326827, y: 0.2274774, z: -0.1334448}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4989582620287231}
-  - {fileID: 4042297700117265}
-  - {fileID: 4038360946525025}
-  m_Father: {fileID: 4942406733277839}
 --- !u!1 &1097100481142120
 GameObject:
-  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4989582620287231}
+  - component: {fileID: 4989582620287231}
   m_Layer: 0
   m_Name: takedahorse:horse_hip_jnt
   m_TagString: Untagged
@@ -157,27 +57,59 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4989582620287231
-Transform:
+--- !u!1 &1116341386365139
+GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1097100481142120}
-  m_LocalRotation: {x: 0.99516463, y: -0.09822134, z: 1.1596555E-16, w: -5.008423E-17}
-  m_LocalPosition: {x: 0.02729249, y: -0.005440458, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4043526844217461}
-  - {fileID: 4689507487313618}
-  m_Father: {fileID: 4685587172913846}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4499866907507334}
+  m_Layer: 0
+  m_Name: takedahorse:skeleton_root_joint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1136943476319255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4961902990308081}
+  m_Layer: 0
+  m_Name: takedahorse:horsefront_rt_knee_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1148957438482398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4018168926909854}
+  m_Layer: 0
+  m_Name: takedahorse:horse_tail3_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1194595728740952
 GameObject:
-  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4043526844217461}
+  - component: {fileID: 4043526844217461}
   m_Layer: 0
   m_Name: takedahorse:horse_lf_upLeg_jnt
   m_TagString: Untagged
@@ -185,53 +117,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4043526844217461
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1194595728740952}
-  m_LocalRotation: {x: -0.14783214, y: 0.9805794, z: -0.0594502, w: -0.11434815}
-  m_LocalPosition: {x: 0.04531995, y: -0.007973515, z: -0.09296214}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4542345685221238}
-  m_Father: {fileID: 4989582620287231}
---- !u!1 &1647783118260130
+--- !u!1 &1256895468212610
 GameObject:
-  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4542345685221238}
+  - component: {fileID: 4589994185258398}
   m_Layer: 0
-  m_Name: takedahorse:horse_lf_knee_jnt
+  m_Name: takedahorse:horsefront_lf_ball_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4542345685221238
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1647783118260130}
-  m_LocalRotation: {x: 0, y: 0, z: 0.9270715, w: -0.3748845}
-  m_LocalPosition: {x: -0.1056406, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4935166868758247}
-  m_Father: {fileID: 4043526844217461}
 --- !u!1 &1312166240274680
 GameObject:
-  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4935166868758247}
+  - component: {fileID: 4935166868758247}
   m_Layer: 0
   m_Name: takedahorse:horse_lf_ankle_jnt
   m_TagString: Untagged
@@ -239,26 +147,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4935166868758247
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1312166240274680}
-  m_LocalRotation: {x: 0.30617157, y: 0.95111674, z: 0.03644318, w: -0.017545085}
-  m_LocalPosition: {x: -0.1181464, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4937051706582847}
-  m_Father: {fileID: 4542345685221238}
 --- !u!1 &1328852289734350
 GameObject:
-  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4937051706582847}
+  - component: {fileID: 4937051706582847}
   m_Layer: 0
   m_Name: takedahorse:horse_lf_ball_jnt
   m_TagString: Untagged
@@ -266,52 +162,59 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4937051706582847
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1328852289734350}
-  m_LocalRotation: {x: 0.97785854, y: -0.20926714, z: 3.170326E-16, w: 5.227914E-18}
-  m_LocalPosition: {x: -0.09720124, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4935166868758247}
---- !u!1 &1588380117968611
+--- !u!1 &1397874739555740
 GameObject:
-  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4689507487313618}
+  - component: {fileID: 4748481815478540}
   m_Layer: 0
-  m_Name: takedahorse:horse_rt_upLeg_jnt
+  m_Name: takedahorse:horsefront_neck_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4689507487313618
-Transform:
+--- !u!1 &1409639135004539
+GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1588380117968611}
-  m_LocalRotation: {x: 0.87901914, y: 0.4522618, z: -0.15078868, w: -0.006885797}
-  m_LocalPosition: {x: 0.04531952, y: -0.007973313, z: 0.0929621}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4977686574598625}
-  m_Father: {fileID: 4989582620287231}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4942406733277839}
+  m_Layer: 0
+  m_Name: takedahorse:horse_Skeleton_grp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1436703284221569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4197398215185274}
+  m_Layer: 0
+  m_Name: takedahorse:horsefront_lf_shoulder_jnt1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1501733551235040
 GameObject:
-  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4977686574598625}
+  - component: {fileID: 4977686574598625}
   m_Layer: 0
   m_Name: takedahorse:horse_rt_knee_jnt
   m_TagString: Untagged
@@ -319,53 +222,44 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4977686574598625
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1501733551235040}
-  m_LocalRotation: {x: 0, y: 0, z: -0.71057874, w: 0.7036177}
-  m_LocalPosition: {x: 0.105641, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4587762284349400}
-  m_Father: {fileID: 4689507487313618}
---- !u!1 &1765994037465458
+--- !u!1 &1563884361681387
 GameObject:
-  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4587762284349400}
+  - component: {fileID: 4537401639669380}
   m_Layer: 0
-  m_Name: takedahorse:horse_rt_ankle_jnt
+  m_Name: takedahorse:horsefront_lf_upLeg_jnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4587762284349400
-Transform:
+--- !u!1 &1566704469230856
+GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1765994037465458}
-  m_LocalRotation: {x: 0.43901804, y: 0.8964833, z: -0.02882205, w: 0.052441802}
-  m_LocalPosition: {x: 0.1181464, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4297858740088975}
-  m_Father: {fileID: 4977686574598625}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4582163131837775}
+  m_Layer: 0
+  m_Name: takedahorse:horsefront_head_a_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1570824190951877
 GameObject:
-  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4297858740088975}
+  - component: {fileID: 4297858740088975}
   m_Layer: 0
   m_Name: takedahorse:horse_rt_ball_jnt
   m_TagString: Untagged
@@ -373,25 +267,164 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4297858740088975
-Transform:
+--- !u!1 &1588311469331705
+GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1570824190951877}
-  m_LocalRotation: {x: 0.95792574, y: -0.28701624, z: -3.6862673E-08, w: -1.1044892E-08}
-  m_LocalPosition: {x: 0.097201206, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4587762284349400}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4261638627166123}
+  m_Layer: 0
+  m_Name: takedahorse:horse_tail2_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1588380117968611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4689507487313618}
+  m_Layer: 0
+  m_Name: takedahorse:horse_rt_upLeg_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1647783118260130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4542345685221238}
+  m_Layer: 0
+  m_Name: takedahorse:horse_lf_knee_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1661616087419916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4993009170218292}
+  m_Layer: 0
+  m_Name: takedahorse:horsefront_spine_mid_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1745879789706070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4291397935362860}
+  m_Layer: 0
+  m_Name: takedahorse:horsefront_lf_ankle_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1765994037465458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4587762284349400}
+  m_Layer: 0
+  m_Name: takedahorse:horse_rt_ankle_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1777784634140112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4520506689012696}
+  m_Layer: 0
+  m_Name: takedahorse:horsefront_rt_ball_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1803169226641489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4038360946525025}
+  m_Layer: 0
+  m_Name: takedahorse:horse_tail1_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1817545133001097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4450768428256405}
+  m_Layer: 0
+  m_Name: takedahorse:horsefront_rt_ankle_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1823632528847675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4952905908441176}
+  m_Layer: 0
+  m_Name: takedahorse:horsefront_rt_shoulder_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1826113329893336
 GameObject:
-  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4042297700117265}
+  - component: {fileID: 4042297700117265}
   m_Layer: 0
   m_Name: takedahorse:horse_midsection_jnt
   m_TagString: Untagged
@@ -399,6 +432,108 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1826677469137582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4936300427127521}
+  m_Layer: 0
+  m_Name: takedahorse:horsefront_head_b_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1848333383659705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4212743106983947}
+  m_Layer: 0
+  m_Name: takedahorse:horsefront_spine_low_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1854450383885562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4919450879212603}
+  m_Layer: 0
+  m_Name: takedahorse:horsefront_lf_knee_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1877823743172404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4685587172913846}
+  m_Layer: 0
+  m_Name: takedahorse:horse_spine_low_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1897167015405172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4844597492674060}
+  m_Layer: 0
+  m_Name: takedahorse:horsefront_rt_upLeg_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4018168926909854
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1148957438482398}
+  m_LocalRotation: {x: 3.6958728e-11, y: 0.0023811494, z: 0.34806368, w: 0.9374679}
+  m_LocalPosition: {x: -0, y: -0.08830335, z: 0.003628905}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4261638627166123}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4038360946525025
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1803169226641489}
+  m_LocalRotation: {x: -0.0078107156, y: 0.63797635, z: 0.43345538, w: 0.6364288}
+  m_LocalPosition: {x: -0.115231, y: -0.1851414, z: -2.081668e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4261638627166123}
+  m_Father: {fileID: 4685587172913846}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4042297700117265
 Transform:
   m_ObjectHideFlags: 0
@@ -411,21 +546,36 @@ Transform:
   m_Children:
   - {fileID: 4212743106983947}
   m_Father: {fileID: 4685587172913846}
---- !u!1 &1848333383659705
-GameObject:
-  serializedVersion: 4
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4043526844217461
+Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4212743106983947}
-  m_Layer: 0
-  m_Name: takedahorse:horsefront_spine_low_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_GameObject: {fileID: 1194595728740952}
+  m_LocalRotation: {x: -0.14783214, y: 0.9805794, z: -0.0594502, w: -0.11434815}
+  m_LocalPosition: {x: 0.04531995, y: -0.007973515, z: -0.09296214}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4542345685221238}
+  m_Father: {fileID: 4989582620287231}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4197398215185274
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1436703284221569}
+  m_LocalRotation: {x: 0.96304435, y: -0.24773107, z: 0.066778235, w: 0.0819491}
+  m_LocalPosition: {x: 0.1040398, y: -0.03330216, z: 5.551115e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4537401639669380}
+  m_Father: {fileID: 4212743106983947}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4212743106983947
 Transform:
   m_ObjectHideFlags: 0
@@ -440,102 +590,22 @@ Transform:
   - {fileID: 4952905908441176}
   - {fileID: 4993009170218292}
   m_Father: {fileID: 4042297700117265}
---- !u!1 &1436703284221569
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4197398215185274}
-  m_Layer: 0
-  m_Name: takedahorse:horsefront_lf_shoulder_jnt1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4197398215185274
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4261638627166123
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1436703284221569}
-  m_LocalRotation: {x: 0.96304435, y: -0.24773107, z: 0.066778235, w: 0.0819491}
-  m_LocalPosition: {x: 0.1040398, y: -0.03330216, z: 5.551115E-17}
+  m_GameObject: {fileID: 1588311469331705}
+  m_LocalRotation: {x: 1.0983861e-11, y: 0.007350211, z: 0.15928775, w: 0.98720485}
+  m_LocalPosition: {x: 6.245005e-17, y: -0.1088671, z: -0.03749868}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4537401639669380}
-  m_Father: {fileID: 4212743106983947}
---- !u!1 &1563884361681387
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4537401639669380}
-  m_Layer: 0
-  m_Name: takedahorse:horsefront_lf_upLeg_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4537401639669380
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1563884361681387}
-  m_LocalRotation: {x: 0.0041288817, y: 0.18514937, z: 0.9090662, w: -0.37323087}
-  m_LocalPosition: {x: 0.05109493, y: 0.004729281, z: -0.07452398}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4919450879212603}
-  m_Father: {fileID: 4197398215185274}
---- !u!1 &1854450383885562
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4919450879212603}
-  m_Layer: 0
-  m_Name: takedahorse:horsefront_lf_knee_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4919450879212603
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1854450383885562}
-  m_LocalRotation: {x: 0.9838923, y: -0.17876211, z: 7.599097E-18, w: 6.361547E-17}
-  m_LocalPosition: {x: -0.08703398, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4291397935362860}
-  m_Father: {fileID: 4537401639669380}
---- !u!1 &1745879789706070
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4291397935362860}
-  m_Layer: 0
-  m_Name: takedahorse:horsefront_lf_ankle_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  - {fileID: 4018168926909854}
+  m_Father: {fileID: 4038360946525025}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4291397935362860
 Transform:
   m_ObjectHideFlags: 0
@@ -548,128 +618,35 @@ Transform:
   m_Children:
   - {fileID: 4589994185258398}
   m_Father: {fileID: 4919450879212603}
---- !u!1 &1256895468212610
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4589994185258398}
-  m_Layer: 0
-  m_Name: takedahorse:horsefront_lf_ball_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4589994185258398
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4297858740088975
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1256895468212610}
-  m_LocalRotation: {x: 0, y: 0, z: 0.5730837, w: 0.81949687}
-  m_LocalPosition: {x: -0.08481211, y: 0, z: 0}
+  m_GameObject: {fileID: 1570824190951877}
+  m_LocalRotation: {x: 0.95792574, y: -0.28701624, z: -0.000000036862673, w: -0.000000011044892}
+  m_LocalPosition: {x: 0.097201206, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4291397935362860}
---- !u!1 &1823632528847675
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4952905908441176}
-  m_Layer: 0
-  m_Name: takedahorse:horsefront_rt_shoulder_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4952905908441176
+  m_Father: {fileID: 4587762284349400}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4335339200995265
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1823632528847675}
-  m_LocalRotation: {x: 0.9710531, y: -0.23886363, z: 6.7325514E-16, w: 2.2866771E-16}
-  m_LocalPosition: {x: 0.07721351, y: 0.003054513, z: 0.001820062}
+  m_GameObject: {fileID: 1048611244069142}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4844597492674060}
-  m_Father: {fileID: 4212743106983947}
---- !u!1 &1897167015405172
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4844597492674060}
-  m_Layer: 0
-  m_Name: takedahorse:horsefront_rt_upLeg_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4844597492674060
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1897167015405172}
-  m_LocalRotation: {x: 0.13159734, y: -0.094185665, z: 0.22160289, w: 0.96161497}
-  m_LocalPosition: {x: 0.051094927, y: 0.004729469, z: 0.074524}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4961902990308081}
-  m_Father: {fileID: 4952905908441176}
---- !u!1 &1136943476319255
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4961902990308081}
-  m_Layer: 0
-  m_Name: takedahorse:horsefront_rt_knee_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4961902990308081
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1136943476319255}
-  m_LocalRotation: {x: 0.91354775, y: -0.40673155, z: -1.48781E-17, w: -7.365103E-17}
-  m_LocalPosition: {x: 0.08703366, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4450768428256405}
-  m_Father: {fileID: 4844597492674060}
---- !u!1 &1817545133001097
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4450768428256405}
-  m_Layer: 0
-  m_Name: takedahorse:horsefront_rt_ankle_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  - {fileID: 4499866907507334}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4450768428256405
 Transform:
   m_ObjectHideFlags: 0
@@ -682,21 +659,22 @@ Transform:
   m_Children:
   - {fileID: 4520506689012696}
   m_Father: {fileID: 4961902990308081}
---- !u!1 &1777784634140112
-GameObject:
-  serializedVersion: 4
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4499866907507334
+Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4520506689012696}
-  m_Layer: 0
-  m_Name: takedahorse:horsefront_rt_ball_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_GameObject: {fileID: 1116341386365139}
+  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4942406733277839}
+  m_Father: {fileID: 4335339200995265}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4520506689012696
 Transform:
   m_ObjectHideFlags: 0
@@ -708,208 +686,36 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4450768428256405}
---- !u!1 &1661616087419916
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4993009170218292}
-  m_Layer: 0
-  m_Name: takedahorse:horsefront_spine_mid_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4993009170218292
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4537401639669380
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1661616087419916}
-  m_LocalRotation: {x: 0.8769182, y: -0.40600795, z: 0.1863003, w: -0.17738186}
-  m_LocalPosition: {x: -0.06966813, y: 2.037231E-11, z: -3.469447E-17}
+  m_GameObject: {fileID: 1563884361681387}
+  m_LocalRotation: {x: 0.0041288817, y: 0.18514937, z: 0.9090662, w: -0.37323087}
+  m_LocalPosition: {x: 0.05109493, y: 0.004729281, z: -0.07452398}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4748481815478540}
-  m_Father: {fileID: 4212743106983947}
---- !u!1 &1397874739555740
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4748481815478540}
-  m_Layer: 0
-  m_Name: takedahorse:horsefront_neck_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4748481815478540
+  - {fileID: 4919450879212603}
+  m_Father: {fileID: 4197398215185274}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4542345685221238
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1397874739555740}
-  m_LocalRotation: {x: 0.551701, y: -0.24759808, z: 0.68804723, w: 0.4011386}
-  m_LocalPosition: {x: -0.1337511, y: -0.02851256, z: -4.248703E-10}
+  m_GameObject: {fileID: 1647783118260130}
+  m_LocalRotation: {x: 0, y: 0, z: 0.9270715, w: -0.3748845}
+  m_LocalPosition: {x: -0.1056406, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4582163131837775}
-  m_Father: {fileID: 4993009170218292}
---- !u!1 &1566704469230856
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4582163131837775}
-  m_Layer: 0
-  m_Name: takedahorse:horsefront_head_a_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4582163131837775
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1566704469230856}
-  m_LocalRotation: {x: 0.10745209, y: 0.16352546, z: -0.094991915, w: 0.9760584}
-  m_LocalPosition: {x: 4.312077E-11, y: 0.02021253, z: -3.730212E-10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4936300427127521}
-  m_Father: {fileID: 4748481815478540}
---- !u!1 &1826677469137582
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4936300427127521}
-  m_Layer: 0
-  m_Name: takedahorse:horsefront_head_b_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4936300427127521
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1826677469137582}
-  m_LocalRotation: {x: -0.33190042, y: 0, z: -0, w: 0.9433145}
-  m_LocalPosition: {x: -0, y: 0.31177828, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4582163131837775}
---- !u!1 &1803169226641489
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4038360946525025}
-  m_Layer: 0
-  m_Name: takedahorse:horse_tail1_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4038360946525025
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1803169226641489}
-  m_LocalRotation: {x: -0.0078107156, y: 0.63797635, z: 0.43345538, w: 0.6364288}
-  m_LocalPosition: {x: -0.115231, y: -0.1851414, z: -2.081668E-17}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4261638627166123}
-  m_Father: {fileID: 4685587172913846}
---- !u!1 &1588311469331705
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4261638627166123}
-  m_Layer: 0
-  m_Name: takedahorse:horse_tail2_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4261638627166123
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1588311469331705}
-  m_LocalRotation: {x: 1.0983861E-11, y: 0.007350211, z: 0.15928775, w: 0.98720485}
-  m_LocalPosition: {x: 6.245005E-17, y: -0.1088671, z: -0.03749868}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4018168926909854}
-  m_Father: {fileID: 4038360946525025}
---- !u!1 &1148957438482398
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4018168926909854}
-  m_Layer: 0
-  m_Name: takedahorse:horse_tail3_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4018168926909854
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1148957438482398}
-  m_LocalRotation: {x: 3.6958728E-11, y: 0.0023811494, z: 0.34806368, w: 0.9374679}
-  m_LocalPosition: {x: -0, y: -0.08830335, z: 0.003628905}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4261638627166123}
---- !u!1 &1065341161400014
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4575126883219637}
-  m_Layer: 0
-  m_Name: takedahorse:weightSpine_grp
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  - {fileID: 4935166868758247}
+  m_Father: {fileID: 4043526844217461}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4575126883219637
 Transform:
   m_ObjectHideFlags: 0
@@ -921,3 +727,259 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4942406733277839}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4582163131837775
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1566704469230856}
+  m_LocalRotation: {x: 0.10745209, y: 0.16352546, z: -0.094991915, w: 0.9760584}
+  m_LocalPosition: {x: 4.312077e-11, y: 0.02021253, z: -3.730212e-10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4936300427127521}
+  m_Father: {fileID: 4748481815478540}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4587762284349400
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1765994037465458}
+  m_LocalRotation: {x: 0.43901804, y: 0.8964833, z: -0.02882205, w: 0.052441802}
+  m_LocalPosition: {x: 0.1181464, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4297858740088975}
+  m_Father: {fileID: 4977686574598625}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4589994185258398
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1256895468212610}
+  m_LocalRotation: {x: 0, y: 0, z: 0.5730837, w: 0.81949687}
+  m_LocalPosition: {x: -0.08481211, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4291397935362860}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4685587172913846
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1877823743172404}
+  m_LocalRotation: {x: 0.2675907, y: -0.63525766, z: -0.15914997, w: 0.7067632}
+  m_LocalPosition: {x: -0.007326827, y: 0.2274774, z: -0.1334448}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4989582620287231}
+  - {fileID: 4042297700117265}
+  - {fileID: 4038360946525025}
+  m_Father: {fileID: 4942406733277839}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4689507487313618
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1588380117968611}
+  m_LocalRotation: {x: 0.87901914, y: 0.4522618, z: -0.15078868, w: -0.006885797}
+  m_LocalPosition: {x: 0.04531952, y: -0.007973313, z: 0.0929621}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4977686574598625}
+  m_Father: {fileID: 4989582620287231}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4748481815478540
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1397874739555740}
+  m_LocalRotation: {x: 0.551701, y: -0.24759808, z: 0.68804723, w: 0.4011386}
+  m_LocalPosition: {x: -0.1337511, y: -0.02851256, z: -4.248703e-10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4582163131837775}
+  m_Father: {fileID: 4993009170218292}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4844597492674060
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1897167015405172}
+  m_LocalRotation: {x: 0.13159734, y: -0.094185665, z: 0.22160289, w: 0.96161497}
+  m_LocalPosition: {x: 0.051094927, y: 0.004729469, z: 0.074524}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4961902990308081}
+  m_Father: {fileID: 4952905908441176}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4919450879212603
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1854450383885562}
+  m_LocalRotation: {x: 0.9838923, y: -0.17876211, z: 7.599097e-18, w: 6.361547e-17}
+  m_LocalPosition: {x: -0.08703398, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4291397935362860}
+  m_Father: {fileID: 4537401639669380}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4935166868758247
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1312166240274680}
+  m_LocalRotation: {x: 0.30617157, y: 0.95111674, z: 0.03644318, w: -0.017545085}
+  m_LocalPosition: {x: -0.1181464, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4937051706582847}
+  m_Father: {fileID: 4542345685221238}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4936300427127521
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1826677469137582}
+  m_LocalRotation: {x: -0.33190042, y: 0, z: -0, w: 0.9433145}
+  m_LocalPosition: {x: -0, y: 0.31177828, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4582163131837775}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4937051706582847
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1328852289734350}
+  m_LocalRotation: {x: 0.97785854, y: -0.20926714, z: 3.170326e-16, w: 5.227914e-18}
+  m_LocalPosition: {x: -0.09720124, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4935166868758247}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4942406733277839
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1409639135004539}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4685587172913846}
+  - {fileID: 4575126883219637}
+  m_Father: {fileID: 4499866907507334}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4952905908441176
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1823632528847675}
+  m_LocalRotation: {x: 0.9710531, y: -0.23886363, z: 6.7325514e-16, w: 2.2866771e-16}
+  m_LocalPosition: {x: 0.07721351, y: 0.003054513, z: 0.001820062}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4844597492674060}
+  m_Father: {fileID: 4212743106983947}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4961902990308081
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1136943476319255}
+  m_LocalRotation: {x: 0.91354775, y: -0.40673155, z: -1.48781e-17, w: -7.365103e-17}
+  m_LocalPosition: {x: 0.08703366, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4450768428256405}
+  m_Father: {fileID: 4844597492674060}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4977686574598625
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1501733551235040}
+  m_LocalRotation: {x: 0, y: 0, z: -0.71057874, w: 0.7036177}
+  m_LocalPosition: {x: 0.105641, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4587762284349400}
+  m_Father: {fileID: 4689507487313618}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4989582620287231
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1097100481142120}
+  m_LocalRotation: {x: 0.99516463, y: -0.09822134, z: 1.1596555e-16, w: -5.008423e-17}
+  m_LocalPosition: {x: 0.02729249, y: -0.005440458, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4043526844217461}
+  - {fileID: 4689507487313618}
+  m_Father: {fileID: 4685587172913846}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4993009170218292
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1661616087419916}
+  m_LocalRotation: {x: 0.8769182, y: -0.40600795, z: 0.1863003, w: -0.17738186}
+  m_LocalPosition: {x: -0.06966813, y: 2.037231e-11, z: -3.469447e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4748481815478540}
+  m_Father: {fileID: 4212743106983947}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &111366793076740079
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1048611244069142}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 413f2b9325d9b00428d5ff57f3eb1f32, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 413f2b9325d9b00428d5ff57f3eb1f32, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

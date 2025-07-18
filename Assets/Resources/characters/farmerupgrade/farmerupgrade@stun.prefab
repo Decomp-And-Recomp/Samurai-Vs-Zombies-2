@@ -2,8 +2,8 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1001 &100100000
 Prefab:
-  serializedVersion: 2
   m_ObjectHideFlags: 1
+  serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
@@ -11,16 +11,30 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1158330192021736}
   m_IsPrefabParent: 1
-  m_IsExploded: 0
---- !u!1 &1158330192021736
+--- !u!1 &1104726091970294
 GameObject:
-  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4693515337175376}
-  - 111: {fileID: 111749534082935736}
+  - component: {fileID: 4251662243268967}
+  m_Layer: 0
+  m_Name: farmerupgrade:farmer_rt_flap_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1158330192021736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4693515337175376}
+  - component: {fileID: 111749534082935736}
   m_Layer: 0
   m_Name: farmerupgrade@stun
   m_TagString: Untagged
@@ -28,71 +42,44 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4693515337175376
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1158330192021736}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4462805005037293}
-  m_Father: {fileID: 0}
---- !u!111 &111749534082935736
-Animation:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1158330192021736}
-  m_Enabled: 1
-  m_Animation: {fileID: 7400000, guid: f1d9da8b7327bcc4594255a92686d179, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: f1d9da8b7327bcc4594255a92686d179, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
-  m_UserAABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
---- !u!1 &1739198763423187
+--- !u!1 &1158781992256850
 GameObject:
-  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4462805005037293}
+  - component: {fileID: 4377296881049234}
   m_Layer: 0
-  m_Name: farmerupgrade:skeleton_root_joint_lod
+  m_Name: farmerupgrade:weightSpine_grp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4462805005037293
-Transform:
+--- !u!1 &1228378104745595
+GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1739198763423187}
-  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4326792937936392}
-  m_Father: {fileID: 4693515337175376}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4229326773352356}
+  m_Layer: 0
+  m_Name: farmerupgrade:farmer_hip_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1257061454318656
 GameObject:
-  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4326792937936392}
+  - component: {fileID: 4326792937936392}
   m_Layer: 0
   m_Name: farmerupgrade:farmer_Skeleton_grp
   m_TagString: Untagged
@@ -100,27 +87,44 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4326792937936392
-Transform:
+--- !u!1 &1270376823068980
+GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1257061454318656}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4325163779772199}
-  - {fileID: 4377296881049234}
-  m_Father: {fileID: 4462805005037293}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4133120212142990}
+  m_Layer: 0
+  m_Name: farmerupgrade:farmer_rt_elbow_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1271270587482001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4171004889855892}
+  m_Layer: 0
+  m_Name: farmerupgrade:farmer_lf_upArm_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1275928545957321
 GameObject:
-  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4325163779772199}
+  - component: {fileID: 4325163779772199}
   m_Layer: 0
   m_Name: farmerupgrade:farmer_spine_low_jnt
   m_TagString: Untagged
@@ -128,6 +132,372 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1313487418885663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4258781211627319}
+  m_Layer: 0
+  m_Name: farmerupgrade:farmer_rt_ankle_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1348685383973738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4713965402615317}
+  m_Layer: 0
+  m_Name: farmerupgrade:farmer_lf_knee_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1371494370459754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4688577592209496}
+  m_Layer: 0
+  m_Name: farmerupgrade:farmer_lf_ankle_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1395981709750630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4707652687860971}
+  m_Layer: 0
+  m_Name: farmerupgrade:farmer_rt_upArm_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1495243051846394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4911942722617542}
+  m_Layer: 0
+  m_Name: farmerupgrade:weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1523249594788462
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4764632429651841}
+  m_Layer: 0
+  m_Name: farmerupgrade:farmer_rt_upLeg_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1575848081338934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4100375716057838}
+  m_Layer: 0
+  m_Name: farmerupgrade:farmer_head_b_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1619243003693188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4409092726882438}
+  m_Layer: 0
+  m_Name: farmerupgrade:farmer_spine_end_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1666218433981694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4492437440447779}
+  m_Layer: 0
+  m_Name: farmerupgrade:farmer_lf_flap_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1739198763423187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4462805005037293}
+  m_Layer: 0
+  m_Name: farmerupgrade:skeleton_root_joint_lod
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1747640401653329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4528975049688832}
+  m_Layer: 0
+  m_Name: farmerupgrade:farmer_head_a_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1793444175615632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4319638480091949}
+  m_Layer: 0
+  m_Name: farmerupgrade:farmer_rt_hand_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1841012269769787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4829504166214264}
+  m_Layer: 0
+  m_Name: farmerupgrade:farmer_rt_knee_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1842310339383248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4770414700710244}
+  m_Layer: 0
+  m_Name: farmerupgrade:farmer_lf_hand_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1850239151140115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4015947059068490}
+  m_Layer: 0
+  m_Name: farmerupgrade:farmer_lf_elbow_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1899685391985269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4018780574933094}
+  m_Layer: 0
+  m_Name: farmerupgrade:farmer_lf_upLeg_jnt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4015947059068490
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850239151140115}
+  m_LocalRotation: {x: -0.0010953431, y: 0.4567279, z: -0.00061156607, w: 0.8896056}
+  m_LocalPosition: {x: -0.08521754, y: -8.326673e-17, z: 5.551115e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4770414700710244}
+  m_Father: {fileID: 4171004889855892}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4018780574933094
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1899685391985269}
+  m_LocalRotation: {x: -0.12505053, y: 0.065421, z: 0.9810737, w: -0.13257778}
+  m_LocalPosition: {x: 0.03132153, y: -0.0006090185, z: 0.07521346}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4713965402615317}
+  m_Father: {fileID: 4229326773352356}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4100375716057838
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1575848081338934}
+  m_LocalRotation: {x: 0.033252824, y: -0, z: -0, w: 0.999447}
+  m_LocalPosition: {x: 8.326673e-17, y: 0.4060547, z: 1.110223e-16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4528975049688832}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4133120212142990
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1270376823068980}
+  m_LocalRotation: {x: -0.2636292, y: 0.39995307, z: 0.14368422, w: 0.86596304}
+  m_LocalPosition: {x: 0.08521745, y: 0, z: 4.163336e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4319638480091949}
+  m_Father: {fileID: 4707652687860971}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4171004889855892
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1271270587482001}
+  m_LocalRotation: {x: -0.29076436, y: 0.7956137, z: -0.51393265, w: 0.1353817}
+  m_LocalPosition: {x: -0.06594753, y: 0.01087287, z: -0.09822026}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4015947059068490}
+  m_Father: {fileID: 4409092726882438}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4229326773352356
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1228378104745595}
+  m_LocalRotation: {x: 0.9807346, y: -0.19534509, z: -1.1961436e-17, w: 6.005267e-17}
+  m_LocalPosition: {x: 0.01197401, y: -0.004967087, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4492437440447779}
+  - {fileID: 4018780574933094}
+  - {fileID: 4251662243268967}
+  - {fileID: 4764632429651841}
+  m_Father: {fileID: 4325163779772199}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4251662243268967
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1104726091970294}
+  m_LocalRotation: {x: -0.4979716, y: 0.5020202, z: 0.4979716, w: 0.5020202}
+  m_LocalPosition: {x: 0.1201246, y: -0.0005932947, z: -0.1059915}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4229326773352356}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4258781211627319
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1313487418885663}
+  m_LocalRotation: {x: -0.41037682, y: 0.016068349, z: 0.5202545, w: 0.7487776}
+  m_LocalPosition: {x: 0.1025172, y: -3.469447e-17, z: 2.775558e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4829504166214264}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4319638480091949
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1793444175615632}
+  m_LocalRotation: {x: 0.28539065, y: 0.06908858, z: 0.034445006, w: 0.95529705}
+  m_LocalPosition: {x: 0.088310316, y: -2.7755576e-17, z: -5.551115e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4911942722617542}
+  m_Father: {fileID: 4133120212142990}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4325163779772199
 Transform:
   m_ObjectHideFlags: 0
@@ -141,51 +511,66 @@ Transform:
   - {fileID: 4229326773352356}
   - {fileID: 4409092726882438}
   m_Father: {fileID: 4326792937936392}
---- !u!1 &1228378104745595
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4229326773352356}
-  m_Layer: 0
-  m_Name: farmerupgrade:farmer_hip_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4229326773352356
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4326792937936392
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1228378104745595}
-  m_LocalRotation: {x: 0.9807346, y: -0.19534509, z: -1.1961436E-17, w: 6.005267E-17}
-  m_LocalPosition: {x: 0.01197401, y: -0.004967087, z: 0}
+  m_GameObject: {fileID: 1257061454318656}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4492437440447779}
-  - {fileID: 4018780574933094}
-  - {fileID: 4251662243268967}
-  - {fileID: 4764632429651841}
-  m_Father: {fileID: 4325163779772199}
---- !u!1 &1666218433981694
-GameObject:
-  serializedVersion: 4
+  - {fileID: 4325163779772199}
+  - {fileID: 4377296881049234}
+  m_Father: {fileID: 4462805005037293}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4377296881049234
+Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4492437440447779}
-  m_Layer: 0
-  m_Name: farmerupgrade:farmer_lf_flap_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_GameObject: {fileID: 1158781992256850}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4326792937936392}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4409092726882438
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1619243003693188}
+  m_LocalRotation: {x: 0, y: 0, z: 0.043936785, w: 0.99903435}
+  m_LocalPosition: {x: -0.09506569, y: 0.03234379, z: 2.081668e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4528975049688832}
+  - {fileID: 4171004889855892}
+  - {fileID: 4707652687860971}
+  m_Father: {fileID: 4325163779772199}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4462805005037293
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1739198763423187}
+  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4326792937936392}
+  m_Father: {fileID: 4693515337175376}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4492437440447779
 Transform:
   m_ObjectHideFlags: 0
@@ -197,236 +582,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4229326773352356}
---- !u!1 &1899685391985269
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4018780574933094}
-  m_Layer: 0
-  m_Name: farmerupgrade:farmer_lf_upLeg_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4018780574933094
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1899685391985269}
-  m_LocalRotation: {x: -0.12505053, y: 0.065421, z: 0.9810737, w: -0.13257778}
-  m_LocalPosition: {x: 0.03132153, y: -0.0006090185, z: 0.07521346}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4713965402615317}
-  m_Father: {fileID: 4229326773352356}
---- !u!1 &1348685383973738
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4713965402615317}
-  m_Layer: 0
-  m_Name: farmerupgrade:farmer_lf_knee_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4713965402615317
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1348685383973738}
-  m_LocalRotation: {x: 0, y: -0, z: -0.30262652, w: 0.9531092}
-  m_LocalPosition: {x: -0.1018665, y: -1.387779E-17, z: 1.387779E-17}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4688577592209496}
-  m_Father: {fileID: 4018780574933094}
---- !u!1 &1371494370459754
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4688577592209496}
-  m_Layer: 0
-  m_Name: farmerupgrade:farmer_lf_ankle_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4688577592209496
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1371494370459754}
-  m_LocalRotation: {x: -0.23984429, y: -0.052788854, z: 0.59680617, w: 0.7638786}
-  m_LocalPosition: {x: -0.1025177, y: 2.081668E-17, z: 1.387779E-17}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4713965402615317}
---- !u!1 &1104726091970294
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4251662243268967}
-  m_Layer: 0
-  m_Name: farmerupgrade:farmer_rt_flap_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4251662243268967
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1104726091970294}
-  m_LocalRotation: {x: -0.4979716, y: 0.5020202, z: 0.4979716, w: 0.5020202}
-  m_LocalPosition: {x: 0.1201246, y: -0.0005932947, z: -0.1059915}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4229326773352356}
---- !u!1 &1523249594788462
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4764632429651841}
-  m_Layer: 0
-  m_Name: farmerupgrade:farmer_rt_upLeg_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4764632429651841
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1523249594788462}
-  m_LocalRotation: {x: -0.21162923, y: 0.11221369, z: -0.1671124, w: 0.9563967}
-  m_LocalPosition: {x: 0.03132178, y: -0.0006090206, z: -0.0752135}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4829504166214264}
-  m_Father: {fileID: 4229326773352356}
---- !u!1 &1841012269769787
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4829504166214264}
-  m_Layer: 0
-  m_Name: farmerupgrade:farmer_rt_knee_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4829504166214264
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1841012269769787}
-  m_LocalRotation: {x: 0, y: -0, z: -0.0122286575, w: 0.99992526}
-  m_LocalPosition: {x: 0.1018667, y: -4.163336E-17, z: 5.551115E-17}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4258781211627319}
-  m_Father: {fileID: 4764632429651841}
---- !u!1 &1313487418885663
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4258781211627319}
-  m_Layer: 0
-  m_Name: farmerupgrade:farmer_rt_ankle_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4258781211627319
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1313487418885663}
-  m_LocalRotation: {x: -0.41037682, y: 0.016068349, z: 0.5202545, w: 0.7487776}
-  m_LocalPosition: {x: 0.1025172, y: -3.469447E-17, z: 2.775558E-17}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4829504166214264}
---- !u!1 &1619243003693188
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4409092726882438}
-  m_Layer: 0
-  m_Name: farmerupgrade:farmer_spine_end_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4409092726882438
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1619243003693188}
-  m_LocalRotation: {x: 0, y: 0, z: 0.043936785, w: 0.99903435}
-  m_LocalPosition: {x: -0.09506569, y: 0.03234379, z: 2.081668E-17}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4528975049688832}
-  - {fileID: 4171004889855892}
-  - {fileID: 4707652687860971}
-  m_Father: {fileID: 4325163779772199}
---- !u!1 &1747640401653329
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4528975049688832}
-  m_Layer: 0
-  m_Name: farmerupgrade:farmer_head_a_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4528975049688832
 Transform:
   m_ObjectHideFlags: 0
@@ -434,132 +591,40 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1747640401653329}
   m_LocalRotation: {x: 0.39363554, y: -0.50169533, z: 0.59169054, w: 0.49320906}
-  m_LocalPosition: {x: -0.1007848, y: -0.001606238, z: -1.387779E-17}
+  m_LocalPosition: {x: -0.1007848, y: -0.001606238, z: -1.387779e-17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4100375716057838}
   m_Father: {fileID: 4409092726882438}
---- !u!1 &1575848081338934
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4100375716057838}
-  m_Layer: 0
-  m_Name: farmerupgrade:farmer_head_b_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4100375716057838
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4688577592209496
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1575848081338934}
-  m_LocalRotation: {x: 0.033252824, y: -0, z: -0, w: 0.999447}
-  m_LocalPosition: {x: 8.326673E-17, y: 0.4060547, z: 1.110223E-16}
+  m_GameObject: {fileID: 1371494370459754}
+  m_LocalRotation: {x: -0.23984429, y: -0.052788854, z: 0.59680617, w: 0.7638786}
+  m_LocalPosition: {x: -0.1025177, y: 2.081668e-17, z: 1.387779e-17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4528975049688832}
---- !u!1 &1271270587482001
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4171004889855892}
-  m_Layer: 0
-  m_Name: farmerupgrade:farmer_lf_upArm_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4171004889855892
+  m_Father: {fileID: 4713965402615317}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4693515337175376
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1271270587482001}
-  m_LocalRotation: {x: -0.29076436, y: 0.7956137, z: -0.51393265, w: 0.1353817}
-  m_LocalPosition: {x: -0.06594753, y: 0.01087287, z: -0.09822026}
+  m_GameObject: {fileID: 1158330192021736}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4015947059068490}
-  m_Father: {fileID: 4409092726882438}
---- !u!1 &1850239151140115
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4015947059068490}
-  m_Layer: 0
-  m_Name: farmerupgrade:farmer_lf_elbow_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4015947059068490
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1850239151140115}
-  m_LocalRotation: {x: -0.0010953431, y: 0.4567279, z: -0.00061156607, w: 0.8896056}
-  m_LocalPosition: {x: -0.08521754, y: -8.326673E-17, z: 5.551115E-17}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4770414700710244}
-  m_Father: {fileID: 4171004889855892}
---- !u!1 &1842310339383248
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4770414700710244}
-  m_Layer: 0
-  m_Name: farmerupgrade:farmer_lf_hand_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4770414700710244
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1842310339383248}
-  m_LocalRotation: {x: -0.038333584, y: -0.19138394, z: -0.1318866, w: 0.9718584}
-  m_LocalPosition: {x: -0.08830963, y: 0, z: 4.8572257E-17}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4015947059068490}
---- !u!1 &1395981709750630
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4707652687860971}
-  m_Layer: 0
-  m_Name: farmerupgrade:farmer_rt_upArm_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  - {fileID: 4462805005037293}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4707652687860971
 Transform:
   m_ObjectHideFlags: 0
@@ -572,75 +637,63 @@ Transform:
   m_Children:
   - {fileID: 4133120212142990}
   m_Father: {fileID: 4409092726882438}
---- !u!1 &1270376823068980
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4133120212142990}
-  m_Layer: 0
-  m_Name: farmerupgrade:farmer_rt_elbow_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4133120212142990
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4713965402615317
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1270376823068980}
-  m_LocalRotation: {x: -0.2636292, y: 0.39995307, z: 0.14368422, w: 0.86596304}
-  m_LocalPosition: {x: 0.08521745, y: 0, z: 4.163336E-17}
+  m_GameObject: {fileID: 1348685383973738}
+  m_LocalRotation: {x: 0, y: -0, z: -0.30262652, w: 0.9531092}
+  m_LocalPosition: {x: -0.1018665, y: -1.387779e-17, z: 1.387779e-17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4319638480091949}
-  m_Father: {fileID: 4707652687860971}
---- !u!1 &1793444175615632
-GameObject:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4319638480091949}
-  m_Layer: 0
-  m_Name: farmerupgrade:farmer_rt_hand_jnt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4319638480091949
+  - {fileID: 4688577592209496}
+  m_Father: {fileID: 4018780574933094}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4764632429651841
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1793444175615632}
-  m_LocalRotation: {x: 0.28539065, y: 0.06908858, z: 0.034445006, w: 0.95529705}
-  m_LocalPosition: {x: 0.088310316, y: -2.7755576E-17, z: -5.551115E-17}
+  m_GameObject: {fileID: 1523249594788462}
+  m_LocalRotation: {x: -0.21162923, y: 0.11221369, z: -0.1671124, w: 0.9563967}
+  m_LocalPosition: {x: 0.03132178, y: -0.0006090206, z: -0.0752135}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4911942722617542}
-  m_Father: {fileID: 4133120212142990}
---- !u!1 &1495243051846394
-GameObject:
-  serializedVersion: 4
+  - {fileID: 4829504166214264}
+  m_Father: {fileID: 4229326773352356}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4770414700710244
+Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4911942722617542}
-  m_Layer: 0
-  m_Name: farmerupgrade:weapon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_GameObject: {fileID: 1842310339383248}
+  m_LocalRotation: {x: -0.038333584, y: -0.19138394, z: -0.1318866, w: 0.9718584}
+  m_LocalPosition: {x: -0.08830963, y: 0, z: 4.8572257e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4015947059068490}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4829504166214264
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1841012269769787}
+  m_LocalRotation: {x: 0, y: -0, z: -0.0122286575, w: 0.99992526}
+  m_LocalPosition: {x: 0.1018667, y: -4.163336e-17, z: 5.551115e-17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4258781211627319}
+  m_Father: {fileID: 4764632429651841}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4911942722617542
 Transform:
   m_ObjectHideFlags: 0
@@ -652,29 +705,20 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4319638480091949}
---- !u!1 &1158781992256850
-GameObject:
-  serializedVersion: 4
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &111749534082935736
+Animation:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_Component:
-  - 4: {fileID: 4377296881049234}
-  m_Layer: 0
-  m_Name: farmerupgrade:weightSpine_grp
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4377296881049234
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1158781992256850}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4326792937936392}
+  m_GameObject: {fileID: 1158330192021736}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: f1d9da8b7327bcc4594255a92686d179, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: f1d9da8b7327bcc4594255a92686d179, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
