@@ -43,11 +43,11 @@ public class ModeSelectImpl : MonoBehaviour
 			DailyChallengeCollectedParent.SetActive(Singleton<Profile>.Instance.CompletedTodaysDailyChallenge);
 		}
 		UpdateModeButtons();
-		if (Singleton<Profile>.Instance.souls == Singleton<Profile>.Instance.GetMaxSouls() && !Singleton<Profile>.Instance.HasSeenSoulJarFullPopup && !flag)
+		/*if (Singleton<Profile>.Instance.souls == Singleton<Profile>.Instance.GetMaxSouls() && !Singleton<Profile>.Instance.HasSeenSoulJarFullPopup && !flag)
 		{
 			GluiActionSender.SendGluiAction("POPUP_SOUL_JAR_FULL", base.gameObject, null);
 			Singleton<Profile>.Instance.HasSeenSoulJarFullPopup = true;
-		}
+		}*/
 		UpdateShield();
 	}
 
