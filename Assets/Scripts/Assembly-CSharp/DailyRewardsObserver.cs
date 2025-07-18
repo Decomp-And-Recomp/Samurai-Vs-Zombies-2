@@ -63,7 +63,6 @@ public class DailyRewardsObserver : MonoBehaviour
 	{
 		DateTime? lastDailyRewardDate = Singleton<Profile>.Instance.lastDailyRewardDate;
 		DateTime now = DateTime.Now; //ApplicationUtilities.Now;
-		UnityEngine.Debug.Log(lastDailyRewardDate);
 		if (!lastDailyRewardDate.HasValue)
 		{
 			RestartRewardsTracking();
