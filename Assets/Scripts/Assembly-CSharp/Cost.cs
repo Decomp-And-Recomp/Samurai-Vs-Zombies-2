@@ -181,15 +181,15 @@ public struct Cost
 
 	public void gwalletSpend(Cost item, string type, string desc)
 	{
-		switch (item.currency)
-		{
-		case Currency.Hard:
-			Singleton<Profile>.Instance.gems -= item.price;
-			break;
-		case Currency.Soft:
-			Singleton<Profile>.Instance.coins -= item.price;
-			break;
-		}
+		//switch (item.currency)
+		//{
+		//case Currency.Hard:
+		//	Singleton<Profile>.Instance.gems -= item.price;
+		//	break;
+		//case Currency.Soft:
+		//	Singleton<Profile>.Instance.coins -= item.price;
+		//	break;
+		//}
 	}
 
 	public static bool operator ==(Cost a, Cost b)

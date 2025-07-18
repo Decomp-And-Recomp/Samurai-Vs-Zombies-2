@@ -2381,6 +2381,7 @@ public class Profile : Singleton<Profile>
 
 	public void SpendGems(int amount)
 	{
+		gems -= amount;
 		lifetimeHCSpent += amount;
 	}
 
