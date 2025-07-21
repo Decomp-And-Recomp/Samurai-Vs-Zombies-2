@@ -4,109 +4,165 @@ using UnityEngine;
 
 public class HeroControls : IDisposable
 {
-	public delegate void OnPlayerControlCallback();
+    public delegate void OnPlayerControlCallback();
 
-	private const int topMargin = 120;
+    private const int topMargin = 120;
+    private const int bottomMargin = 120;
 
-	private const int bottomMargin = 120;
+    private Rect kMoveLeftTouchArea;
+    private Rect kMoveRightTouchArea;
 
-	private Rect kMoveLeftTouchArea;
+    public OnPlayerControlCallback onMoveLeft;
+    public OnPlayerControlCallback onMoveRight;
+    public OnPlayerControlCallback onDontMove;
 
-	private Rect kMoveRightTouchArea;
+    private bool alreadyDisposed;
+    private List<int> activeInputs = new List<int>();
+    private KeyCode mCurrentKey = KeyCode.A;
+    public HeroControls()
+    {
+        SingletonMonoBehaviour<InputManager>.Instance.InputEventUnhandled += InputEventHandler;
 
-	public OnPlayerControlCallback onMoveLeft;
+        kMoveLeftTouchArea = new Rect(0f, topMargin, Screen.width / 2, Screen.height - topMargin - bottomMargin);
+        kMoveRightTouchArea = new Rect(Screen.width / 2, topMargin, Screen.width, Screen.height - topMargin - bottomMargin);
+    }
 
-	public OnPlayerControlCallback onMoveRight;
+    private bool IsValidTouch(Vector2 pt)
+    {
+        return kMoveLeftTouchArea.Contains(pt) || kMoveRightTouchArea.Contains(pt);
+    }
 
-	public OnPlayerControlCallback onDontMove;
+    public void Update()
+    {
+        bool usedInput = false;
 
-	private bool alreadyDisposed;
+        bool aPressed = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
+        bool dPressed = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
 
-	private List<int> activeInputs = new List<int>();
+        if (mCurrentKey == KeyCode.A)
+        {
+            if (dPressed)
+            {
+                if (onMoveRight != null) onMoveRight();
+                usedInput = true;
 
-	public HeroControls()
-	{
-		SingletonMonoBehaviour<InputManager>.Instance.InputEventUnhandled += InputEventHandler;
-		kMoveLeftTouchArea = new Rect(0f, 120f, Screen.width / 2, Screen.height - 240);
-		kMoveRightTouchArea = new Rect(Screen.width / 2, 120f, Screen.width, Screen.height - 240);
-	}
+                if (!aPressed)
+                    mCurrentKey = KeyCode.D;
+            }
+            else if (aPressed)
+            {
+                if (onMoveLeft != null) onMoveLeft();
+                usedInput = true;
 
-	private bool IsValidTouch(Vector2 pt)
-	{
-		return kMoveLeftTouchArea.Contains(pt) || kMoveRightTouchArea.Contains(pt);
-	}
+                if (!dPressed)
+                    mCurrentKey = KeyCode.A;
+            }
+            else
+            {
+                if (onDontMove != null) onDontMove();
+                usedInput = true;
+            }
+        }
+        else if (mCurrentKey == KeyCode.D)
+        {
+            if (aPressed)
+            {
+                if (onMoveLeft != null) onMoveLeft();
+                usedInput = true;
 
-	public void Update()
-	{
-		HandInfo hand = SingletonMonoBehaviour<InputManager>.Instance.Hand;
-		int num = 0;
-		while (num < activeInputs.Count)
-		{
-			int num2 = activeInputs[num];
-			if (!hand.fingers[num2].IsFingerDown)
-			{
-				activeInputs.RemoveAt(num);
-				continue;
-			}
-			if (num == 0)
-			{
-				Vector2 cursorPosition = hand.fingers[num2].CursorPosition;
-				if (onMoveLeft != null && kMoveLeftTouchArea.Contains(cursorPosition))
-				{
-					onMoveLeft();
-				}
-				else if (onMoveRight != null && kMoveRightTouchArea.Contains(cursorPosition))
-				{
-					onMoveRight();
-				}
-			}
-			num++;
-		}
-		if (activeInputs.Count == 0 && onDontMove != null)
-		{
-			onDontMove();
-		}
-	}
+                if (!dPressed)
+                    mCurrentKey = KeyCode.A;
+            }
+            else if (dPressed)
+            {
+                if (onMoveRight != null) onMoveRight();
+                usedInput = true;
 
-	private void InputEventHandler(InputEvent inputEvent)
-	{
-		if (inputEvent.EventType == InputEvent.EEventType.OnCursorDown)
-		{
-			activeInputs.Remove(inputEvent.CursorIndex);
-			activeInputs.Add(inputEvent.CursorIndex);
-		}
-	}
+                if (!aPressed)
+                    mCurrentKey = KeyCode.D;
+            }
+            else
+            {
+                if (onDontMove != null) onDontMove();
+                usedInput = true;
+            }
+        }
 
-	public void Dispose()
-	{
-		Dispose(true);
-		GC.SuppressFinalize(this);
-	}
+        HandInfo hand = SingletonMonoBehaviour<InputManager>.Instance.Hand;
+        int num = 0;
+        while (num < activeInputs.Count)
+        {
+            int cursorIndex = activeInputs[num];
+            if (!hand.fingers[cursorIndex].IsFingerDown)
+            {
+                activeInputs.RemoveAt(num);
+                continue;
+            }
 
-	protected virtual void Dispose(bool isDisposing)
-	{
-		if (alreadyDisposed)
-		{
-			return;
-		}
-		if (isDisposing)
-		{
-		}
-		if (SingletonMonoBehaviour<InputManager>.Exists)
-		{
-			UnityThreadHelper.CallOnMainThread(delegate
-			{
-				if (SingletonMonoBehaviour<InputManager>.Exists)
-				{
-					SingletonMonoBehaviour<InputManager>.Instance.InputEventUnhandled -= InputEventHandler;
-				}
-			});
-		}
-		alreadyDisposed = true;
-	}
+            if (!usedInput && num == 0)
+            {
+                Vector2 cursorPosition = hand.fingers[cursorIndex].CursorPosition;
+                if (kMoveLeftTouchArea.Contains(cursorPosition))
+                {
+                    if (onMoveLeft != null) onMoveLeft();
+                    usedInput = true;
+                }
+                else if (kMoveRightTouchArea.Contains(cursorPosition))
+                {
+                    if (onMoveRight != null) onMoveRight();
+                    usedInput = true;
+                }
+            }
+            num++;
+        }
 
-	~HeroControls()
-	{
-		Dispose(false);
-	}
+        if (!usedInput)
+        {
+            if (onDontMove != null) onDontMove();
+        }
+    }
+
+    private void InputEventHandler(InputEvent inputEvent)
+    {
+        if (inputEvent.EventType == InputEvent.EEventType.OnCursorDown)
+        {
+            activeInputs.Remove(inputEvent.CursorIndex);
+            activeInputs.Add(inputEvent.CursorIndex);
+        }
+    }
+
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool isDisposing)
+    {
+        if (alreadyDisposed)
+            return;
+
+        if (isDisposing)
+        {
+
+        }
+
+        if (SingletonMonoBehaviour<InputManager>.Exists)
+        {
+            UnityThreadHelper.CallOnMainThread(() =>
+            {
+                if (SingletonMonoBehaviour<InputManager>.Exists)
+                {
+                    SingletonMonoBehaviour<InputManager>.Instance.InputEventUnhandled -= InputEventHandler;
+                }
+            });
+        }
+
+        alreadyDisposed = true;
+    }
+
+    ~HeroControls()
+    {
+        Dispose(false);
+    }
 }
