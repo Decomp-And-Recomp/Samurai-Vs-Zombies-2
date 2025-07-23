@@ -89,7 +89,7 @@ public class DailyRewardsObserver : MonoBehaviour
 	{
 		Singleton<Profile>.Instance.lastDailyRewardIndex = 0;
 		DateTime? lastDailyRewardDate = Singleton<Profile>.Instance.lastDailyRewardDate;
-		DateTime now = ApplicationUtilities.Now;
+		DateTime now = DateTime.Now; //ApplicationUtilities.Now;
 		now = new DateTime(now.Year, now.Month, now.Day);
 		if (!lastDailyRewardDate.HasValue || lastDailyRewardDate.Value < now)
 		{
