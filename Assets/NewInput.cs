@@ -8,7 +8,7 @@ public class NewInput : MonoBehaviour
     {
         get
         {
-            return Input.GetButton("MoveLeft");
+            return Input.GetButton("Move Left");
         }
     }
 
@@ -16,7 +16,7 @@ public class NewInput : MonoBehaviour
     {
         get
         {
-            return Input.GetButton("MoveRight");
+            return Input.GetButton("Move Right");
         }
     }
 
