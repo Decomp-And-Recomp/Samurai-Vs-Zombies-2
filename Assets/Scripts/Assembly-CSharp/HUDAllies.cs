@@ -148,7 +148,7 @@ public class HUDAllies : UIHandlerComponent
     {
         for (int i = 0; i < mCards.Count && i < 9; i++)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+            if (NewInput.SpawnAlly(i))
             {
                 TrySpawnAlly(i);
             }

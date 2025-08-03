@@ -79,6 +79,10 @@ public class HUDLeadership : UIHandlerComponent
 
 	public void Update(bool updateExpensiveVisuals)
 	{
+		if (NewInput.upgradeLeadership)
+		{
+			OnUIEvent("UPGRADE_LEADERSHIP");
+		}
 		if (mEnabled)
 		{
 			UpdateVisuals(updateExpensiveVisuals);

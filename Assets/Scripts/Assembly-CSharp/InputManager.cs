@@ -122,7 +122,7 @@ public class InputManager : SingletonMonoBehaviour<InputManager>
 
 	public void Update()
 	{
-		if (Input.GetKeyUp(KeyCode.Escape) && SingletonSpawningMonoBehaviour<GluIap>.Instance.GetPurchaseTransactionStatus() != ICInAppPurchase.TRANSACTION_STATE.ACTIVE && !tutorialPopupEnabled && SingletonSpawningMonoBehaviour<GluIap>.Instance.restoreTransactionStatus == ICInAppPurchase.RESTORE_STATE.NONE)
+		if (NewInput.pause && SingletonSpawningMonoBehaviour<GluIap>.Instance.GetPurchaseTransactionStatus() != ICInAppPurchase.TRANSACTION_STATE.ACTIVE && !tutorialPopupEnabled && SingletonSpawningMonoBehaviour<GluIap>.Instance.restoreTransactionStatus == ICInAppPurchase.RESTORE_STATE.NONE)
 		{
 			while (backStack.Count > 0 && backStack.Peek() == null)
 			{

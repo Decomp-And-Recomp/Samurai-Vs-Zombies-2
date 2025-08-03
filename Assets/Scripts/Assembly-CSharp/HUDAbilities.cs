@@ -226,13 +226,26 @@ public class HUDAbilities : UIHandlerComponent
 
     public void Update(bool updateExpensiveVisuals)
     {
-        if (Input.GetKeyUp(KeyCode.E) && mCards.Count > 0)
+        switch (mCards.Count)
         {
-            TryUsingAbility(0);
-        }
-        if (Input.GetKeyUp(KeyCode.Q) && mCards.Count > 0)
-        {
-            TryUsingAbility(1);
+            case 1:
+                if (NewInput.UseAbility(0)) TryUsingAbility(0);
+                break;
+            case 2:
+                if (NewInput.UseAbility(1)) TryUsingAbility(0);
+                if (NewInput.UseAbility(0)) TryUsingAbility(1);
+                break;
+            case 3:
+                if (NewInput.UseAbility(2)) TryUsingAbility(0);
+                if (NewInput.UseAbility(1)) TryUsingAbility(1);
+                if (NewInput.UseAbility(0)) TryUsingAbility(2);
+                break;
+            case 4:
+                if (NewInput.UseAbility(3)) TryUsingAbility(0);
+                if (NewInput.UseAbility(2)) TryUsingAbility(1);
+                if (NewInput.UseAbility(1)) TryUsingAbility(2);
+                if (NewInput.UseAbility(0)) TryUsingAbility(3);
+                break;
         }
         foreach (Card mCard in mCards)
         {

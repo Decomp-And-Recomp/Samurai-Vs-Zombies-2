@@ -36,8 +36,8 @@ public class HeroControls : IDisposable
     {
         bool usedInput = false;
 
-        bool aPressed = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
-        bool dPressed = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
+        bool aPressed = NewInput.moveLeft;
+        bool dPressed = NewInput.moveRight;
 
         if (mCurrentKey == KeyCode.A)
         {
