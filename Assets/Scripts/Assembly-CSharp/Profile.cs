@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class Profile : Singleton<Profile>
 {
-	private const int kMaxCurrencies = 999999999;
+    private const int kMaxCurrencies = 999999999;
 
 	public const int kMaxLevel = 999;
 
@@ -248,35 +248,62 @@ public class Profile : Singleton<Profile>
 		}
 	}
 
-	public DateTime? lastDailyRewardDate
-	{
-		get
-		{
-			string value = mSavedData.GetValue("lastDailyReward");
-			if (value != null)
-			{
-			}
-			DateTime result;
-			if (DateTime.TryParseExact(value, "O", null, DateTimeStyles.None, out result))
-			{
-				return result.ToUniversalTime();
-			}
-			return null;
-		}
-		set
-		{
-			if (value.HasValue)
-			{
-				mSavedData.SetValue("lastDailyReward", value.Value.ToString("O"));
-			}
-			else
-			{
-				mSavedData.SetValue("lastDailyReward", string.Empty);
-			}
-		}
-	}
+    public DateTime? lastDailyRewardDate
+    {
+        get
+        {
+            string value = mSavedData.GetValue("lastDailyReward");
+            if (string.IsNullOrEmpty(value))
+                return null;
 
-	public int playerLevel
+            DateTime result;
+            if (DateTime.TryParseExact(value, "O", null, DateTimeStyles.None, out result))
+                return result.ToUniversalTime();
+
+            return null;
+        }
+        set
+        {
+            if (value.HasValue)
+            {
+                mSavedData.SetValue("lastDailyReward", value.Value.ToString("O"));
+            }
+            else
+            {
+                mSavedData.SetValue("lastDailyReward", string.Empty);
+            }
+        }
+    }
+
+    public DateTime? lastRewardPopupDate
+    {
+        get
+        {
+            string value = mSavedData.GetValue("lastRewardPopup");
+            if (string.IsNullOrEmpty(value))
+                return null;
+
+            DateTime result;
+            if (DateTime.TryParseExact(value, "O", null, DateTimeStyles.None, out result))
+                return result.ToUniversalTime();
+
+            return null;
+        }
+        set
+        {
+            if (value.HasValue)
+            {
+                mSavedData.SetValue("lastRewardPopup", value.Value.ToString("O"));
+            }
+            else
+            {
+                mSavedData.SetValue("lastRewardPopup", string.Empty);
+            }
+        }
+    }
+
+
+    public int playerLevel
 	{
 		get
 		{

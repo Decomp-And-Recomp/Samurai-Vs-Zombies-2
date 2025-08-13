@@ -51,15 +51,29 @@ public class DailyRewardsObserver : MonoBehaviour
 		}
 	}
 
-	private void Check()
-	{
-		if (CheckDailyRewards())
-		{
-			GluiActionSender.SendGluiAction("POPUP_DAILY_REWARDS", base.gameObject, null);
-		}
-	}
+    private void Check()
+    {
+        DateTime today = DateTime.UtcNow.Date;
 
-	public static bool CheckDailyRewards()
+        // If the popup was already shown today, skip it
+        if (Singleton<Profile>.Instance.lastRewardPopupDate.HasValue &&
+            Singleton<Profile>.Instance.lastRewardPopupDate.Value.Date == today)
+        {
+            return;
+        }
+
+        if (CheckDailyRewards())
+        {
+            GluiActionSender.SendGluiAction("POPUP_DAILY_REWARDS", gameObject, null);
+
+            // Mark that the popup was shown today and save
+            Singleton<Profile>.Instance.lastRewardPopupDate = today;
+            Singleton<Profile>.Instance.Save();
+        }
+    }
+
+
+    public static bool CheckDailyRewards()
 	{
 		DateTime? lastDailyRewardDate = Singleton<Profile>.Instance.lastDailyRewardDate;
 		DateTime now = DateTime.Now; //ApplicationUtilities.Now;
