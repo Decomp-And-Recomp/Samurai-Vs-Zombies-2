@@ -149,6 +149,22 @@ public class BundleAssetInfo
 		}
 	}
 
+	public static byte[] ReadBundle(string path)
+	{
+		if (!Application.isMobilePlatform)
+		{
+			return File.ReadAllBytes(path);
+		}
+		using (WWW www = new WWW(path))
+		{
+			while (!www.isDone)
+			{
+				// I am not implementing a coroutine for this
+			}
+			return www.bytes;
+		}
+	}
+
 	public void DeserializeBundleAssetInfo()
 	{
 		if (AssetList.Count > 0 || AssetToBundleList.Count > 0)
@@ -156,35 +172,29 @@ public class BundleAssetInfo
 			return;
 		}
 		string systemLanguage = BundleUtils.GetSystemLanguage();
-		using (FileStream fileStream = new FileStream(AssetBundleConfig.BundleDataPath + "/" + systemLanguage + "/" + AssetBundleConfig.BundleAssetInfoName, FileMode.Open, FileAccess.Read, FileShare.Read))
+		byte[] info = ReadBundle(AssetBundleConfig.BundleDataPath + "/" + systemLanguage + "/" + AssetBundleConfig.BundleAssetInfoName);
+		using (MemoryStream stream = new MemoryStream(info))
 		{
 			try
 			{
 				BinaryFormatter binaryFormatter = new BinaryFormatter();
-				AssetToBundleList = (Dictionary<short, List<short>>)binaryFormatter.Deserialize(fileStream);
-				BundleDependencyList = (Dictionary<short, List<short>>)binaryFormatter.Deserialize(fileStream);
+				AssetToBundleList = (Dictionary<short, List<short>>)binaryFormatter.Deserialize(stream);
+				BundleDependencyList = (Dictionary<short, List<short>>)binaryFormatter.Deserialize(stream);
 			}
 			catch (SerializationException)
 			{
 			}
-			finally
-			{
-				fileStream.Close();
-			}
 		}
-		using (FileStream fileStream2 = new FileStream(AssetBundleConfig.BundleDataPath + "/" + systemLanguage + "/" + AssetBundleConfig.BundleAssetList, FileMode.Open, FileAccess.Read, FileShare.Read))
+		byte[] list = ReadBundle(AssetBundleConfig.BundleDataPath + "/" + systemLanguage + "/" + AssetBundleConfig.BundleAssetList);
+		using (MemoryStream stream2 = new MemoryStream(list))
 		{
 			try
 			{
 				BinaryFormatter binaryFormatter2 = new BinaryFormatter();
-				AssetList = (List<string>)binaryFormatter2.Deserialize(fileStream2);
+				AssetList = (List<string>)binaryFormatter2.Deserialize(stream2);
 			}
 			catch (SerializationException)
 			{
-			}
-			finally
-			{
-				fileStream2.Close();
 			}
 		}
 		if (AssetList.Count > 0)

@@ -7,22 +7,28 @@ public class HeroControls : IDisposable
     public delegate void OnPlayerControlCallback();
 
     private const int topMargin = 120;
+
     private const int bottomMargin = 120;
 
     private Rect kMoveLeftTouchArea;
+
     private Rect kMoveRightTouchArea;
 
     public OnPlayerControlCallback onMoveLeft;
+
     public OnPlayerControlCallback onMoveRight;
+
     public OnPlayerControlCallback onDontMove;
 
     private bool alreadyDisposed;
+
     private List<int> activeInputs = new List<int>();
+    
     private KeyCode mCurrentKey = KeyCode.A;
+
     public HeroControls()
     {
         SingletonMonoBehaviour<InputManager>.Instance.InputEventUnhandled += InputEventHandler;
-
         kMoveLeftTouchArea = new Rect(0f, topMargin, Screen.width / 2, Screen.height - topMargin - bottomMargin);
         kMoveRightTouchArea = new Rect(Screen.width / 2, topMargin, Screen.width, Screen.height - topMargin - bottomMargin);
     }
@@ -31,94 +37,105 @@ public class HeroControls : IDisposable
     {
         return kMoveLeftTouchArea.Contains(pt) || kMoveRightTouchArea.Contains(pt);
     }
+    
+    private void UpdatePCControls()
+	{
+		//flips the else statements depending on the key you last pressed
+		//this is so if you're holding d and you press a, you'll go backwards. and vice versa. instead of d just taking priority over a.
+		//I did this in brawlers as well. it makes the controls feel a lot less clunky.
+		if (mCurrentKey == KeyCode.A)
+		{
+			if (Input.GetKey(KeyCode.D))
+			{
+				onMoveRight();
 
-    public void Update()
+				if (!Input.GetKey(mCurrentKey))
+				{
+					mCurrentKey = KeyCode.D;
+				}
+			}
+			else if (Input.GetKey(KeyCode.A))
+			{
+				onMoveLeft();
+				
+				if (!Input.GetKey(mCurrentKey))
+				{
+					mCurrentKey = KeyCode.A;
+				}
+			}
+			else
+			{
+				onDontMove();
+			}
+		}
+		else if (mCurrentKey == KeyCode.D)
+		{
+			if (Input.GetKey(KeyCode.A))
+			{
+				onMoveLeft();
+				
+				if (!Input.GetKey(mCurrentKey))
+				{
+					mCurrentKey = KeyCode.A;
+				}
+			}
+			else if (Input.GetKey(KeyCode.D))
+			{
+				onMoveRight();
+
+				if (!Input.GetKey(mCurrentKey))
+				{
+					mCurrentKey = KeyCode.D;
+				}
+			}
+			else
+			{
+				onDontMove();
+			}
+		}
+	}
+
+    private void UpdateMobileControls()
     {
-        bool usedInput = false;
-
-        bool aPressed = NewInput.moveLeft;
-        bool dPressed = NewInput.moveRight;
-
-        if (mCurrentKey == KeyCode.A)
-        {
-            if (dPressed)
-            {
-                if (onMoveRight != null) onMoveRight();
-                usedInput = true;
-
-                if (!aPressed)
-                    mCurrentKey = KeyCode.D;
-            }
-            else if (aPressed)
-            {
-                if (onMoveLeft != null) onMoveLeft();
-                usedInput = true;
-
-                if (!dPressed)
-                    mCurrentKey = KeyCode.A;
-            }
-            else
-            {
-                if (onDontMove != null) onDontMove();
-                usedInput = true;
-            }
-        }
-        else if (mCurrentKey == KeyCode.D)
-        {
-            if (aPressed)
-            {
-                if (onMoveLeft != null) onMoveLeft();
-                usedInput = true;
-
-                if (!dPressed)
-                    mCurrentKey = KeyCode.A;
-            }
-            else if (dPressed)
-            {
-                if (onMoveRight != null) onMoveRight();
-                usedInput = true;
-
-                if (!aPressed)
-                    mCurrentKey = KeyCode.D;
-            }
-            else
-            {
-                if (onDontMove != null) onDontMove();
-                usedInput = true;
-            }
-        }
-
         HandInfo hand = SingletonMonoBehaviour<InputManager>.Instance.Hand;
         int num = 0;
         while (num < activeInputs.Count)
         {
-            int cursorIndex = activeInputs[num];
-            if (!hand.fingers[cursorIndex].IsFingerDown)
+            int num2 = activeInputs[num];
+            if (!hand.fingers[num2].IsFingerDown)
             {
                 activeInputs.RemoveAt(num);
                 continue;
             }
-
-            if (!usedInput && num == 0)
+            if (num == 0)
             {
-                Vector2 cursorPosition = hand.fingers[cursorIndex].CursorPosition;
-                if (kMoveLeftTouchArea.Contains(cursorPosition))
+                Vector2 cursorPosition = hand.fingers[num2].CursorPosition;
+                if (onMoveLeft != null && kMoveLeftTouchArea.Contains(cursorPosition))
                 {
-                    if (onMoveLeft != null) onMoveLeft();
-                    usedInput = true;
+                    onMoveLeft();
                 }
-                else if (kMoveRightTouchArea.Contains(cursorPosition))
+                else if (onMoveRight != null && kMoveRightTouchArea.Contains(cursorPosition))
                 {
-                    if (onMoveRight != null) onMoveRight();
-                    usedInput = true;
+                    onMoveRight();
                 }
             }
             num++;
         }
-
-        if (!usedInput)
+        if (activeInputs.Count == 0 && onDontMove != null)
         {
-            if (onDontMove != null) onDontMove();
+            onDontMove();
+        }
+    }
+
+    public void Update()
+    {
+        if (!Application.isMobilePlatform)
+        {
+            UpdatePCControls();
+        }
+        else
+        {
+            UpdateMobileControls();
         }
     }
 
@@ -140,13 +157,9 @@ public class HeroControls : IDisposable
     protected virtual void Dispose(bool isDisposing)
     {
         if (alreadyDisposed)
-            return;
-
-        if (isDisposing)
         {
-
+            return;
         }
-
         if (SingletonMonoBehaviour<InputManager>.Exists)
         {
             UnityThreadHelper.CallOnMainThread(() =>
@@ -157,7 +170,6 @@ public class HeroControls : IDisposable
                 }
             });
         }
-
         alreadyDisposed = true;
     }
 

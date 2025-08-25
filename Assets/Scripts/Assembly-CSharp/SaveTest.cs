@@ -144,7 +144,7 @@ public class SaveTest : MonoBehaviour
 			StartCoroutine("DoLoadNetwork");
 			doLoadNetwork = false;
 		}
-		if (doSaveCloud || PCInput.touchCount == 1)
+		if (doSaveCloud || Input.touchCount == 1)
 		{
 			StopCoroutine("DoSaveCloud");
 			StartCoroutine("DoSaveCloud");

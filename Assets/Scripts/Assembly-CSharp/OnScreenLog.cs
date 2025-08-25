@@ -207,9 +207,9 @@ public sealed class OnScreenLog : MonoBehaviour
 		}
 		mouseDeltaDelegate = delegate
 		{
-			if (PCInput.touchCount > 0)
+			if (Input.touchCount > 0)
 			{
-				Touch touch = PCInput.GetTouch(0);
+				Touch touch = Input.GetTouch(0);
 				return new Vector2(touch.deltaPosition.x, 0f - touch.deltaPosition.y);
 			}
 			return default(Vector2);

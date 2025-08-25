@@ -189,19 +189,16 @@ public class DataBundleSerializer
 	{
 		Hashtable hashtable = null;
 		string systemLanguage = BundleUtils.GetSystemLanguage();
-		using (FileStream fileStream = new FileStream(AssetBundleConfig.BundleDataPath + "/" + systemLanguage + "/" + AssetBundleConfig.DataBundleName, FileMode.Open, FileAccess.Read, FileShare.Read))
+		byte[] table = BundleAssetInfo.ReadBundle(AssetBundleConfig.BundleDataPath + "/" + systemLanguage + "/" + AssetBundleConfig.DataBundleName);
+		using (MemoryStream stream = new MemoryStream(table))
 		{
 			try
 			{
 				BinaryFormatter binaryFormatter = new BinaryFormatter();
-				hashtable = (Hashtable)binaryFormatter.Deserialize(fileStream);
+				hashtable = (Hashtable)binaryFormatter.Deserialize(stream);
 			}
 			catch (SerializationException)
 			{
-			}
-			finally
-			{
-				fileStream.Close();
 			}
 		}
 		if (hashtable.ContainsKey(AssetBundleConfig.VersionKey))
@@ -219,19 +216,16 @@ public class DataBundleSerializer
 	{
 		string systemLanguage = BundleUtils.GetSystemLanguage();
 		List<string> list = null;
-		using (FileStream fileStream = new FileStream(AssetBundleConfig.BundleDataPath + "/" + systemLanguage + "/" + AssetBundleConfig.DataBundleStringList, FileMode.Open, FileAccess.Read, FileShare.Read))
+		byte[] listBytes = BundleAssetInfo.ReadBundle(AssetBundleConfig.BundleDataPath + "/" + systemLanguage + "/" + AssetBundleConfig.DataBundleStringList);
+		using (MemoryStream stream = new MemoryStream(listBytes))
 		{
 			try
 			{
 				BinaryFormatter binaryFormatter = new BinaryFormatter();
-				list = (List<string>)binaryFormatter.Deserialize(fileStream);
+				list = (List<string>)binaryFormatter.Deserialize(stream);
 			}
 			catch (SerializationException)
 			{
-			}
-			finally
-			{
-				fileStream.Close();
 			}
 		}
 		if (list.Count > 0)

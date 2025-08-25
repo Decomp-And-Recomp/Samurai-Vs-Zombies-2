@@ -987,7 +987,7 @@ public class InGameImpl : WeakGlobalMonoBehavior<InGameImpl>
 			mVillageArchers.Update();
 			return;
 		}
-		if (Debug.isDebugBuild && !WeakGlobalMonoBehavior<HUD>.Instance.gameObject.activeInHierarchy && PCInput.touchCount >= 2)
+		if (Debug.isDebugBuild && !WeakGlobalMonoBehavior<HUD>.Instance.gameObject.activeInHierarchy && Input.touchCount >= 2)
 		{
 			string text = Singleton<Profile>.Instance.GetSelectedAbilities()[0];
 			if (!string.IsNullOrEmpty(text))
