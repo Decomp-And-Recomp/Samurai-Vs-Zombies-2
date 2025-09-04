@@ -190,12 +190,12 @@ public class EquipPageHeroes : EquipPage, UIHandlerComponent
 
 	private void SelectHero(int index, bool updateLoadout)
 	{
-		if (mCards[index].data.Locked && mCards[index].data.purchaseToUnlock)
+		/*if (mCards[index].data.Locked && mCards[index].data.purchaseToUnlock)
 		{
 			SingletonSpawningMonoBehaviour<GluiPersistentDataCache>.Instance.Save("IAP_TAB", "LocalizedStrings.iap_special_tab");
 			GluiActionSender.SendGluiAction("POPUP_IAP", mCards[index].gameObject, null);
 		}
-		else if ((mRequiredSelection == -1 || index == mRequiredSelection || (mCards[index].data.overrideRequirements && !Singleton<Profile>.Instance.inDailyChallenge)) && (!mCards[index].data.Locked || Singleton<Profile>.Instance.inDailyChallenge) && index != mSelectedHero)
+		else */if ((mRequiredSelection == -1 || index == mRequiredSelection || (mCards[index].data.overrideRequirements && !Singleton<Profile>.Instance.inDailyChallenge)) && (!mCards[index].data.Locked || Singleton<Profile>.Instance.inDailyChallenge) && index != mSelectedHero)
 		{
 			mSelectedHero = index;
 			Card card = mCards[index];
