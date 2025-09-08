@@ -4,22 +4,6 @@ using UnityEngine;
 
 public class NewInput : MonoBehaviour
 {
-    public static bool moveLeft
-    {
-        get
-        {
-            return Input.GetButton("Move Left");
-        }
-    }
-
-    public static bool moveRight
-    {
-        get
-        {
-            return Input.GetButton("Move Right");
-        }
-    }
-
     public static bool pause
     {
         get
@@ -42,26 +26,16 @@ public class NewInput : MonoBehaviour
 
     public static bool SpawnAlly(int index)
     {
-        switch (index)
-        {
-            case 0: return Input.GetButtonDown("Spawn Ally 1");
-            case 1: return Input.GetButtonDown("Spawn Ally 2");
-            case 2: return Input.GetButtonDown("Spawn Ally 3");
-            case 3: return Input.GetButtonDown("Spawn Ally 4");
-            case 4: return Input.GetButtonDown("Spawn Ally 5");
-        }
-        return false;
+        return Input.GetButtonDown("Spawn Ally " + (index + 1));
     }
 
     public static bool UseAbility(int index)
     {
-        switch (index)
-        {
-            case 0: return Input.GetButtonDown("Ability 1");
-            case 1: return Input.GetButtonDown("Ability 2");
-            case 2: return Input.GetButtonDown("Ability 3");
-            case 3: return Input.GetButtonDown("Ability 4");
-        }
-        return false;
+        return Input.GetButtonDown("Ability " + (index + 1));
+    }
+
+    public static bool UseConsumable(int index)
+    {
+        return Input.GetButtonDown("Consumable " + (index + 1));
     }
 }

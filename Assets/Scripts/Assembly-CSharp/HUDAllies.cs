@@ -146,7 +146,7 @@ public class HUDAllies : UIHandlerComponent
 
     public void Update(bool updateExpensiveVisuals)
     {
-        for (int i = 0; i < mCards.Count && i < 9; i++)
+        for (int i = 0; i < mCards.Count; i++)
         {
             if (NewInput.SpawnAlly(i))
             {

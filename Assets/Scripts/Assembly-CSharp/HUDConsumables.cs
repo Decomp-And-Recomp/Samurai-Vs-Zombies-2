@@ -128,6 +128,13 @@ public class HUDConsumables : UIHandlerComponent
 
 	public void Update(bool updateExpensiveVisuals)
 	{
+		for (int i = 0; i < mCards.Count; i++)
+		{
+			if (NewInput.UseConsumable(i))
+			{
+				mCards[i].Execute();
+			}
+		}
 		foreach (Card mCard in mCards)
 		{
 			mCard.Update(updateExpensiveVisuals);
