@@ -53,7 +53,7 @@ public class DailyRewardsObserver : MonoBehaviour
 
     private void Check()
     {
-        DateTime today = DateTime.UtcNow.Date;
+        DateTime today = DateTime.Now.Date;
 
         // If the popup was already shown today, skip it
         if (Singleton<Profile>.Instance.lastRewardPopupDate.HasValue &&
