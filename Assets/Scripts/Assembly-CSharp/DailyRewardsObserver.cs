@@ -53,11 +53,11 @@ public class DailyRewardsObserver : MonoBehaviour
 
     private void Check()
     {
-        DateTime today = DateTime.Now.Date;
+        DateTime today = DateTime.Now;
 
         // If the popup was already shown today, skip it
-        if (Singleton<Profile>.Instance.lastRewardPopupDate.HasValue &&
-            Singleton<Profile>.Instance.lastRewardPopupDate.Value.Date == today)
+        if (Singleton<Profile>.Instance.lastDailyRewardDate.HasValue &&
+            Singleton<Profile>.Instance.lastDailyRewardDate.Value.Date == today)
         {
             return;
         }
@@ -67,7 +67,7 @@ public class DailyRewardsObserver : MonoBehaviour
             GluiActionSender.SendGluiAction("POPUP_DAILY_REWARDS", gameObject, null);
 
             // Mark that the popup was shown today and save
-            Singleton<Profile>.Instance.lastRewardPopupDate = today;
+            Singleton<Profile>.Instance.lastDailyRewardDate = today;
             Singleton<Profile>.Instance.Save();
         }
     }

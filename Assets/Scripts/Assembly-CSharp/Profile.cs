@@ -253,13 +253,14 @@ public class Profile : Singleton<Profile>
         get
         {
             string value = mSavedData.GetValue("lastDailyReward");
-            if (string.IsNullOrEmpty(value))
-                return null;
-
+            if (value != null)
+            {
+            }
             DateTime result;
             if (DateTime.TryParseExact(value, "O", null, DateTimeStyles.None, out result))
+            {
                 return result.ToUniversalTime();
-
+            }
             return null;
         }
         set
@@ -274,34 +275,6 @@ public class Profile : Singleton<Profile>
             }
         }
     }
-
-    public DateTime? lastRewardPopupDate
-    {
-        get
-        {
-            string value = mSavedData.GetValue("lastRewardPopup");
-            if (string.IsNullOrEmpty(value))
-                return null;
-
-            DateTime result;
-            if (DateTime.TryParseExact(value, "O", null, DateTimeStyles.None, out result))
-                return result.ToUniversalTime();
-
-            return null;
-        }
-        set
-        {
-            if (value.HasValue)
-            {
-                mSavedData.SetValue("lastRewardPopup", value.Value.ToString("O"));
-            }
-            else
-            {
-                mSavedData.SetValue("lastRewardPopup", string.Empty);
-            }
-        }
-    }
-
 
     public int playerLevel
 	{
