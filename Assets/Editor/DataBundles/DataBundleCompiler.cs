@@ -15,6 +15,7 @@ public class DataBundleCompiler : MonoBehaviour
     public static void CompileEnglish()
     {
         CompileBundle(Path.Combine("DataBundles", "English"));
+        EditorUtility.ClearProgressBar();
     }
 
     private static void AddString(List<string> list, string text)
@@ -60,7 +61,10 @@ public class DataBundleCompiler : MonoBehaviour
 		booleanType = typeof(bool),
 		enumType = typeof(Enum);
 
-        foreach (string dataClass in Directory.GetFiles(path))
+        int classIndex = 0;
+        string[] classes = Directory.GetFiles(path);
+
+        foreach (string dataClass in classes)
         {
             string typeName = Path.GetFileNameWithoutExtension(dataClass);
             AddString(cachedStrings, typeName);
@@ -69,6 +73,11 @@ public class DataBundleCompiler : MonoBehaviour
             BundleClass currentClass = new BundleClass(typeName);
 
             FieldInfo[] typeFields = DataBundle.schemaAssembly.GetType(typeName).GetFields();
+
+            float progress = classIndex == 0 ? 0f : (classIndex / (float)classes.Length * 0.75f);
+            EditorUtility.DisplayProgressBar("Compiling " + bundleName, "Parsing " + typeName, progress);
+
+            classIndex++;
 
             foreach (string line in typeContent)
             {
@@ -206,12 +215,19 @@ public class DataBundleCompiler : MonoBehaviour
 
         Hashtable hashtable = new Hashtable
         {
-            {"UnityVersion", 0}
+            {"UnityVersion", "!" + Application.unityVersion}
         };
+
+        classIndex = 0;
 
         foreach (BundleClass parsedClass in parsedClasses)
         {
             List<long> tables = new List<long>();
+
+            float progress = classIndex == 0 ? 0f : (classIndex / (float)classes.Length * 0.2f);
+            EditorUtility.DisplayProgressBar("Compiling " + bundleName, "Hashing " + parsedClass.name, 0.75f + progress);
+
+            classIndex++;
 
             foreach (KeyValuePair<string, Dictionary<string, List<DataBundle.BundleField>>> table in parsedClass.tables)
             {
@@ -290,6 +306,8 @@ public class DataBundleCompiler : MonoBehaviour
 
         BinaryFormatter formatter = new BinaryFormatter();
         string outputPath = Path.Combine(Application.streamingAssetsPath, bundleName);
+
+        EditorUtility.DisplayProgressBar("Compiling " + bundleName, "Serializing Data", 0.95f);
 
         using (MemoryStream stream = new MemoryStream())
         {

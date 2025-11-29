@@ -1,0 +1,36 @@
+[MenuPriorities]
+  Main:
+    Action = Main
+    DisplayName = NULL
+    priority = GluiStatePriority.Normal
+    inputLayerType = Normal
+    exclusiveLayer = GluiStateExclusiveLayer.Main
+    inheritStateTransform = Zero
+  Popup:
+    Action = Popup
+    DisplayName = NULL
+    priority = GluiStatePriority.Normal
+    inputLayerType = Exclusive
+    exclusiveLayer = GluiStateExclusiveLayer.Popup
+    inheritStateTransform = Zero
+  HUD:
+    Action = HUD
+    DisplayName = NULL
+    priority = GluiStatePriority.Normal
+    inputLayerType = Inclusive
+    exclusiveLayer = GluiStateExclusiveLayer.Popup
+    inheritStateTransform = None
+  Alert:
+    Action = Alert
+    DisplayName = NULL
+    priority = GluiStatePriority.Normal
+    inputLayerType = Exclusive
+    exclusiveLayer = GluiStateExclusiveLayer.Alert
+    inheritStateTransform = Zero
+  None:
+    Action = None
+    DisplayName = NULL
+    priority = GluiStatePriority.Normal
+    inputLayerType = Normal
+    exclusiveLayer = GluiStateExclusiveLayer.Main
+    inheritStateTransform = None
