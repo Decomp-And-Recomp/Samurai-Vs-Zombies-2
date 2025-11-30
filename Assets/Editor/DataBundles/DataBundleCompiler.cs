@@ -95,21 +95,7 @@ public class DataBundleCompiler : MonoBehaviour
                     continue;
                 }
 
-                if (skippedLine.StartsWith("["))
-                {
-                    currentTable = skippedLine.Substring(1).Replace("]", "");
-                    currentClass.tables.Add(currentTable, new Dictionary<string, List<DataBundle.BundleField>>());
-
-                    AddString(cachedStrings, currentTable);
-                }
-                else if (skippedLine.EndsWith(":"))
-                {
-                    currentKey = skippedLine.Replace(":", "");
-                    currentClass.tables[currentTable].Add(currentKey, new List<DataBundle.BundleField>());
-
-                    AddString(cachedStrings, currentKey);
-                }
-                else
+                if (skippedLine.Contains(" = "))
                 {
                     int valueIndex = skippedLine.IndexOf(" = ");
 
@@ -191,6 +177,24 @@ public class DataBundleCompiler : MonoBehaviour
                     }
 
                     currentClass.tables[currentTable][currentKey].Add(new DataBundle.BundleField(fieldInfo, value));
+                }
+                else if (skippedLine.StartsWith("["))
+                {
+                    currentTable = skippedLine.Substring(1).Replace("]", "");
+                    currentClass.tables.Add(currentTable, new Dictionary<string, List<DataBundle.BundleField>>());
+
+                    AddString(cachedStrings, currentTable);
+                }
+                else if (skippedLine.EndsWith(":"))
+                {
+                    currentKey = skippedLine.Replace(":", "");
+                    currentClass.tables[currentTable].Add(currentKey, new List<DataBundle.BundleField>());
+
+                    AddString(cachedStrings, currentKey);
+                }
+                else
+                {
+                    UnityEngine.Debug.LogError("Line couldn't be parsed! (" + skippedLine + ")");
                 }
             }
 
