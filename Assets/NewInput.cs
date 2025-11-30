@@ -29,9 +29,9 @@ public class NewInput : MonoBehaviour
         return Input.GetButtonDown("Spawn Ally " + (index + 1));
     }
 
-    public static bool UseAbility(int index)
+    public static bool UseAbility(int index, int length)
     {
-        return Input.GetButtonDown("Ability " + (index + 1));
+        return Input.GetButtonDown("Ability " + (length - index));
     }
 
     public static bool UseConsumable(int index)

@@ -228,7 +228,7 @@ public class HUDAbilities : UIHandlerComponent
     {
         for (int i = 0; i < mCards.Count; i++)
         {
-            if (NewInput.UseAbility(i))
+            if (NewInput.UseAbility(i, mCards.Count))
             {
                 TryUsingAbility(i);
             }
