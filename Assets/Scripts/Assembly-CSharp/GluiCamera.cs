@@ -28,4 +28,25 @@ public class GluiCamera : GluiBase
 			}
 		}
 	}
+
+#if UNITY_STANDALONE || UNITY_EDITOR
+    void Update()
+	{
+		if (Input.mouseScrollDelta == Vector2.zero) return;
+
+		Camera cam = GetComponent<Camera>();
+
+		cam.ScreenPointToRay(Input.mousePosition);
+
+		RaycastHit hitInfo;
+
+		if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hitInfo, float.PositiveInfinity)) return;
+
+		GluiBouncyScrollList component = hitInfo.collider.GetComponent<GluiBouncyScrollList>();
+
+		if (!component) return;
+
+		component.Force(Input.mouseScrollDelta.y * (Screen.height / 128f));
+	}
+#endif
 }

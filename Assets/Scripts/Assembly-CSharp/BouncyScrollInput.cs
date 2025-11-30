@@ -210,6 +210,9 @@ public class BouncyScrollInput
 		}
 	}
 
+	private float force;
+	private bool negativeForce;
+
 	public BouncyScrollInput()
 	{
 		ScrollTriggerTreshold = 12f;
@@ -223,6 +226,36 @@ public class BouncyScrollInput
 		mPreviousVelocities = new Vector2?[3];
 		ClearVelocityHistory();
 		mUICamera = ObjectUtils.FindFirstCamera(LayerMask.NameToLayer("GLUI"));
+	}
+
+	public void ScrollUpdate(bool vertical)
+	{
+#if UNITY_STANDALONE || UNITY_EDITOR
+		if (vertical)
+		{
+			if (negativeForce) mScrollPosition.y += force;
+			else mScrollPosition.y -= force;
+
+			if (mScrollPosition.y < 0f || mScrollPosition.y > mMaxScroll.y) force = 0;
+		}
+		else
+		{
+			if (negativeForce) mScrollPosition.x += force;
+			else mScrollPosition.x -= force;
+
+			if (mScrollPosition.x < 0f || mScrollPosition.x > mMaxScroll.x) force = 0;
+		}
+
+		if (force > 0)
+		{
+			force -= Time.unscaledDeltaTime * (Screen.height / 13);
+		}
+		else
+		{
+			force = 0;
+			negativeForce = false;
+		}
+#endif
 	}
 
 	public void Update()
@@ -325,6 +358,22 @@ public class BouncyScrollInput
 			}
 			mPreviousVelocities[0] = new Vector2((0f - vector2.x) / mDeltaTimeThisUpdate, (0f - vector2.y) / mDeltaTimeThisUpdate);
 		}
+	}
+
+	public void Force(float velocity)
+	{
+		if (velocity > 0 && negativeForce)
+		{
+			negativeForce = false;
+			force = 0;
+		}
+		else if (velocity < 0 && !negativeForce)
+		{
+			negativeForce = true;
+			force = 0;
+		}
+
+		force += Mathf.Abs(velocity);
 	}
 
 	private void EndTouch()

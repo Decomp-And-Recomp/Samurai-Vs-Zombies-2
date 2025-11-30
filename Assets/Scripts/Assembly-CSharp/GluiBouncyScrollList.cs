@@ -176,7 +176,10 @@ public class GluiBouncyScrollList : GluiWidget, IInputContainer
 		if (!Application.isPlaying)
 		{
 			return;
-		}
+        }
+#if UNITY_STANDALONE || UNITY_EDITOR
+        mScrollInput.ScrollUpdate(direction == Direction.Vertical);
+#endif
 		if (mCtrl == null || ((mCellOffsets == null || mCellOffsets.Length == 0) && mCtrl.dataCount > 0))
 		{
 			Redraw();
@@ -260,6 +263,11 @@ public class GluiBouncyScrollList : GluiWidget, IInputContainer
 		}
 		mScrollInput.RecordInput(crawl.inputEvent);
 		base.HandleInput(crawl, out response);
+	}
+
+	public void Force(float force)
+	{
+		mScrollInput.Force(force);
 	}
 
 	private void AcquireController()
