@@ -1497,6 +1497,7 @@ public class GluiText : GluiWidget
 		{
 			return text;
 		}
+#if UNITY_EDITOR
 		string result = null;
 		if (Application.isPlaying)
 		{
@@ -1504,6 +1505,9 @@ public class GluiText : GluiWidget
 		}
 		else result = text; // FIX
 		return result;
+#else
+		return (!string.IsNullOrEmpty(taggedStringReference) && DataBundleRuntime.Instance != null) ? StringUtils.GetStringFromStringRef(taggedStringReference) : text;
+#endif
 	}
 
 	protected override void Awake()
