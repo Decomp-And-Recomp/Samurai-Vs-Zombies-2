@@ -310,7 +310,7 @@ public class GeneralConfig
 	{
 		get
 		{
-			return true;
+			return !UnityEngine.Debug.isDebugBuild;
 		}
 	}
 
