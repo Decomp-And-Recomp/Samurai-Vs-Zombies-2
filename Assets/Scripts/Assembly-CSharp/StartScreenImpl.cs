@@ -29,6 +29,8 @@ public class StartScreenImpl : MonoBehaviour, IGluiActionHandler
 
 	private void Awake()
 	{
+		DebugMain instance = SingletonSpawningMonoBehaviour<DebugMain>.Instance;
+		
 		timeScaleBackup = Time.timeScale;
 		if (!Singleton<Profile>.Exists)
 		{
