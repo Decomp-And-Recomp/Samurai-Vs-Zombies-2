@@ -219,7 +219,18 @@ public class BundleUtils
 
 	public static string GetSystemLanguage()
 	{
-		return "English"; // implement later!!!
+		string overrideLang = PlayerPrefs.GetString("Language_Override", string.Empty);
+		if (!string.IsNullOrEmpty(overrideLang))
+		{
+			foreach (string supported in GeneralConfig.SupportedLanguages)
+			{
+				if (string.Equals(supported, overrideLang, System.StringComparison.OrdinalIgnoreCase))
+				{
+					return supported;
+				}
+			}
+		}
+
 		string language = NUF.GetLanguage();
 		string[] supportedLanguages = GeneralConfig.SupportedLanguages;
 		foreach (string text in supportedLanguages)

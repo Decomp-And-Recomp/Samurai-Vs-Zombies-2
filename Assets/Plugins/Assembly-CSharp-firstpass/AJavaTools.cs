@@ -65,7 +65,18 @@ public class AJavaTools : MonoBehaviour
 
 		public static string GetDeviceLocale()
 		{
-			return CultureInfo.CurrentUICulture.Name.Split('-')[0];
+			try
+			{
+				if (!string.IsNullOrEmpty(CultureInfo.CurrentUICulture.Name))
+				{
+					return CultureInfo.CurrentUICulture.Name.ToLowerInvariant();
+				}
+				return CultureInfo.CurrentCulture.Name.ToLowerInvariant();
+			}
+			catch
+			{
+				return "en";
+			}
 		}
 
 		public static void SetDeviceLocale(string language, string country = "")

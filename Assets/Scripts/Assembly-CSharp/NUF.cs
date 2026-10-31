@@ -297,9 +297,50 @@ public class NUF
 		AJavaTools.UI.StopIndeterminateProgress();
 	}
 
-	private static string ConvertIOSLanguageCodeToUnityLanguageName(string iosLangCode)
+	private static string ConvertUnitySystemLanguage(SystemLanguage lang)
 	{
-		switch (iosLangCode)
+		switch (lang)
+		{
+		case SystemLanguage.Chinese:
+		case SystemLanguage.ChineseSimplified:
+			return "Chinese (Simplified)";
+		case SystemLanguage.ChineseTraditional:
+			return "Chinese (Traditional)";
+		case SystemLanguage.French:
+		case SystemLanguage.German:
+		case SystemLanguage.Italian:
+		case SystemLanguage.Japanese:
+		case SystemLanguage.Korean:
+		case SystemLanguage.Portuguese:
+		case SystemLanguage.Russian:
+		case SystemLanguage.Spanish:
+		case SystemLanguage.English:
+			return lang.ToString();
+		default:
+			return SystemLanguage.English.ToString();
+		}
+	}
+
+	private static string ConvertLanguageCode(string code)
+	{
+		if (string.IsNullOrEmpty(code))
+		{
+			return ConvertUnitySystemLanguage(Application.systemLanguage);
+		}
+
+		code = code.ToLowerInvariant().Replace('_', '-');
+
+		if (code.StartsWith("zh"))
+		{
+			if (code.Contains("hant") || code.Contains("tw") || code.Contains("hk") || code.Contains("mo"))
+			{
+				return "Chinese (Traditional)";
+			}
+			return "Chinese (Simplified)";
+		}
+
+		string langPrefix = code.Split('-')[0];
+		switch (langPrefix)
 		{
 		case "de":
 			return SystemLanguage.German.ToString();
@@ -317,45 +358,21 @@ public class NUF
 			return SystemLanguage.Portuguese.ToString();
 		case "ru":
 			return SystemLanguage.Russian.ToString();
-		case "zh-Hans":
-			return "Chinese (Simplified)";
-		case "zh-Hant":
-			return "Chinese (Traditional)";
 		case "en":
 			return SystemLanguage.English.ToString();
 		default:
-			return SystemLanguage.English.ToString();
+			return ConvertUnitySystemLanguage(Application.systemLanguage);
 		}
+	}
+
+	private static string ConvertIOSLanguageCodeToUnityLanguageName(string iosLangCode)
+	{
+		return ConvertLanguageCode(iosLangCode);
 	}
 
 	private static string ConvertAndroidLanguage()
 	{
-		switch (AJavaTools.DeviceInfo.GetDeviceLocale())
-		{
-		case "de":
-			return SystemLanguage.German.ToString();
-		case "es":
-			return SystemLanguage.Spanish.ToString();
-		case "fr":
-			return SystemLanguage.French.ToString();
-		case "it":
-			return SystemLanguage.Italian.ToString();
-		case "ja":
-			return SystemLanguage.Japanese.ToString();
-		case "ko":
-			return SystemLanguage.Korean.ToString();
-		case "ptbr":
-			return SystemLanguage.Portuguese.ToString();
-		case "ru":
-			return SystemLanguage.Russian.ToString();
-		case "zhcn":
-			return "Chinese (Simplified)";
-		case "zhtw":
-			return "Chinese (Traditional)";
-		default:
-			AJavaTools.DeviceInfo.SetDeviceLocale("en", string.Empty);
-			return SystemLanguage.English.ToString();
-		}
+		return ConvertLanguageCode(AJavaTools.DeviceInfo.GetDeviceLocale());
 	}
 
 	public static string GetLanguage()
@@ -366,9 +383,18 @@ public class NUF
 			{
 				systemLanguage = ConvertIOSLanguageCodeToUnityLanguageName(_GetLanguage());
 			}
-			else
+			else if (Application.isMobilePlatform)
 			{
 				systemLanguage = ConvertAndroidLanguage();
+			}
+			else
+			{
+				systemLanguage = ConvertUnitySystemLanguage(Application.systemLanguage);
+			}
+
+			if (string.IsNullOrEmpty(systemLanguage))
+			{
+				systemLanguage = ConvertUnitySystemLanguage(Application.systemLanguage);
 			}
 		}
 		return systemLanguage;

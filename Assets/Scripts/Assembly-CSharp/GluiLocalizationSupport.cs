@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 public class GluiLocalizationSupport
@@ -332,14 +333,17 @@ public class GluiLocalizationSupport
 
 	public static bool IsSpecialSplitLanguage()
 	{
-		switch (BundleUtils.GetSystemLanguage())
+		string language = BundleUtils.GetSystemLanguage();
+		if (string.IsNullOrEmpty(language))
 		{
-		case "Chinese":
-		case "Japanese":
-		case "Korean":
-			return true;
-		default:
 			return false;
 		}
+		if (language.StartsWith("Chinese", StringComparison.OrdinalIgnoreCase) ||
+		    language.StartsWith("Japanese", StringComparison.OrdinalIgnoreCase) ||
+		    language.StartsWith("Korean", StringComparison.OrdinalIgnoreCase))
+		{
+			return true;
+		}
+		return false;
 	}
 }

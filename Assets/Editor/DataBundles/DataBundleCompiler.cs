@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -11,10 +11,91 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class DataBundleCompiler : MonoBehaviour
 {
+    [MenuItem("Data Bundles/Compile All")]
+    public static void CompileAll()
+    {
+        foreach (string dir in Directory.GetDirectories("DataBundles"))
+        {
+            CompileBundle(dir);
+        }
+        EditorUtility.ClearProgressBar();
+    }
+
     [MenuItem("Data Bundles/Compile English")]
+    [MenuItem("Data Bundles/Compile/English")]
     public static void CompileEnglish()
     {
         CompileBundle(Path.Combine("DataBundles", "English"));
+        EditorUtility.ClearProgressBar();
+    }
+
+    [MenuItem("Data Bundles/Compile/Chinese (Simplified)")]
+    public static void CompileChineseSimplified()
+    {
+        CompileBundle(Path.Combine("DataBundles", "Chinese (Simplified)"));
+        EditorUtility.ClearProgressBar();
+    }
+
+    [MenuItem("Data Bundles/Compile/Chinese (Traditional)")]
+    public static void CompileChineseTraditional()
+    {
+        CompileBundle(Path.Combine("DataBundles", "Chinese (Traditional)"));
+        EditorUtility.ClearProgressBar();
+    }
+
+    [MenuItem("Data Bundles/Compile/French")]
+    public static void CompileFrench()
+    {
+        CompileBundle(Path.Combine("DataBundles", "French"));
+        EditorUtility.ClearProgressBar();
+    }
+
+    [MenuItem("Data Bundles/Compile/German")]
+    public static void CompileGerman()
+    {
+        CompileBundle(Path.Combine("DataBundles", "German"));
+        EditorUtility.ClearProgressBar();
+    }
+
+    [MenuItem("Data Bundles/Compile/Italian")]
+    public static void CompileItalian()
+    {
+        CompileBundle(Path.Combine("DataBundles", "Italian"));
+        EditorUtility.ClearProgressBar();
+    }
+
+    [MenuItem("Data Bundles/Compile/Japanese")]
+    public static void CompileJapanese()
+    {
+        CompileBundle(Path.Combine("DataBundles", "Japanese"));
+        EditorUtility.ClearProgressBar();
+    }
+
+    [MenuItem("Data Bundles/Compile/Korean")]
+    public static void CompileKorean()
+    {
+        CompileBundle(Path.Combine("DataBundles", "Korean"));
+        EditorUtility.ClearProgressBar();
+    }
+
+    [MenuItem("Data Bundles/Compile/Portuguese")]
+    public static void CompilePortuguese()
+    {
+        CompileBundle(Path.Combine("DataBundles", "Portuguese"));
+        EditorUtility.ClearProgressBar();
+    }
+
+    [MenuItem("Data Bundles/Compile/Russian")]
+    public static void CompileRussian()
+    {
+        CompileBundle(Path.Combine("DataBundles", "Russian"));
+        EditorUtility.ClearProgressBar();
+    }
+
+    [MenuItem("Data Bundles/Compile/Spanish")]
+    public static void CompileSpanish()
+    {
+        CompileBundle(Path.Combine("DataBundles", "Spanish"));
         EditorUtility.ClearProgressBar();
     }
 
